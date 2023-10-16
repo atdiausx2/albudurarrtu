@@ -5,3 +5,4 @@
 *.auxlock
 *.bbl
 *.run.xml
+*.synctex.gz
