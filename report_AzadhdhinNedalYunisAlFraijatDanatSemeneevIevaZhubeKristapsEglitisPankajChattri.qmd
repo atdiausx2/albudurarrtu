@@ -2,7 +2,6 @@
 title: ' Student dropout analysis based on previously  acquired educational achievements: A case of the University of Portalegre'
 author: 
     -  Izeldeen Nedal Yunis Al Fraijat 
-
 date: today
 date-format: last-modified
 fontenc: T2A
@@ -32,5 +31,5 @@ format:
     html-math-method: katex
 ---
 
-\
+
 Dropout is extremely detrimental to the economics as it is a perition of decadal aspirations of youngest flowers of the humanity.

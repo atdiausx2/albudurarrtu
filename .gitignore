@@ -6,3 +6,4 @@
 *.bbl
 *.run.xml
 *.synctex.gz
+/aux_materials/*
