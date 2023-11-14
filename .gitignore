@@ -7,4 +7,5 @@
 *.run.xml
 *.synctex.gz
 /aux_materials/*
-/poganaya-svolotcz/*
+/poganaya-svolotcz_files/*
+/poganaya-svolotcz_files
