@@ -187,7 +187,7 @@ achievements: A case of the University of Portalegre}
 \begin{abstract}
 .
 \end{abstract}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, sharp corners, enhanced, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, interior hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, breakable, interior hidden, enhanced, sharp corners, boxrule=0pt, frame hidden]}{\end{tcolorbox}}\fi
 
 \hypertarget{abstract}{%
 \subsection{Abstract}\label{abstract}}
@@ -688,17 +688,6 @@ both direct and indirect effects , s. a. i. e. both are connected to
 welfare, but also it can be that there is another channel of knowledge
 transmission to the younger generation.
 
-\begin{figure}
-
-{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-mother-occupation-output-1.png}
-
-}
-
-\caption{\label{fig-mother-occupation}Dropout rate dependence on
-mother's occupation}
-
-\end{figure}
-
 \textbf{Observations :} * The bar chart shows that mother's occupation
 is quite influential. This influence is greater the pa's due to
 traditional effect, and we distinctly see that students whose mothers
@@ -713,25 +702,146 @@ those whose mothers are more engaged in physical labor.
   engagement.
 \end{itemize}
 
-\hypertarget{section}{%
-\subsubsection{}\label{section}}
+\hypertarget{data-correlation-table-quantitative-columns-only}{%
+\subsubsection{Data correlation table (quantitative columns
+only)}\label{data-correlation-table-quantitative-columns-only}}
+
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/tab-correlation-output-1.png}
+
+}
+
+\caption{Data correlation table (quantitative columns are represented
+only since there to compute true correlations between quantitative
+columns it is necessary to OHE-encode them, which would burst no. of
+columns to many thousands, but the values of the correlations will be
+statistically insignificant due to low cardinality of 90\% of classes)}
+
+\end{figure}
+
+In this matrix for correlations, we already see high correlations
+between many values. Hence, if we (certainly) consider qualitative
+variables in our data mining analysis, we must reduce the number of
+variables because the true dimensionality of the initial space is too
+high and virtually all ways of embedding are too costly and prohibitive
+given a relatively small amount of datapoints in this dataset. First our
+common step would be to dispose of multicollinear columns.\\
+High dimensionality prevents intuitive DBSCAN threshold setting and some
+inferior algorithms as TSNE.
+
+\begin{verbatim}
+Index(['Marital status', 'Application mode', 'Application order', 'Course',
+       'Daytime/evening attendance', 'Previous qualification',
+       'Previous qualification (grade)', 'Nacionality',
+       'Mother's qualification', 'Father's qualification',
+       'Mother's occupation', 'Father's occupation', 'Admission grade',
+       'Displaced', 'Educational special needs', 'Debtor',
+       'Tuition fees up to date', 'Gender', 'Scholarship holder',
+       'Age at enrollment', 'International',
+       'Curricular units 1st sem (credited)',
+       'Curricular units 1st sem (enrolled)',
+       'Curricular units 1st sem (evaluations)',
+       'Curricular units 1st sem (approved)',
+       'Curricular units 1st sem (grade)',
+       'Curricular units 1st sem (without evaluations)',
+       'Curricular units 2nd sem (credited)',
+       'Curricular units 2nd sem (enrolled)',
+       'Curricular units 2nd sem (evaluations)',
+       'Curricular units 2nd sem (approved)',
+       'Curricular units 2nd sem (grade)',
+       'Curricular units 2nd sem (without evaluations)', 'Unemployment rate',
+       'Inflation rate', 'GDP', 'Target'],
+      dtype='object')
+\end{verbatim}
+
+\begin{verbatim}
+Found existing installation: pycaret 3.2.0
+Uninstalling pycaret-3.2.0:
+  Successfully uninstalled pycaret-3.2.0
+\end{verbatim}
+
+\begin{verbatim}
+Collecting mlflow
+  Using cached mlflow-2.9.1-py3-none-any.whl (19.1 MB)
+Requirement already satisfied: click<9,>=7.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (8.1.7)
+Requirement already satisfied: cloudpickle<4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.0.0)
+Requirement already satisfied: databricks-cli<1,>=0.8.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (0.18.0)
+Requirement already satisfied: entrypoints<1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (0.4)
+Requirement already satisfied: gitpython<4,>=2.1.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.1.40)
+Requirement already satisfied: pyyaml<7,>=5.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (6.0.1)
+Requirement already satisfied: protobuf<5,>=3.12.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (4.24.4)
+Requirement already satisfied: pytz<2024 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (2023.3.post1)
+Requirement already satisfied: requests<3,>=2.17.3 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (2.31.0)
+Requirement already satisfied: packaging<24 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (23.1)
+Requirement already satisfied: importlib-metadata!=4.7.0,<8,>=3.7.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (6.8.0)
+Requirement already satisfied: sqlparse<1,>=0.4.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (0.4.4)
+Requirement already satisfied: alembic!=1.10.0,<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.13.0)
+Requirement already satisfied: docker<7,>=4.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (6.1.3)
+Requirement already satisfied: Flask<4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.0.0)
+Requirement already satisfied: numpy<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.25.2)
+Requirement already satisfied: scipy<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.10.1)
+Requirement already satisfied: pandas<3 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.5.3)
+Requirement already satisfied: querystring-parser<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.2.4)
+Requirement already satisfied: sqlalchemy<3,>=1.4.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.4.41)
+Requirement already satisfied: scikit-learn<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.2.2)
+Requirement already satisfied: pyarrow<15,>=4.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (12.0.1)
+Requirement already satisfied: markdown<4,>=3.3 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.5)
+Requirement already satisfied: matplotlib<4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.6.0)
+Requirement already satisfied: gunicorn<22 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (20.1.0)
+Requirement already satisfied: Jinja2<4,>=2.11 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.1.2)
+Requirement already satisfied: Mako in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from alembic!=1.10.0,<2->mlflow) (1.3.0)
+Requirement already satisfied: typing-extensions>=4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from alembic!=1.10.0,<2->mlflow) (4.7.1)
+Requirement already satisfied: pyjwt>=1.7.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (2.8.0)
+Requirement already satisfied: oauthlib>=3.1.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (3.2.2)
+Requirement already satisfied: tabulate>=0.7.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (0.9.0)
+Requirement already satisfied: six>=1.10.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (1.16.0)
+Requirement already satisfied: urllib3<3,>=1.26.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (1.26.16)
+Requirement already satisfied: websocket-client>=0.32.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from docker<7,>=4.0.0->mlflow) (0.58.0)
+Requirement already satisfied: Werkzeug>=3.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Flask<4->mlflow) (3.0.1)
+Requirement already satisfied: itsdangerous>=2.1.2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Flask<4->mlflow) (2.1.2)
+Requirement already satisfied: blinker>=1.6.2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Flask<4->mlflow) (1.7.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from gitpython<4,>=2.1.0->mlflow) (4.0.11)
+Requirement already satisfied: setuptools>=3.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from gunicorn<22->mlflow) (68.2.2)
+Requirement already satisfied: zipp>=0.5 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from importlib-metadata!=4.7.0,<8,>=3.7.0->mlflow) (3.17.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Jinja2<4,>=2.11->mlflow) (2.1.1)
+Requirement already satisfied: contourpy>=1.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (1.1.1)
+Requirement already satisfied: cycler>=0.10 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (0.12.0)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (4.43.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (1.4.5)
+Requirement already satisfied: pillow>=6.2.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (9.5.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (3.1.1)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (2.8.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from requests<3,>=2.17.3->mlflow) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from requests<3,>=2.17.3->mlflow) (3.4)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from requests<3,>=2.17.3->mlflow) (2023.7.22)
+Requirement already satisfied: joblib>=1.1.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from scikit-learn<2->mlflow) (1.3.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from scikit-learn<2->mlflow) (3.2.0)
+Requirement already satisfied: smmap<6,>=3.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from gitdb<5,>=4.0.1->gitpython<4,>=2.1.0->mlflow) (5.0.1)
+Installing collected packages: mlflow
+Successfully installed mlflow-2.9.1
+\end{verbatim}
+
+\begin{verbatim}
+ImportError: MlflowLogger requires mlflow. Install using `pip install mlflow`
+\end{verbatim}
 
 In the remaining part, we examine the correlations of purely endogenous
 temporal variables. This does not give a scoop about the source of
 causation and is not a good predictor, but exhibits an analysis of
 autocorrelation inside the quasi-temporal data.
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-48-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-51-output-1.png}
 
 We can see that the points for the 1st semester and 2nd semester are
 correlated which shows that are one's marks are primary drivers of
 success and exhibit sizeable correlations
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-49-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-52-output-1.png}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-50-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-53-output-1.png}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-51-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-54-output-1.png}
 
 \hypertarget{data-mining}{%
 \subsection{Data Mining}\label{data-mining}}
@@ -746,9 +856,26 @@ and others play a significant role in student retention.
 \end{quote}
 
 \begin{quote}
-We could work with parents to encourage and support their children's
-education. Additionally, We could provide financial assistance to those
-who are struggling to pay.
+The observed patterns imply a lot to stress in the lives of students and
+their associates. First, we strive to insentivize parents to improve
+their labour efficiency and pursue greater carreer so that ultimately
+they could dedicate more time to their children's education, and
+proactively stir their self-propelled interest. Additionally, we could
+provide financial assistance to those who are struggling to pay with if
+this is contemporaneous with a significant degradation in their
+university marks, as this subrogates the stimuli for a person in an age
+where they are most perceptive to knowledge and is a good predictor of a
+dropout. Also importantly, we could teach the students, especially going
+on their second studies, that it is quite unlikely that they are going
+to get high grades or exit the university without proper time management
+and confirmation that they assign top priority to their studies. They
+are also advised to make that clear to all their relatives and
+stakeholders who might underestimate the effects of such a change.
+Although this could result in a reduction of enthusiastic entrants, this
+would increase at least the KPI of retention and arguably also increase
+the KPI on number of diplomas issued, because with fewer but more
+motivated students the university would have more time to dedicate to
+most obstinate pending alumni.
 \end{quote}
 
 \begin{quote}
