@@ -187,7 +187,7 @@ achievements: A case of the University of Portalegre}
 \begin{abstract}
 .
 \end{abstract}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, interior hidden, breakable, sharp corners, enhanced, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, enhanced, boxrule=0pt, sharp corners, breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
 
 \hypertarget{abstract}{%
 \subsection{Abstract}\label{abstract}}
@@ -539,55 +539,35 @@ max & 23.000000 & 33.000000 & 20.000000 & 18.571429 \\
 
 The students are from multiple countries, but the overwhelming majority
 of the students are from Portugal. It would be interesting to see how
-the students' admission grade depends on their previous qualification,
-particularily because of that many students from abroad are from the
-Ultramarine Territories where it's more challenging to get comparable
-education.
+the students' admission grade depends on their previous qualification in
+their home countries, but the samples are scarce. Many students from
+abroad are from the Ultramarine Territories where it's more challenging
+to get comparable education. However, they and inland Portugal students
+were naturally given some exemptions, as the dataset states \footnote{Link
+  to the dataset description:
+  \url{https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success}}
 
-\begin{longtable}[]{@{}llllllllllllllllllllll@{}}
-\toprule\noalign{}
-& Marital status & Application mode & Application order & Course &
-Daytime/evening attendance & Previous qualification & Previous
-qualification (grade) & Nacionality & Mother\textquotesingle s
-qualification & Father\textquotesingle s qualification & ... &
-Curricular units 2nd sem (credited) & Curricular units 2nd sem
-(enrolled) & Curricular units 2nd sem (evaluations) & Curricular units
-2nd sem (approved) & Curricular units 2nd sem (grade) & Curricular units
-2nd sem (without evaluations) & Unemployment rate & Inflation rate & GDP
-& Target \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-0 & 1 & 17 & 5 & 171 & 1 & 1 & 122.0 & 1 & 19 & 12 & ... & 0 & 0 & 0 & 0
-& 0.000000 & 0 & 10.8 & 1.4 & 1.74 & Dropout \\
-1 & 1 & 15 & 1 & 9254 & 1 & 1 & 160.0 & 1 & 1 & 3 & ... & 0 & 6 & 6 & 6
-& 13.666667 & 0 & 13.9 & -0.3 & 0.79 & Graduate \\
-2 & 1 & 1 & 5 & 9070 & 1 & 1 & 122.0 & 1 & 37 & 37 & ... & 0 & 6 & 0 & 0
-& 0.000000 & 0 & 10.8 & 1.4 & 1.74 & Dropout \\
-3 & 1 & 17 & 2 & 9773 & 1 & 1 & 122.0 & 1 & 38 & 37 & ... & 0 & 6 & 10 &
-5 & 12.400000 & 0 & 9.4 & -0.8 & -3.12 & Graduate \\
-4 & 2 & 39 & 1 & 8014 & 0 & 1 & 100.0 & 1 & 37 & 38 & ... & 0 & 6 & 6 &
-6 & 13.000000 & 0 & 13.9 & -0.3 & 0.79 & Graduate \\
-... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... &
-... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
-4419 & 1 & 1 & 6 & 9773 & 1 & 1 & 125.0 & 1 & 1 & 1 & ... & 0 & 6 & 8 &
-5 & 12.666667 & 0 & 15.5 & 2.8 & -4.06 & Graduate \\
-4420 & 1 & 1 & 2 & 9773 & 1 & 1 & 120.0 & 105 & 1 & 1 & ... & 0 & 6 & 6
-& 2 & 11.000000 & 0 & 11.1 & 0.6 & 2.02 & Dropout \\
-4421 & 1 & 1 & 1 & 9500 & 1 & 1 & 154.0 & 1 & 37 & 37 & ... & 0 & 8 & 9
-& 1 & 13.500000 & 0 & 13.9 & -0.3 & 0.79 & Dropout \\
-4422 & 1 & 1 & 1 & 9147 & 1 & 1 & 180.0 & 1 & 37 & 37 & ... & 0 & 5 & 6
-& 5 & 12.000000 & 0 & 9.4 & -0.8 & -3.12 & Graduate \\
-4423 & 1 & 10 & 1 & 9773 & 1 & 1 & 152.0 & 22 & 38 & 37 & ... & 0 & 6 &
-6 & 6 & 13.000000 & 0 & 12.7 & 3.7 & -1.70 & Graduate \\
-\end{longtable}
+. For example, the students admitted per Ordance no. 854 \footnote{Link
+  to the source document:
+  \url{https://dre.tretas.org/dre/106607/portaria-854-B-99-de-4-de-outubro}}
+were not required to demonstrate the proof of their validity since their
+received a diploma in secondary education administered in Portuguese
+(Angola, East Timor, Mozambique, Guinea Equatorial). Students admitted
+per Ordnance no. 533 \footnote{Link to the source document:
+  \url{https://dre.tretas.org/dre/104726/portaria-533-A-99-de-22-de-julho}}
+were from another university in Portugal with overlapping courses
+covered recently enough so they were not required to repeat them.
+Finally, those admitted per Ord. no. 612 \footnote{Link to the source
+  document:
+  \url{https://dre.tretas.org/dre/51542/portaria-612-93-de-29-de-junho}}
+came from other countries but had comparable material in their studies
+and so their points were recalculated with some amortization.
 
 \begin{verbatim}
-Series([], Name: Previous qualification (grade), dtype: float64)
+Int64Index([1, 2, 19, 39], dtype='int64', name='Previous qualification')
 \end{verbatim}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-17-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-18-output-1.png}
 
 Also, there is a drastic imbalance over yet another crucial factor: age.
 As it was mentioned previously, students of age are far less ubiquitous,
@@ -595,7 +575,7 @@ can have far more incentives to abandon studies and with smaller
 potential to apprehension of material. Indeed, this is eloquently
 manifested on the next graph.
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-18-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-19-output-1.png}
 
 Q. v. the sizes of the bins for dropout students differ far less than
 the total size for the name of the student.
@@ -605,7 +585,7 @@ should be much dependent on previous grades,\\
 The datapoint cloud, however, shows that this rule has a lot of
 exceptions.
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-20-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-21-output-1.png}
 
 We can draw the following observations:
 
@@ -644,7 +624,7 @@ adaptations in new environment.
 Text(0.5, 1.0, 'Influence of Socioeconomic Factors on Dropout Rates')
 \end{verbatim}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-21-output-2.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-22-output-2.png}
 
 \textbf{Observations :}
 
@@ -664,7 +644,7 @@ dropout.
 Text(0.5, 1.0, 'Effect of Institutional Improvements on Student Retention')
 \end{verbatim}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-22-output-2.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-23-output-2.png}
 
 \textbf{Observations :}
 
@@ -686,7 +666,7 @@ transmission to the younger generation.
 Text(0.5, 1.0, "Influence of Mother's Occupation on Dropout Rates")
 \end{verbatim}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-23-output-2.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-24-output-2.png}
 
 \textbf{Observations :}
 
@@ -873,17 +853,17 @@ variables. This does not give a scoop about the source of causation and
 is not a good predictor, but exhibits an analysis of autocorrelation
 inside the quasi-temporal data.
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-47-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-48-output-1.png}
 
 We can see that the points for the 1st semester and 2nd semester are
 correlated which shows that are one's marks are primary drivers of
 success and exhibit sizeable correlations
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-48-output-1.png}
-
 \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-49-output-1.png}
 
 \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-50-output-1.png}
+
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-51-output-1.png}
 
 \hypertarget{data-mining}{%
 \subsection{Data Mining}\label{data-mining}}
