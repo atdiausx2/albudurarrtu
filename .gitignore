@@ -6,6 +6,7 @@
 *.bbl
 *.run.xml
 *.synctex.gz
-/aux_materials/*
-/poganaya-svolotcz_files/*
-/poganaya-svolotcz_files
+./aux_materials/*
+./poganaya-svolotcz_files/*
+./poganaya-svolotcz_files
+./nbody_problem.cu
