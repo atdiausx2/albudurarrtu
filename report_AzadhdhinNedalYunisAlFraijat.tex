@@ -186,7 +186,7 @@ achievements: A case of the University of Portalegre}
 \begin{abstract}
 .
 \end{abstract}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, interior hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, enhanced, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, interior hidden, sharp corners, enhanced, frame hidden]}{\end{tcolorbox}}\fi
 
 \hypertarget{abstract}{%
 \subsection{Abstract}\label{abstract}}
@@ -216,38 +216,43 @@ fewer dropouts.
 Starting from preliminary school we are told that having an education is
 very important for your future or that without higher education your job
 possibilities are going to be very limited. While primary education is
-mandatory, having higher education is not. But why do people actually
-take their time and resources to pursue it? Well, according to studies
-the most important factor for pursuing higher education is job
-acquisition. \autocite{knutsen_motivation_2011} Some other factors may
-include increased income in the existing job, improved work conditions
-or increased ability for retirement. All in all they do all tie up to
-materialistic benefits in the end. Of course, other, more intrisic
+mandatory, having higher education is not. There are, however, many
+reasons for which people may want to pursue higher education. According
+to studies, many factors are materialistic, the most important factor
+for pursuing higher education is job acquisition
+\autocite{knutsen_motivation_2011}. Some other factors may include
+increased income in the existing job, improved work conditions or
+increased ability for retirement. Of course, other, more intrisic
 factors include seeking for additional knowledge or self-fulfillment
 \autocite{cortes_factors_2023}. There are also factors like meeting new
 friends, improving social interaction skills or just wanting to make a
 difference in the world. Of course factors that cannot be ignored are
 social pressure \autocite{temple_factors_2009}, meaning that having
 friends that want to pursue higher education can influence ones own
-decision or influence of family members. Pursuing higher edication is
-good, but what about people who prematurely end their studies and drop
-out? What could be the factors that lead to such a decision? Based on
-the study and datasets that we used for our research there are multiple
-factors that influence dropping out.
+decision or influence of family members. However, there are people that
+discontinue their studies prematurely and we are interested to learn
+what the reasons for such a decision could be. Based on the study and
+datasets that we used for our research there are multiple factors that
+influence dropping out.
 
 Nevertheless, pursuing higher education and actually getting the degree
 has some tangible benefits. According to an OECD -- Education at a
-Glance 2019 research paper \autocite{oecd_education_2019}, \enquote{On
-average across OECD countries, adults with a short-cycle tertiary degree
-earn 20\% more than adults with upper secondary education. The earnings
-advantage increases to 44\% for those with a bachelor's degree and to
-91\% for those with a master's or doctorPal degree.} With this in mind,
-it is important for government and educational institutions to ensure
-high level of graduates in society to ensure economic growth and overall
-increase in well-being. To measure the success of this goal, it is
-important to set KPI's, track them and make educated conclusions on what
-needs to be done or is being done right to reach the goal of higher
-educated society.
+Glance 2019 research paper \autocite{oecd_education_2019}.
+
+\begin{quote}
+\enquote{On average across OECD countries, adults with a short-cycle
+tertiary degree earn 20\% more than adults with upper secondary
+education. The earnings advantage increases to 44\% for those with a
+bachelor's degree and to 91\% for those with a master's or doctoral
+degree.}
+\end{quote}
+
+With this in mind, it is important for government and educational
+institutions to ensure high level of graduates in society to ensure
+economic growth and overall increase in well-being. To measure the
+success of this goal, it is important to set KPI's, track them and make
+educated conclusions on what needs to be done or is being done right to
+reach the goal of higher educated society.
 
 \hypertarget{target-metrics-and-kpi}{%
 \subsection{Target Metrics and KPI}\label{target-metrics-and-kpi}}
@@ -257,38 +262,72 @@ Portugese High Schools but most likely data can be generalised, atleast
 for Europe, as the region and sociodemographics are not so different.
 Even though there are many factors that influence the success of
 graduation, only factors that can be proven by government and
-educational institutions will be chosen. After rigorous analysis, we
-propose the following grades.
+educational institutions will be chosen. In order to thwart
+embezzlement, indicators should be restricted in magnitude and difficult
+to falsify or manipulate. After rigorous analysis, we propose the
+following KPIs.
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
 \item
-  Academic support. Based on the dataset students who had support had 3x
-  lower dropout rates than students that didn't have. This means that
-  governments should be incentivised to allocate a higher amount of
-  budget towards education to give financial aid and motivate students
-  to complete their studies.
-\item
-  Institutional improvements. Again, based on datasets, schools with
-  improvements have 40\% less dropout rate than schools without. This is
-  something that can be improved by incentivizing teachers with higher
-  salaries or giving schools more budget to improve their workstations.
-\item
-  Student grades. Datasets tell us that the higher the average grade,
-  the lower the dropout rate. Usually students that have low grades are
-  uninterested in the subjects which could be due to having chosen not
-  the right program for them or that the way lectures and information is
-  presented is uninteresting or outdated. Either way this can be
-  improved. Increasing the possibility that the student has chosen the
-  right program for him can be done by introducing more \enquote{open
-  days} in higher education institutions and having more upfront
-  information about what can be expected from programs. The overall
-  lecture performance can be improved by taking more time to have
-  up-to-date information presented and teachers having decent motivation
-  of teaching students. This can be achieved by increasing teacher
-  salaries and institutions having more control over teachers and
-  information they present to students.
+  \textbf{Student grade improvement compared to support}. Based on the
+  dataset, students who had support had 3x lower dropout rates than
+  students that didn't have. While it is not practical to allocate
+  higher amount of money for studying that itself does not generate
+  value, it scoops that it at least a sizeable parts of the dropout
+  students could be held from leaving with a relatively small aid that
+  would make the benefits of studies outweigh those of working/etc.
+  Leaving is commonly associated with very poor grades (otherwise, even
+  a morally disinterested student would opt to formally remain in the
+  university until they are asked to leave due to poor performance).
+  Since a person with infinitesimal grades is a clear candidate for
+  dropping out, one should identify those students with abrupt downward
+  grade dynamics and quench this. In the proposed KPI, the
+  \((grade)_{i}\) is the mean relative grade change for student \(j\)
+  over all their courses at university i at moment t, and the assistance
+  is the mean aid per student (can be 0). If there are no students on
+  their way down , the KPI is guaranteed to be positive.
 \end{enumerate}
+
+\[KPI_{1, i,t} =  \frac{|\Delta(\bar{grade})_i|}{ (\bar{assistance}_i)}\]
+This does not depend on the number of courses, because the courses are
+themselves different difficulties, the important thing that the
+university (the students too) should look after in this regard, that the
+situation with grades does drastically deteriorate over time.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  \textbf{Institutional Improvements}. Although volatile and subjective,
+  as one of the metrics (not KPIs, since it is more difficult to tie
+  this to specific redresses) there could be a longitudinal survey about
+  one's satisfaction with the studies and programme in general in the
+  fashion of a job an exit or quasi-exit interview (when a person does
+  not leave actually, but they are still invited to answer the questions
+  as if they would be leaving). This would allow to track the scale of
+  dropouts due to frustration with the programme (not engaging enough).
+\item
+  \textbf{Relative changes in student's grades}. Datasets tell us that
+  the higher the average grade, the lower the dropout rate. Usually
+  students that have low grades are uninterested in the subjects which
+  could be due to having chosen not the right program for them or that
+  the way lectures and information is presented is uninteresting or
+  outdated. Either way this can be improved. Increasing the possibility
+  that the student has chosen the right program for him can be done by
+  introducing more \enquote{open days} in higher education institutions
+  and having more upfront information about what can be expected from
+  programs. The overall lecture performance can be improved by taking
+  more time to have up-to-date information presented and teachers having
+  decent motivation of teaching students. This can be achieved by
+  increasing teacher salaries and institutions having more control over
+  teachers and information they present to students.
+\end{enumerate}
+
+All these metrics are still vulnerable to misrepresentation, but it is
+inevitable given the freedom the universities enjoy in managing their
+study programmes. Still, any manipulation of this metrics can only be
+temporary and thus is also not in the best interest of the university.
 
 \hypertarget{exploratory-data-analysis}{%
 \subsection{Exploratory Data Analysis}\label{exploratory-data-analysis}}
@@ -296,92 +335,43 @@ propose the following grades.
 \hypertarget{descriptive-statistics}{%
 \subsubsection{Descriptive Statistics}\label{descriptive-statistics}}
 
-\hypertarget{tbl-example}{}
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-& Data Type \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-& Data Type \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Marital status & int64 \\
-Application mode & int64 \\
-Application order & int64 \\
-Course & int64 \\
-Daytime/evening attendance\textbackslash t & int64 \\
-Previous qualification & int64 \\
-Previous qualification (grade) & float64 \\
-Nacionality & int64 \\
-Mother\textquotesingle s qualification & int64 \\
-Father\textquotesingle s qualification & int64 \\
-Mother\textquotesingle s occupation & int64 \\
-Father\textquotesingle s occupation & int64 \\
-Admission grade & float64 \\
-Displaced & int64 \\
-Educational special needs & int64 \\
-Debtor & int64 \\
-Tuition fees up to date & int64 \\
-Gender & int64 \\
-Scholarship holder & int64 \\
-Age at enrollment & int64 \\
-International & int64 \\
-Curricular units 1st sem (credited) & int64 \\
-Curricular units 1st sem (enrolled) & int64 \\
-Curricular units 1st sem (evaluations) & int64 \\
-Curricular units 1st sem (approved) & int64 \\
-Curricular units 1st sem (grade) & float64 \\
-Curricular units 1st sem (without evaluations) & int64 \\
-Curricular units 2nd sem (credited) & int64 \\
-Curricular units 2nd sem (enrolled) & int64 \\
-Curricular units 2nd sem (evaluations) & int64 \\
-Curricular units 2nd sem (approved) & int64 \\
-Curricular units 2nd sem (grade) & float64 \\
-Curricular units 2nd sem (without evaluations) & int64 \\
-Unemployment rate & float64 \\
-Inflation rate & float64 \\
-GDP & float64 \\
-Target & object \\
-\caption{\label{tbl-example}The data types of the datast
-columns}\tabularnewline
-\end{longtable}
-
 As we have checked, the dataset does not have zero values, so there is
 nothing to purge inside it. Later on, we get the basic descriptive
-statistics, shown below.
+statistics, shown below in\\
+Tables~\ref{tbl-descstat-3}, \ref{tbl-descstat-1}, \ref{tbl-descstat-2}, \ref{tbl-descstat-4}, \ref{tbl-descstat-5}, \ref{tbl-descstat-6}, \ref{tbl-descstat-7}
 
-\hypertarget{tab-descstat-1}{}
-\begin{longtable}[]{@{}llllll@{}}
+\hypertarget{tbl-descstat-1}{}
+\begin{longtable}[]{@{}lrrrrr@{}}
 \toprule\noalign{}
-& Marital status & Application mode & Application order & Course &
-Daytime/evening attendance \\
+& Mari. stat. & Appl. mode. & Appl. orde. & Cour. & Dayt. atte. \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-& Marital status & Application mode & Application order & Course &
-Daytime/evening attendance \\
+& Mari. stat. & Appl. mode. & Appl. orde. & Cour. & Dayt. atte. \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-count & 4424.00 & 4424.00 & 4424.00 & 4424.00 & 4424.00 \\
+count & 4424 & 4424 & 4424 & 4424 & 4424 \\
 mean & 1.18 & 18.67 & 1.73 & 8856.64 & 0.89 \\
 std & 0.61 & 17.48 & 1.31 & 2063.57 & 0.31 \\
-min & 1.00 & 1.00 & 0.00 & 33.00 & 0.00 \\
-25\% & 1.00 & 1.00 & 1.00 & 9085.00 & 1.00 \\
-50\% & 1.00 & 17.00 & 1.00 & 9238.00 & 1.00 \\
-75\% & 1.00 & 39.00 & 2.00 & 9556.00 & 1.00 \\
-max & 6.00 & 57.00 & 9.00 & 9991.00 & 1.00 \\
-\caption{Descriptive statistics }\tabularnewline
+min & 1 & 1 & 0 & 33 & 0 \\
+25\% & 1 & 1 & 1 & 9085 & 1 \\
+50\% & 1 & 17 & 1 & 9238 & 1 \\
+75\% & 1 & 39 & 2 & 9556 & 1 \\
+max & 6 & 57 & 9 & 9991 & 1 \\
+\caption{\label{tbl-descstat-1}Descriptive statistics}\tabularnewline
 \end{longtable}
 
-\hypertarget{tab-descstat-2}{}
-\begin{longtable}[]{@{}llllll@{}}
+\hypertarget{tbl-descstat-2}{}
+\begin{longtable}[]{@{}lrrrrr@{}}
 \toprule\noalign{}
+& Prev. qual. & Prev. qual. (gra. & Naci. & Moth. qual. & Fath. qual. \\
+\midrule\noalign{}
 \endfirsthead
+\toprule\noalign{}
+& Prev. qual. & Prev. qual. (gra. & Naci. & Moth. qual. & Fath. qual. \\
+\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
@@ -393,10 +383,11 @@ min & 1 & 95 & 1 & 1 & 1 \\
 50\% & 1 & 133.1 & 1 & 19 & 19 \\
 75\% & 1 & 140 & 1 & 37 & 37 \\
 max & 43 & 190 & 109 & 44 & 44 \\
-\caption{Descriptive statistics (cont'd) }\tabularnewline
+\caption{\label{tbl-descstat-2}Descriptive statistics
+(cont'd)}\tabularnewline
 \end{longtable}
 
-\hypertarget{tab-descstat-3}{}
+\hypertarget{tbl-descstat-3}{}
 \begin{longtable}[]{@{}llllll@{}}
 \toprule\noalign{}
 & Mother\textquotesingle s occupation & Father\textquotesingle s
@@ -418,119 +409,102 @@ min & 0.00 & 0.00 & 95.00 & 0.00 & 0.00 \\
 50\% & 5.00 & 7.00 & 126.10 & 1.00 & 0.00 \\
 75\% & 9.00 & 9.00 & 134.80 & 1.00 & 0.00 \\
 max & 194.00 & 195.00 & 190.00 & 1.00 & 1.00 \\
-\caption{Descriptive statistics (cont'd) }\tabularnewline
+\caption{\label{tbl-descstat-3}Descriptive statistics
+(cont'd)}\tabularnewline
 \end{longtable}
 
-\hypertarget{tab-descstat-4}{}
+\begin{verbatim}
+'Curricular units 2nd sem (enrolled), Curricular units 2nd sem (evaluations), Curricular units 2nd sem (approved), Curricular units 2nd sem (grade)'
+\end{verbatim}
+
+\hypertarget{tbl-descstat-4}{}
 \begin{longtable}[]{@{}llllll@{}}
 \toprule\noalign{}
-& Debtor & Tuition fees up to date & Gender & Scholarship holder & Age
-at enrollment \\
-\midrule\noalign{}
 \endfirsthead
-\toprule\noalign{}
-& Debtor & Tuition fees up to date & Gender & Scholarship holder & Age
-at enrollment \\
-\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-count & 4424.00 & 4424.00 & 4424.00 & 4424.00 & 4424.00 \\
+count & 4424 & 4424 & 4424 & 4424 & 4424 \\
 mean & 0.11 & 0.88 & 0.35 & 0.25 & 23.27 \\
 std & 0.32 & 0.32 & 0.48 & 0.43 & 7.59 \\
-min & 0.00 & 0.00 & 0.00 & 0.00 & 17.00 \\
-25\% & 0.00 & 1.00 & 0.00 & 0.00 & 19.00 \\
-50\% & 0.00 & 1.00 & 0.00 & 0.00 & 20.00 \\
-75\% & 0.00 & 1.00 & 1.00 & 0.00 & 25.00 \\
-max & 1.00 & 1.00 & 1.00 & 1.00 & 70.00 \\
-\caption{Descriptive statistics (cont'd) }\tabularnewline
+min & 0 & 0 & 0 & 0 & 17 \\
+25\% & 0 & 1 & 0 & 0 & 19 \\
+50\% & 0 & 1 & 0 & 0 & 20 \\
+75\% & 0 & 1 & 1 & 0 & 25 \\
+max & 1 & 1 & 1 & 1 & 70 \\
+\caption{\label{tbl-descstat-4}Descriptive statistics (cont'd). Columns,
+left-to-right: Debtor, Tuition fees up to date, Gender, Scholarship
+holder, Age at enrollment}\tabularnewline
 \end{longtable}
 
-\hypertarget{tab-descstat-5}{}
+\hypertarget{tbl-descstat-5}{}
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
-& International & Curricular units 1st sem (credited) & Curricular units
-1st sem (enrolled) & Curricular units 1st sem (evaluations) \\
-\midrule\noalign{}
 \endfirsthead
-\toprule\noalign{}
-& International & Curricular units 1st sem (credited) & Curricular units
-1st sem (enrolled) & Curricular units 1st sem (evaluations) \\
-\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-count & 4424.00 & 4424.00 & 4424.00 & 4424.00 \\
-mean & 0.02 & 0.71 & 6.27 & 8.30 \\
+count & 4424 & 4424 & 4424 & 4424 \\
+mean & 0.02 & 0.71 & 6.27 & 8.3 \\
 std & 0.16 & 2.36 & 2.48 & 4.18 \\
-min & 0.00 & 0.00 & 0.00 & 0.00 \\
-25\% & 0.00 & 0.00 & 5.00 & 6.00 \\
-50\% & 0.00 & 0.00 & 6.00 & 8.00 \\
-75\% & 0.00 & 0.00 & 7.00 & 10.00 \\
-max & 1.00 & 20.00 & 26.00 & 45.00 \\
-\caption{Descriptive statistics (cont'd) }\tabularnewline
+min & 0 & 0 & 0 & 0 \\
+25\% & 0 & 0 & 5 & 6 \\
+50\% & 0 & 0 & 6 & 8 \\
+75\% & 0 & 0 & 7 & 10 \\
+max & 1 & 20 & 26 & 45 \\
+\caption{\label{tbl-descstat-5}Descriptive statistics (cont'd). Columns
+International, Curricular units 1st sem (credited), Curricular units 1st
+sem (enrolled), Curricular units 1st sem (evaluations).}\tabularnewline
 \end{longtable}
 
-\hypertarget{tab-descstat-6}{}
+\hypertarget{tbl-descstat-6}{}
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
-& Curricular units 1st sem (approved) & Curricular units 1st sem (grade)
-& Curricular units 1st sem (without evaluations) & Curricular units 2nd
-sem (credited) \\
-\midrule\noalign{}
 \endfirsthead
-\toprule\noalign{}
-& Curricular units 1st sem (approved) & Curricular units 1st sem (grade)
-& Curricular units 1st sem (without evaluations) & Curricular units 2nd
-sem (credited) \\
-\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-count & 4424.00 & 4424.00 & 4424.00 & 4424.00 \\
+count & 4424 & 4424 & 4424 & 4424 \\
 mean & 4.71 & 10.64 & 0.14 & 0.54 \\
 std & 3.09 & 4.84 & 0.69 & 1.92 \\
-min & 0.00 & 0.00 & 0.00 & 0.00 \\
-25\% & 3.00 & 11.00 & 0.00 & 0.00 \\
-50\% & 5.00 & 12.29 & 0.00 & 0.00 \\
-75\% & 6.00 & 13.40 & 0.00 & 0.00 \\
-max & 26.00 & 18.88 & 12.00 & 19.00 \\
-\caption{Descriptive statistics (cont'd) }\tabularnewline
+min & 0 & 0 & 0 & 0 \\
+25\% & 3 & 11 & 0 & 0 \\
+50\% & 5 & 12.29 & 0 & 0 \\
+75\% & 6 & 13.4 & 0 & 0 \\
+max & 26 & 18.88 & 12 & 19 \\
+\caption{\label{tbl-descstat-6}Descriptive statistics (cont'd). Columns
+Curricular units 1st sem (approved), Curricular units 1st sem (grade),
+Curricular units 1st sem (without evaluations), Curricular units 2nd sem
+(credited)'}\tabularnewline
 \end{longtable}
 
-\hypertarget{tab-descstat-7}{}
+\hypertarget{tbl-descstat-7}{}
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
-& Curricular units 2nd sem (enrolled) & Curricular units 2nd sem
-(evaluations) & Curricular units 2nd sem (approved) & Curricular units
-2nd sem (grade) \\
-\midrule\noalign{}
 \endfirsthead
-\toprule\noalign{}
-& Curricular units 2nd sem (enrolled) & Curricular units 2nd sem
-(evaluations) & Curricular units 2nd sem (approved) & Curricular units
-2nd sem (grade) \\
-\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-count & 4424.00 & 4424.00 & 4424.00 & 4424.00 \\
+count & 4424 & 4424 & 4424 & 4424 \\
 mean & 6.23 & 8.06 & 4.44 & 10.23 \\
-std & 2.20 & 3.95 & 3.01 & 5.21 \\
-min & 0.00 & 0.00 & 0.00 & 0.00 \\
-25\% & 5.00 & 6.00 & 2.00 & 10.75 \\
-50\% & 6.00 & 8.00 & 5.00 & 12.20 \\
-75\% & 7.00 & 10.00 & 6.00 & 13.33 \\
-max & 23.00 & 33.00 & 20.00 & 18.57 \\
-\caption{Descriptive statistics (cont'd) }\tabularnewline
+std & 2.2 & 3.95 & 3.01 & 5.21 \\
+min & 0 & 0 & 0 & 0 \\
+25\% & 5 & 6 & 2 & 10.75 \\
+50\% & 6 & 8 & 5 & 12.2 \\
+75\% & 7 & 10 & 6 & 13.33 \\
+max & 23 & 33 & 20 & 18.57 \\
+\caption{\label{tbl-descstat-7}Descriptive statistics (cont'd).
+Curricular units 2nd sem (enrolled), Curricular units 2nd sem
+(evaluations), Curricular units 2nd sem (approved), Curricular units 2nd
+sem (grade)'}\tabularnewline
 \end{longtable}
 
 The students are from multiple countries, but the overwhelming majority
 of the students are from Portugal. It would be interesting to see how
 the students' admission grade depends on their previous qualification in
 their home countries, but the samples are scarce. Many students from
-abroad are from the Ultramarine Territories where it's more challenging
-to get comparable education. However, they and inland Portugal students
+abroad are from the Overseas Territories where it's more challenging to
+get comparable education. However, they and inland Portugal students
 were naturally given some exemptions, as the dataset states \footnote{Link
   to the dataset description:
   \url{https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success}}
@@ -545,8 +519,8 @@ per Ordnance no. 533 \footnote{Link to the source document:
   \url{https://dre.tretas.org/dre/104726/portaria-533-A-99-de-22-de-julho}}
 were from another university in Portugal with overlapping courses
 covered recently enough so they were not required to repeat them.
-Finally, those admitted per Ord. no. 612 \footnote{Link to the source
-  document:
+Finally, those admitted per Ordnance no. 612 \footnote{Link to the
+  source document:
   \url{https://dre.tretas.org/dre/51542/portaria-612-93-de-29-de-junho}}
 came from other countries but had comparable material in their studies
 and so their points were recalculated with some amortization.
@@ -562,19 +536,18 @@ with different education backgrounds}
 
 \end{figure}
 
-Due to class imbalance , the variability for the Portuguese is much
-higher, and while the 3 categories with highest grades are natural, i.
-e. doctors, masters as higher education, the 3rd is unintuitive (the 10
-classes) and we tend to explain it as self-selection and high
-correlation with other indicators (those entering the university in the
-10th grade are more motivated then dwelling in schools in 11th and 12th
-grades).
+Due to class imbalance , the variability for the Portuguese students is
+much higher, and while the 3 categories (see Figure~\ref{fig-education})
+with highest grades are natural, i. e. doctors, masters as higher
+education, the 3rd is unintuitive (the 10 classes) and we tend to
+explain it as self-selection and high correlation with other indicators
+(those entering the university in the 10th grade are more motivated then
+dwelling in schools in 11th and 12th grades).
 
 Also, there is a drastic imbalance over yet another crucial factor: age.
-As it was mentioned previously, students of age are far less ubiquitous,
-can have far more incentives to abandon studies and with smaller
-potential to apprehension of material. Indeed, this is eloquently
-manifested on the next graph.
+Students of age are far less ubiquitous, can have far more incentives to
+abandon studies and smaller potential for apprehension of material.
+Indeed, this is clearly shown on the next graph \ref{fig-age-distr}
 
 \begin{figure}
 
@@ -590,23 +563,32 @@ graduate student}
 Q. v. the sizes of the bins for dropout students differ far less than
 the total size for the name of the student.
 
-If the hypothesis about some external factors, The target variable
-should be much dependent on previous grades,\\
-The datapoint cloud, however, shows that this rule has a lot of
-exceptions.
+If the hypothesis about some external factors is correct , the target
+variable should be much dependent on previous grades,\\
+The datapoint cloud on Table~\ref{fig-points-distr}, however, shows that
+this rule has a lot of exceptions.
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-21-output-1.png}
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-points-distr-output-1.png}
+
+}
+
+\caption{\label{fig-points-distr}Joint and marginal distributions of
+current admission and previous qualification grades}
+
+\end{figure}
 
 We can draw the following observations:
 
 \begin{itemize}
 \item
   The \textbf{distribution of admission grades} is roughly normal with
-  most students scoring between \textbf{\emph{60 to 80 marks}}.
+  most students scoring between \textbf{\emph{120 and 160 marks}}.
 \item
   The \textbf{distribution of previous qualifications} (grades) is also
-  the same with most of them having grades in between \textbf{\emph{12
-  and 16}}.
+  the same with most of them having grades in between \textbf{\emph{120
+  and 160}}.
 \item
   There is seen a \textbf{positive correlation} between admission grade
   and previous qualification grade indicating students with higher
@@ -627,10 +609,9 @@ qualification grade are not influenced by the the current grade of the
 students).
 
 However, the majority of columns of this dataset are qualitative and
-they are at least partially endogenous as stulk from the decisions
-during the study. For this, we need to propose a mechanism of influence,
-then formulate and test a hypothesis via an analysis of discriminate
-groups.
+they are at least partially endogenous as stem from the decisions during
+the study. For this, we need to propose a mechanism of influence, then
+formulate and test a hypothesis via an analysis of discriminate groups.
 
 We also consider the impact of scholarships and other compensations in
 academic support, which should alleviate the complications associated
@@ -642,15 +623,15 @@ with adaptations in new environment.
 
 }
 
-\caption{Student mobility and financial burden as indicators and drivers
-of their motivation and impediments}
+\caption{\label{fig-word-1}Student mobility and financial burden as
+indicators and drivers of their motivation and impediments}
 
 \end{figure}
 
 We see that having debt is always a serious impediment against studies
 because it gives wrong incentives towards directly making money in the
-short run instead of mastering knowledge that could aid to make
-altogether greater money in the long run.
+short run instead of focusing solely on one's studies that could aid to
+make altogether greater money in the long run.
 
 \begin{figure}
 
@@ -658,9 +639,9 @@ altogether greater money in the long run.
 
 }
 
-\caption{Student inter-university mobility and health conditions proxies
-as indicators and drivers of their motivation towards learning and
-impediments (Part 2)}
+\caption{\label{fig-word-2}Student inter-university mobility and health
+conditions proxies as indicators and drivers of their motivation towards
+learning and impediments (Part 2)}
 
 \end{figure}
 
@@ -670,7 +651,7 @@ impediments (Part 2)}
 
 }
 
-\caption{Marital status as distractor from studying}
+\caption{\label{fig-word-3}Marital status as distractor from studying}
 
 \end{figure}
 
