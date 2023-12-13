@@ -82,9 +82,8 @@
 \makeatother
 
 \KOMAoption{captions}{tablesignature}
-\usepackage[authordate, abbreviate = true, date = year, autocite=inline, backref = true]{biblatex-chicago}
 \usepackage{csquotes}
-\setlength{\bibhang}{0pt}
+\usepackage[authordate, abbreviate = true, date = year, autocite=inline, backref = true]{biblatex-chicago}
 \makeatletter
 \makeatother
 \makeatletter
@@ -158,7 +157,7 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Student dropout analysis based on previously acquired educational achievements: A case of the University of Portalegre},
-  pdfauthor={Izeldeen Nedal Yunis Al Fraijat; Danat Semeneev; Ieva Žube; Pankaj Chattri; Kristaps Eglītis},
+  pdfauthor={Izeldeen Nedal Yunis Al Fraijat; Danat Semeneev; Ieva Žube; Pankaj Chettri; Kristaps Eglītis},
   pdflang={en},
   pdfkeywords={AA1, AA2},
   colorlinks=true,
@@ -178,16 +177,16 @@ achievements: A case of the University of Portalegre}
 \makeatother
 \subtitle{Business Analysis, Business Informatics Ms, Fall 2023.}
 \author{Izeldeen Nedal Yunis Al Fraijat \and Danat Semeneev \and Ieva
-Žube \and Pankaj Chattri \and Kristaps Eglītis\footnote{Rīga Technical
+Žube \and Pankaj Chettri \and Kristaps Eglītis\footnote{Rīga Technical
   University}}
-\date{2023-12-11}
+\date{2023-12-13}
 
 \begin{document}
 \maketitle
 \begin{abstract}
 .
 \end{abstract}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, breakable, interior hidden, enhanced, sharp corners, boxrule=0pt, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, interior hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, enhanced, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
 
 \hypertarget{abstract}{%
 \subsection{Abstract}\label{abstract}}
@@ -195,9 +194,10 @@ achievements: A case of the University of Portalegre}
 In the world of education, the path to success is often visualized as a
 linear progression, where students follow a predefined journey from
 kindergarten to graduation. However, the reality is far more complex.
-Various reasons lead students to choose to deviate from this path. These
-students have encountered different challenges, circumstances, or a lack
-of proper resources that have led them to drop out of university.
+There could be various reasons that come along the study program that
+led students to deviate from this path. These students might encounter
+different challenges, circumstances, or a lack of proper resources that
+have led them to drop out of university.
 
 In this dataset provided to us, we will delve deeper into understanding
 the reasons why students have dropped out of the university, based on
@@ -296,7 +296,7 @@ propose the following grades.
 \hypertarget{descriptive-statistics}{%
 \subsubsection{Descriptive Statistics}\label{descriptive-statistics}}
 
-\hypertarget{tab-example}{}
+\hypertarget{tbl-example}{}
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 & Data Type \\
@@ -312,7 +312,7 @@ Marital status & int64 \\
 Application mode & int64 \\
 Application order & int64 \\
 Course & int64 \\
-Daytime/evening attendance & int64 \\
+Daytime/evening attendance\textbackslash t & int64 \\
 Previous qualification & int64 \\
 Previous qualification (grade) & float64 \\
 Nacionality & int64 \\
@@ -345,7 +345,8 @@ Unemployment rate & float64 \\
 Inflation rate & float64 \\
 GDP & float64 \\
 Target & object \\
-\caption{The data types of the datast columns }\tabularnewline
+\caption{\label{tbl-example}The data types of the datast
+columns}\tabularnewline
 \end{longtable}
 
 As we have checked, the dataset does not have zero values, so there is
@@ -380,27 +381,18 @@ max & 6.00 & 57.00 & 9.00 & 9991.00 & 1.00 \\
 \hypertarget{tab-descstat-2}{}
 \begin{longtable}[]{@{}llllll@{}}
 \toprule\noalign{}
-& Previous qualification & Previous qualification (grade) & Nacionality
-& Mother\textquotesingle s qualification & Father\textquotesingle s
-qualification \\
-\midrule\noalign{}
 \endfirsthead
-\toprule\noalign{}
-& Previous qualification & Previous qualification (grade) & Nacionality
-& Mother\textquotesingle s qualification & Father\textquotesingle s
-qualification \\
-\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-count & 4424.00 & 4424.00 & 4424.00 & 4424.00 & 4424.00 \\
+count & 4424 & 4424 & 4424 & 4424 & 4424 \\
 mean & 4.58 & 132.61 & 1.87 & 19.56 & 22.28 \\
-std & 10.22 & 13.19 & 6.91 & 15.60 & 15.34 \\
-min & 1.00 & 95.00 & 1.00 & 1.00 & 1.00 \\
-25\% & 1.00 & 125.00 & 1.00 & 2.00 & 3.00 \\
-50\% & 1.00 & 133.10 & 1.00 & 19.00 & 19.00 \\
-75\% & 1.00 & 140.00 & 1.00 & 37.00 & 37.00 \\
-max & 43.00 & 190.00 & 109.00 & 44.00 & 44.00 \\
+std & 10.22 & 13.19 & 6.91 & 15.6 & 15.34 \\
+min & 1 & 95 & 1 & 1 & 1 \\
+25\% & 1 & 125 & 1 & 2 & 3 \\
+50\% & 1 & 133.1 & 1 & 19 & 19 \\
+75\% & 1 & 140 & 1 & 37 & 37 \\
+max & 43 & 190 & 109 & 44 & 44 \\
 \caption{Descriptive statistics (cont'd) }\tabularnewline
 \end{longtable}
 
@@ -603,7 +595,7 @@ should be much dependent on previous grades,\\
 The datapoint cloud, however, shows that this rule has a lot of
 exceptions.
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-22-output-1.png}
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-21-output-1.png}
 
 We can draw the following observations:
 
@@ -708,17 +700,38 @@ only)}\label{data-correlation-table-quantitative-columns-only}}
 
 \begin{figure}
 
-{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/tab-correlation-output-1.png}
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-correlation-output-1.png}
 
 }
 
-\caption{Data correlation table (quantitative columns are represented
-only since there to compute true correlations between quantitative
-columns it is necessary to OHE-encode them, which would burst no. of
-columns to many thousands, but the values of the correlations will be
-statistically insignificant due to low cardinality of 90\% of classes)}
+\caption{\label{fig-correlation}Data correlation table (quantitative
+columns are represented only since there to compute true correlations
+between quantitative columns it is necessary to OHE-encode them, which
+would burst no. of columns to many thousands, but the values of the
+correlations will be statistically insignificant due to low cardinality
+of 90\% of classes)}
 
 \end{figure}
+
+In the remaining part, we examine the correlations of purely endogenous
+temporal variables. This does not give a scoop about the source of
+causation and is not a good predictor, but exhibits an analysis of
+autocorrelation inside the quasi-temporal data.
+
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-54-output-1.png}
+
+We can see that the points for the 1st semester and 2nd semester are
+correlated which shows that are one's marks are primary drivers of
+success and exhibit sizeable correlations
+
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-55-output-1.png}
+
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-56-output-1.png}
+
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-57-output-1.png}
+
+\hypertarget{data-mining}{%
+\subsection{Data Mining}\label{data-mining}}
 
 In this matrix for correlations, we already see high correlations
 between many values. Hence, if we (certainly) consider qualitative
@@ -730,121 +743,83 @@ common step would be to dispose of multicollinear columns.\\
 High dimensionality prevents intuitive DBSCAN threshold setting and some
 inferior algorithms as TSNE.
 
-\begin{verbatim}
-Index(['Marital status', 'Application mode', 'Application order', 'Course',
-       'Daytime/evening attendance', 'Previous qualification',
-       'Previous qualification (grade)', 'Nacionality',
-       'Mother's qualification', 'Father's qualification',
-       'Mother's occupation', 'Father's occupation', 'Admission grade',
-       'Displaced', 'Educational special needs', 'Debtor',
-       'Tuition fees up to date', 'Gender', 'Scholarship holder',
-       'Age at enrollment', 'International',
-       'Curricular units 1st sem (credited)',
-       'Curricular units 1st sem (enrolled)',
-       'Curricular units 1st sem (evaluations)',
-       'Curricular units 1st sem (approved)',
-       'Curricular units 1st sem (grade)',
-       'Curricular units 1st sem (without evaluations)',
-       'Curricular units 2nd sem (credited)',
-       'Curricular units 2nd sem (enrolled)',
-       'Curricular units 2nd sem (evaluations)',
-       'Curricular units 2nd sem (approved)',
-       'Curricular units 2nd sem (grade)',
-       'Curricular units 2nd sem (without evaluations)', 'Unemployment rate',
-       'Inflation rate', 'GDP', 'Target'],
-      dtype='object')
-\end{verbatim}
+After we perform the PCA, we select estimators from various standard
+families that are idependently fine-tuned and then, by F1 measure, the
+model that is most precise in predicting the outcome is rendered. The
+results of the best models are given in leaderboard below in
+Table~\ref{tbl-leaderboard}.
 
 \begin{verbatim}
-Found existing installation: pycaret 3.2.0
-Uninstalling pycaret-3.2.0:
-  Successfully uninstalled pycaret-3.2.0
+<IPython.core.display.HTML object>
 \end{verbatim}
+
+\hypertarget{tbl-leaderboard}{}
+\begin{longtable}[]{@{}llllllllll@{}}
+\toprule\noalign{}
+~ & Model & Accuracy & AUC & Recall & Prec. & F1 & Kappa & MCC & TT
+(Sec) \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+~ & Model & Accuracy & AUC & Recall & Prec. & F1 & Kappa & MCC & TT
+(Sec) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+catboost & CatBoost Classifier & 0.7290 & 0.8626 & 0.7290 & 0.7099 &
+0.7150 & 0.5443 & 0.5491 & 1.5310 \\
+gbc & Gradient Boosting Classifier & 0.7293 & 0.8674 & 0.7293 & 0.7124 &
+0.7147 & 0.5426 & 0.5494 & 0.4880 \\
+et & Extra Trees Classifier & 0.7271 & 0.8606 & 0.7271 & 0.7068 & 0.7105
+& 0.5377 & 0.5446 & 0.0780 \\
+lightgbm & Light Gradient Boosting Machine & 0.7248 & 0.8591 & 0.7248 &
+0.7044 & 0.7092 & 0.5357 & 0.5413 & 0.7420 \\
+rf & Random Forest Classifier & 0.7255 & 0.8644 & 0.7255 & 0.7041 &
+0.7088 & 0.5357 & 0.5420 & 0.1360 \\
+lda & Linear Discriminant Analysis & 0.7190 & 0.8560 & 0.7190 & 0.7047 &
+0.6984 & 0.5163 & 0.5310 & 0.0290 \\
+ada & Ada Boost Classifier & 0.7071 & 0.8237 & 0.7071 & 0.6952 & 0.6956
+& 0.5077 & 0.5134 & 0.0600 \\
+qda & Quadratic Discriminant Analysis & 0.7113 & 0.8471 & 0.7113 &
+0.6939 & 0.6892 & 0.5023 & 0.5166 & 0.0380 \\
+knn & K Neighbors Classifier & 0.6945 & 0.8128 & 0.6945 & 0.6716 &
+0.6792 & 0.4882 & 0.4917 & 0.0380 \\
+ridge & Ridge Classifier & 0.7125 & 0.0000 & 0.7125 & 0.6846 & 0.6676 &
+0.4912 & 0.5196 & 0.0220 \\
+dt & Decision Tree Classifier & 0.6237 & 0.7070 & 0.6237 & 0.6283 &
+0.6251 & 0.3907 & 0.3914 & 0.0290 \\
+lr & Logistic Regression & 0.4754 & 0.5142 & 0.4754 & 0.3960 & 0.4313 &
+0.0909 & 0.0956 & 0.4810 \\
+nb & Naive Bayes & 0.4997 & 0.5850 & 0.4997 & 0.3821 & 0.3679 & 0.0198 &
+0.0399 & 0.0230 \\
+dummy & Dummy Classifier & 0.4994 & 0.5000 & 0.4994 & 0.2494 & 0.3326 &
+0.0000 & 0.0000 & 0.0520 \\
+svm & SVM - Linear Kernel & 0.3043 & 0.0000 & 0.3043 & 0.2231 & 0.2482 &
+0.0001 & -0.0007 & 0.0290 \\
+\caption{\label{tbl-leaderboard}Results of fitting estimators of
+different families}\label{T_96c03}\tabularnewline
+\end{longtable}
 
 \begin{verbatim}
-Collecting mlflow
-  Using cached mlflow-2.9.1-py3-none-any.whl (19.1 MB)
-Requirement already satisfied: click<9,>=7.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (8.1.7)
-Requirement already satisfied: cloudpickle<4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.0.0)
-Requirement already satisfied: databricks-cli<1,>=0.8.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (0.18.0)
-Requirement already satisfied: entrypoints<1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (0.4)
-Requirement already satisfied: gitpython<4,>=2.1.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.1.40)
-Requirement already satisfied: pyyaml<7,>=5.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (6.0.1)
-Requirement already satisfied: protobuf<5,>=3.12.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (4.24.4)
-Requirement already satisfied: pytz<2024 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (2023.3.post1)
-Requirement already satisfied: requests<3,>=2.17.3 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (2.31.0)
-Requirement already satisfied: packaging<24 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (23.1)
-Requirement already satisfied: importlib-metadata!=4.7.0,<8,>=3.7.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (6.8.0)
-Requirement already satisfied: sqlparse<1,>=0.4.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (0.4.4)
-Requirement already satisfied: alembic!=1.10.0,<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.13.0)
-Requirement already satisfied: docker<7,>=4.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (6.1.3)
-Requirement already satisfied: Flask<4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.0.0)
-Requirement already satisfied: numpy<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.25.2)
-Requirement already satisfied: scipy<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.10.1)
-Requirement already satisfied: pandas<3 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.5.3)
-Requirement already satisfied: querystring-parser<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.2.4)
-Requirement already satisfied: sqlalchemy<3,>=1.4.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.4.41)
-Requirement already satisfied: scikit-learn<2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (1.2.2)
-Requirement already satisfied: pyarrow<15,>=4.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (12.0.1)
-Requirement already satisfied: markdown<4,>=3.3 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.5)
-Requirement already satisfied: matplotlib<4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.6.0)
-Requirement already satisfied: gunicorn<22 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (20.1.0)
-Requirement already satisfied: Jinja2<4,>=2.11 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from mlflow) (3.1.2)
-Requirement already satisfied: Mako in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from alembic!=1.10.0,<2->mlflow) (1.3.0)
-Requirement already satisfied: typing-extensions>=4 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from alembic!=1.10.0,<2->mlflow) (4.7.1)
-Requirement already satisfied: pyjwt>=1.7.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (2.8.0)
-Requirement already satisfied: oauthlib>=3.1.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (3.2.2)
-Requirement already satisfied: tabulate>=0.7.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (0.9.0)
-Requirement already satisfied: six>=1.10.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (1.16.0)
-Requirement already satisfied: urllib3<3,>=1.26.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from databricks-cli<1,>=0.8.7->mlflow) (1.26.16)
-Requirement already satisfied: websocket-client>=0.32.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from docker<7,>=4.0.0->mlflow) (0.58.0)
-Requirement already satisfied: Werkzeug>=3.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Flask<4->mlflow) (3.0.1)
-Requirement already satisfied: itsdangerous>=2.1.2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Flask<4->mlflow) (2.1.2)
-Requirement already satisfied: blinker>=1.6.2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Flask<4->mlflow) (1.7.0)
-Requirement already satisfied: gitdb<5,>=4.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from gitpython<4,>=2.1.0->mlflow) (4.0.11)
-Requirement already satisfied: setuptools>=3.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from gunicorn<22->mlflow) (68.2.2)
-Requirement already satisfied: zipp>=0.5 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from importlib-metadata!=4.7.0,<8,>=3.7.0->mlflow) (3.17.0)
-Requirement already satisfied: MarkupSafe>=2.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from Jinja2<4,>=2.11->mlflow) (2.1.1)
-Requirement already satisfied: contourpy>=1.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (1.1.1)
-Requirement already satisfied: cycler>=0.10 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (0.12.0)
-Requirement already satisfied: fonttools>=4.22.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (4.43.0)
-Requirement already satisfied: kiwisolver>=1.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (1.4.5)
-Requirement already satisfied: pillow>=6.2.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (9.5.0)
-Requirement already satisfied: pyparsing>=2.2.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (3.1.1)
-Requirement already satisfied: python-dateutil>=2.7 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from matplotlib<4->mlflow) (2.8.2)
-Requirement already satisfied: charset-normalizer<4,>=2 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from requests<3,>=2.17.3->mlflow) (2.0.4)
-Requirement already satisfied: idna<4,>=2.5 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from requests<3,>=2.17.3->mlflow) (3.4)
-Requirement already satisfied: certifi>=2017.4.17 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from requests<3,>=2.17.3->mlflow) (2023.7.22)
-Requirement already satisfied: joblib>=1.1.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from scikit-learn<2->mlflow) (1.3.2)
-Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from scikit-learn<2->mlflow) (3.2.0)
-Requirement already satisfied: smmap<6,>=3.0.1 in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (from gitdb<5,>=4.0.1->gitpython<4,>=2.1.0->mlflow) (5.0.1)
-Installing collected packages: mlflow
-Successfully installed mlflow-2.9.1
+<IPython.core.display.HTML object>
 \end{verbatim}
 
-\begin{verbatim}
-ImportError: MlflowLogger requires mlflow. Install using `pip install mlflow`
-\end{verbatim}
+Thus, the best model by F1 measure is CatBoostClassifier, which is
+renowned for scoring fairly well on tabular data, while ordinary GBC is
+the most second to prime and the most robust one, featuring best
+conventional recall, accuracy, and precision metrics.
 
-In the remaining part, we examine the correlations of purely endogenous
-temporal variables. This does not give a scoop about the source of
-causation and is not a good predictor, but exhibits an analysis of
-autocorrelation inside the quasi-temporal data.
-
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-51-output-1.png}
-
-We can see that the points for the 1st semester and 2nd semester are
-correlated which shows that are one's marks are primary drivers of
-success and exhibit sizeable correlations
-
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-52-output-1.png}
-
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-53-output-1.png}
-
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-54-output-1.png}
-
-\hypertarget{data-mining}{%
-\subsection{Data Mining}\label{data-mining}}
+However, while all top models in Table~\ref{tbl-leaderboard} demonstrate
+significant improvement over a dummy classifier and other simplistic
+models such as Logistic Regression, the scores are still which indicates
+that reduction of dimensionality, which is inevitable under given class
+imbalance, has come at a price of variance loss, or, alternatively, all
+the covariates do not explain sufficiently well the outcome of studies:
+in academic success, as in life, a lot depends on the proper
+characteristics of a person which are difficult to elicit and much is
+undetermined. After all, it is a matter of principle whether to continue
+studying despite all ordeals.
 
 \hypertarget{conclusion}{%
 \subsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion}}

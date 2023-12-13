@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/00c05a3158b148ad88f962119abde0e2/artifacts
+end_time: 1702337698090
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 00c05a3158b148ad88f962119abde0e2
+run_name: Ridge Classifier
+run_uuid: 00c05a3158b148ad88f962119abde0e2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702337698065
+status: 3
+tags: []
+user_id: romulaperov

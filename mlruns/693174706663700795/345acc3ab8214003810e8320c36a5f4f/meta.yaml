@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/345acc3ab8214003810e8320c36a5f4f/artifacts
+end_time: 1702337658383
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 345acc3ab8214003810e8320c36a5f4f
+run_name: Session Initialized 79d6
+run_uuid: 345acc3ab8214003810e8320c36a5f4f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702334705911
+status: 3
+tags: []
+user_id: romulaperov
