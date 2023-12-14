@@ -46,12 +46,10 @@ bibliography: bibliography.bib
 
 ## Abstract
 
-In the world of education, the path to success is often visualized as a linear progression, where students follow a predefined journey from kindergarten to graduation. However, the reality is far more complex. There could be various reasons that come along the study program that led students to deviate from this path. These students might encounter different challenges, circumstances, or a lack of proper resources that have led them to drop out of university.
+In the world of education, a person's path is often depicted as a linear progression, where students follow a predefined journey from kindergarten to graduation. However, the reality is far more complex. There could be various reasons that emerge during the study program that led students to deviate from this path. These students might encounter different challenges, circumstances, or a lack of proper resources that have led them to drop out of university.
 
-
-In this dataset provided to us, we will delve deeper into understanding the reasons why students have dropped out of the university, based on the data at our disposal. We will leverage our social knowledge to comprehend the factors that influenced their decision to drop out and work to prevent such occurrences if the issues are within the university's purview. Our goal is to offer solutions, support, and the necessary resources to facilitate students' educational journeys. We will also use the analysis we've conducted on the dropout students to learn from their experiences and chart a unique educational pathway with fewer dropouts.
-
-
+In this dataset provided to us, we will delve deeper into understanding the reasons why students have dropped out of the university. We will leverage our social knowledge to comprehend the factors that influenced their decision to drop out and work to prevent such occurrences if the issues are within the university's purview. Our goal is to propose solutions and their support so that high schools could facilitate and secure students' educational journeys. We construct the best basic model that predicts the results with 73% balanced precision recall. We provide the recommedatons based on findings and define auxiliary requisite data to further our research in the future. 
+<!-- We will also use the analysis we've conducted on the dropout students to learn from their experiences and chart a unique educational pathway with fewer dropouts. -->
 
 # Introduction
 
@@ -70,7 +68,7 @@ According to an OECD – Education at a Glance 2019 research paper [@oecd_educat
 With this in mind, it is important for government and educational institutions to ensure high level of graduates in society to ensure economic growth and overall increase in well-being.
 To measure the success of this goal, it is important to set KPI’s, track them and make educated conclusions on what needs to be done or is being done right to reach the goal of higher educated society.
 
-## Target Metrics and KPI
+## Target Metrics and KPI {#sec-kpi}
 
 In this particular case, KPI’s will be chosen based on datasets of Portugese High Schools but most likely data can be generalised, atleast for Europe, as the region and sociodemographics are not so different.
 Even though there are many factors that influence the success of graduation, only factors that can be proven  by government and educational institutions will be chosen. In order to thwart embezzlement, indicators should be restricted in magnitude and difficult to falsify or manipulate.  After rigorous analysis, we propose the following KPIs.
@@ -91,7 +89,7 @@ a. **Relative changes in student's grades**.
 
 All these metrics are still vulnerable to misrepresentation, but it is inevitable given the freedom the universities enjoy in managing their study programmes. Still, any manipulation of this metrics can only be temporary and thus is also not in the best interest of the university.  
 
-## Exploratory Data Analysis
+## Exploratory Data Analysis {#sec-eda}
 
 ### Descriptive Statistics 
 
@@ -322,16 +320,18 @@ max      23       33       20       18.57
 
 
 
-The students are from multiple countries, but the overwhelming majority of the students are from Portugal. It would be interesting to see how the students' admission grade depends on their previous qualification in their home countries, but the samples are scarce. Many students from abroad are from the Overseas Territories where it's more challenging to get comparable education. However, they and inland Portugal students were naturally given some exemptions, as the dataset states [^source_dataset_docs] 
+The students are from multiple countries, but the overwhelming majority of the students are from Portugal. It would be interesting to see how the students' admission grade depends on their previous qualification in their home countries, but the samples are scarce. Many students from abroad are from the Overseas Territories where it's more challenging to get comparable education. However, they and inland Portugal students were naturally given some exemptions, as the dataset states [^source_dataset_docs]. [^remark_issue] 
 
- . For example, the students admitted per Ordance no. 854 [^dataset] were not required to demonstrate the proof of their validity since their received a diploma in secondary education administered in Portuguese (Angola, East Timor, Mozambique, Guinea Equatorial). Students admitted per Ordnance no. 533 [^conversion] were from another university in Portugal with overlapping courses covered recently enough so they were not required to repeat them. Finally, those admitted per Ordnance no. 612 [^recalculation] came from other countries but had comparable material in their studies and so their points were recalculated with some amortization.
+
+ For example, the students admitted per Ordance no. 854 [^dataset] were not required to demonstrate the proof of their validity since their received a diploma in secondary education administered in Portuguese (Angola, East Timor, Mozambique, Guinea Equatorial). Students admitted per Ordnance no. 533 [^conversion] were from another university in Portugal with overlapping courses covered recently enough so they were not required to repeat them. Finally, those admitted per Ordnance no. 612 [^recalculation] came from other countries but had comparable material in their studies and so their points were recalculated with some amortization.
  
  [^recalculation]: Link to the source document: <https://dre.tretas.org/dre/51542/portaria-612-93-de-29-de-junho>
-
-
+[^remark_issue]: Notably, the authors did not specify all categories of students even in the description to the dataset, so it can be regarded as one of 'issues' of the dataset that it can be challenging to fully interpret the feature store. 
 [^source_dataset_docs]: Link to the dataset description: <https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success>
 [^conversion]: Link to the source document: <https://dre.tretas.org/dre/104726/portaria-533-A-99-de-22-de-julho> 
 [^dataset]: Link to the source document: <https://dre.tretas.org/dre/106607/portaria-854-B-99-de-4-de-outubro>  
+
+### Data Visualizations
 
 
 
@@ -382,40 +382,28 @@ We can draw the following observations:
 
 *  There is seen a **positive correlation** between admission grade and previous qualification grade indicating students with higher previous qualifications tend to have higher admission grades.
 
-This was the visualization for the few quantitative columns, which shows the natural interconnection between the curricularly accrued units in the 1st and the 2nd year, which are in turn mostly unrelated to the admission grade. This is understandable since the grades are commonly based on the successfulness of the local program and student's toil, while the students' backgrounds are commonly different and this puts them into inequitable positions when passing the admission exams. 
+The visualizations above, however, were natural for the few quantitative columns, which show the natural interconnection between the curricularly accrued units in the 1st and in the 2nd year, which are in turn mostly unrelated to the admission grade. This is understandable since the grades are commonly based on the successfulness of the local program and student's toil, while the students' backgrounds are commonly different and this puts them into inequitable positions when passing the admission exams. 
 
-In these previous graphs, we considered quantitative columns that are more or less exogenous to the dataset (e. g. age and the previous qualification grade are not influenced by the the current grade of the students).
+In these previous graphs, we considered quantitative columns that are more or less exogenous to the dataset (e. g. age and the previous qualification grade are not influenced by the current grade of the students).
 
-However, the majority of columns of this dataset are qualitative and they are at least partially endogenous as stem from the decisions during the study. For this, we need to propose a mechanism of influence, then formulate and test a hypothesis via an analysis of discriminate groups. 
+However, the majority of columns of this dataset are qualitative and they are at least partially endogenous as stem from the decisions during the study and their consequences. For this, we need to propose a mechanism of influence, then formulate and test a hypothesis via an analysis of discriminate groups. 
 
-
-We also consider the impact of scholarships and other compensations in academic support, which should alleviate the complications associated with adaptations in new environment. 
-
-
-
-<!-- Furthermore, not only the pecuniary, but also institutional aspects can be improved -- and so influence the academic success. Below we demonstrate how the institutional improvements can influence the dropout.  -->
 
 
 
 ![Student mobility and financial burden as indicators and drivers of their motivation and impediments](./figs/reasons-1.jpg){#fig-word-1}
 
-We see that having debt is always a serious impediment against studies because it gives wrong incentives towards directly making money in the short run instead of focusing solely on one's studies that could aid to make altogether greater money in the long run. 
+We see on @fig-word-1 that having debt is always a serious impediment against studies because it gives wrong incentives towards directly making money in the short run instead of focusing solely on one's studies that could aid to make altogether greater money in the long run. 
 
 ![Student inter-university mobility and health conditions proxies as indicators and drivers of their motivation towards learning and impediments (Part 2)](./figs/reasons2.jpg){#fig-word-2}
 
-![Marital status as distractor from studying](./figs/rasons-3.jpg){#fig-word-3}
+We also consider the impact of scholarships and other compensations in academic support, which should alleviate the complications associated with adaptations in new environment. 
+
+![Marital status as distractor from studying](./figs/reasonsIII.jpg){#fig-word-3}
 
 
 
-<!-- **Observations :**
-
-*  Schools having *implemented institutional improvements yeilds a significant lowering of the dropout rate* when compared to those without. -->
-
-
-
-In different studies, it is quite common to compare the academic success of a student with the academic successes of ttheir parents as this has both direct and indirect effects , s. a. i. e. both are connected to welfare, but also it can be that there is another channel of knowledge transmission to the younger generation. 
-
-
+In different studies, it is quite common to compare the academic success of a student with the academic successes of their parents as this has both direct and indirect effects , s. a. i. e. both are connected to welfare, but also it can be that there is another channel of knowledge transmission to the younger generation. 
 
 **Observations :**
 * The bar chart shows that mother's occupation is quite influential. This influence is greater the pa's due to traditional effect, and we distinctly see that students whose mothers are 'white collars' dropout significantly more rarely than those whose mothers are more engaged in physical labor. 
@@ -438,7 +426,7 @@ In different studies, it is quite common to compare the academic success of a st
 
 ### Data correlation table (quantitative columns only)
 
-::: {.cell execution_count=36}
+::: {.cell execution_count=75}
 
 ::: {.cell-output .cell-output-display}
 ![Data correlation table (quantitative columns are represented only since there to compute true correlations between quantitative columns it is necessary to OHE-encode them, which would burst no. of columns to many thousands, but the values of the correlations will be statistically insignificant due to low cardinality of 90% of classes)](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-correlation-output-1.png){#fig-correlation}
@@ -446,6 +434,7 @@ In different studies, it is quite common to compare the academic success of a st
 :::
 
 
+As visible on @fig-correlation, there are strong positive correlation among the curricular units for 1st and 2nd sem that could suggest that students that are doing well in the first sem will certainly do well in the upcoming semester. This could suggest that students with lower curricular units have a higher chance of dropping out due to their academic preparedness and failing to meet the requirements and expectations of the study program.
 
 
 
@@ -469,15 +458,325 @@ In different studies, it is quite common to compare the academic success of a st
 
 
 
+::: {.cell execution_count=95}
 
+::: {.cell-output .cell-output-display execution_count=95}
 
+```{=html}
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Marital status</th>
+      <th>Application mode</th>
+      <th>Application order</th>
+      <th>Course</th>
+      <th>Daytime/evening attendance</th>
+      <th>Previous qualification</th>
+      <th>Previous qualification (grade)</th>
+      <th>Nacionality</th>
+      <th>Mother's qualification</th>
+      <th>Father's qualification</th>
+      <th>...</th>
+      <th>Curricular units 2nd sem (credited)</th>
+      <th>Curricular units 2nd sem (enrolled)</th>
+      <th>Curricular units 2nd sem (evaluations)</th>
+      <th>Curricular units 2nd sem (approved)</th>
+      <th>Curricular units 2nd sem (grade)</th>
+      <th>Curricular units 2nd sem (without evaluations)</th>
+      <th>Unemployment rate</th>
+      <th>Inflation rate</th>
+      <th>GDP</th>
+      <th>Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>17</td>
+      <td>5</td>
+      <td>171</td>
+      <td>1</td>
+      <td>1</td>
+      <td>122.0</td>
+      <td>1</td>
+      <td>19</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>10.8</td>
+      <td>1.4</td>
+      <td>1.74</td>
+      <td>Dropout</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>15</td>
+      <td>1</td>
+      <td>9254</td>
+      <td>1</td>
+      <td>1</td>
+      <td>160.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>...</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>13.666667</td>
+      <td>0</td>
+      <td>13.9</td>
+      <td>-0.3</td>
+      <td>0.79</td>
+      <td>Graduate</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>9070</td>
+      <td>1</td>
+      <td>1</td>
+      <td>122.0</td>
+      <td>1</td>
+      <td>37</td>
+      <td>37</td>
+      <td>...</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>10.8</td>
+      <td>1.4</td>
+      <td>1.74</td>
+      <td>Dropout</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>17</td>
+      <td>2</td>
+      <td>9773</td>
+      <td>1</td>
+      <td>1</td>
+      <td>122.0</td>
+      <td>1</td>
+      <td>38</td>
+      <td>37</td>
+      <td>...</td>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>5</td>
+      <td>12.400000</td>
+      <td>0</td>
+      <td>9.4</td>
+      <td>-0.8</td>
+      <td>-3.12</td>
+      <td>Graduate</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>39</td>
+      <td>1</td>
+      <td>8014</td>
+      <td>0</td>
+      <td>1</td>
+      <td>100.0</td>
+      <td>1</td>
+      <td>37</td>
+      <td>38</td>
+      <td>...</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>13.000000</td>
+      <td>0</td>
+      <td>13.9</td>
+      <td>-0.3</td>
+      <td>0.79</td>
+      <td>Graduate</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4419</th>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>9773</td>
+      <td>1</td>
+      <td>1</td>
+      <td>125.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>6</td>
+      <td>8</td>
+      <td>5</td>
+      <td>12.666667</td>
+      <td>0</td>
+      <td>15.5</td>
+      <td>2.8</td>
+      <td>-4.06</td>
+      <td>Graduate</td>
+    </tr>
+    <tr>
+      <th>4420</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>9773</td>
+      <td>1</td>
+      <td>1</td>
+      <td>120.0</td>
+      <td>105</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>2</td>
+      <td>11.000000</td>
+      <td>0</td>
+      <td>11.1</td>
+      <td>0.6</td>
+      <td>2.02</td>
+      <td>Dropout</td>
+    </tr>
+    <tr>
+      <th>4421</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9500</td>
+      <td>1</td>
+      <td>1</td>
+      <td>154.0</td>
+      <td>1</td>
+      <td>37</td>
+      <td>37</td>
+      <td>...</td>
+      <td>0</td>
+      <td>8</td>
+      <td>9</td>
+      <td>1</td>
+      <td>13.500000</td>
+      <td>0</td>
+      <td>13.9</td>
+      <td>-0.3</td>
+      <td>0.79</td>
+      <td>Dropout</td>
+    </tr>
+    <tr>
+      <th>4422</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9147</td>
+      <td>1</td>
+      <td>1</td>
+      <td>180.0</td>
+      <td>1</td>
+      <td>37</td>
+      <td>37</td>
+      <td>...</td>
+      <td>0</td>
+      <td>5</td>
+      <td>6</td>
+      <td>5</td>
+      <td>12.000000</td>
+      <td>0</td>
+      <td>9.4</td>
+      <td>-0.8</td>
+      <td>-3.12</td>
+      <td>Graduate</td>
+    </tr>
+    <tr>
+      <th>4423</th>
+      <td>1</td>
+      <td>10</td>
+      <td>1</td>
+      <td>9773</td>
+      <td>1</td>
+      <td>1</td>
+      <td>152.0</td>
+      <td>22</td>
+      <td>38</td>
+      <td>37</td>
+      <td>...</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>13.000000</td>
+      <td>0</td>
+      <td>12.7</td>
+      <td>3.7</td>
+      <td>-1.70</td>
+      <td>Graduate</td>
+    </tr>
+  </tbody>
+</table>
+<p>4424 rows × 37 columns</p>
+</div>
+```
 
-
-
-
-
+:::
+:::
 
 
 
@@ -492,51 +791,55 @@ In the remaining part, we examine the correlations of purely endogenous temporal
 
 
 
-::: {.cell execution_count=28}
+::: {.cell execution_count=78}
 
 ::: {.cell-output .cell-output-display}
-![](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-54-output-1.png){}
+![Vizualization for curricular successively approved units](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-output-1.png){#fig-cur-units}
 :::
 :::
 
 
 We can see that the points for the 1st semester and 2nd semester are correlated which shows that are one's marks are primary drivers of success and exhibit sizeable correlations 
 
-::: {.cell execution_count=31}
+::: {.cell execution_count=79}
 
 ::: {.cell-output .cell-output-display}
-![](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-55-output-1.png){}
+![Vizualization for curricular successively enrolled units](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-enrolled-output-1.png){#fig-cur-units-enrolled}
 :::
 :::
 
 
-::: {.cell execution_count=33}
+
+
+::: {.cell execution_count=81}
 
 ::: {.cell-output .cell-output-display}
-![](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-56-output-1.png){}
+![Vizualization of curricular units for the 1st semester](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-grade-output-1.png){#fig-cur-grade}
 :::
 :::
 
 
-::: {.cell execution_count=34}
+### Unmentioned data issues 
 
-::: {.cell-output .cell-output-display}
-![](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-57-output-1.png){}
-:::
-:::
+While the dataset does not have empty columns , there is some auxiliary data that could be very appropriate to have together with it. For example, we have data for years that are many in today's changing education environment, but there is no open data as proxy for the conditions in which the students have to study and which influence their dropout ratios (causing affection or not). Apart from data on schorlarships, any transitions and their effect (even though hapenned during reforms in Portugal education field in 2000s-10s) are downplayed.
 
 
-## Data Mining
+## Data Mining {#sec-data-mining}
 
-In this matrix for correlations, we already see high correlations between many values. Hence, if we (certainly) consider qualitative variables in our data mining analysis, we must reduce the number of variables because the true dimensionality of the initial space is too high and virtually all ways of embedding are too costly and prohibitive given a relatively small amount of datapoints in this dataset. 
-First our common step would be to dispose of multicollinear columns.  
-High dimensionality prevents intuitive DBSCAN threshold setting and some inferior algorithms as TSNE.
+Now, we need to define our data mining strategy.
+In the matrix [-@fig-correlation] for correlations, we already see high correlations between many values. Hence, if we (certainly we should) also consider categorical  variables in our data mining analysis, we must reduce the number of variables because the true dimensionality of the initial space is too high and virtually all ways of embedding and distance calculation are too costly and prohibitive given a relatively small amount of datapoints in this dataset. 
 
-After we perform the PCA, we select estimators from various standard families that are idependently fine-tuned and then, by F1 measure, the model that is most precise in predicting the outcome is rendered. 
-The results of the best models are given in leaderboard   below in @tbl-leaderboard.
+In EDA [@sec-eda], we already stressed the issue of class imbalance. To at least partially recompense for this, we need to perform SMOTE augmentation of scarcer classes. 
+After dataset is SMOTE-amplified, our common step would be to dispose of multicollinear columns.  
+High dimensionality prevents intuitive DBSCAN threshold setting and some inferior algorithms as TSNE. Hence, although not considering distal non-linear data structures, we reduce the dimensionality via principal component analysis.
+
+After we perform the PCA, the estimators from various standard families are idependently fine-tuned, by mean F1 measure, the model that is most precise in predicting the outcome is rendered. We confer some other renowned metrics for the best model .
+In total, we consider 3 different types of models  for classification (logical, linear separative, linear generative),
+implying algorithms of various 'difficulty' levels, including 3 boostings: LGBoosting, XGBoosting (gbc), Catboost, Random Forest, a Decision Tree as well as linear discriminate analysis and logistic regression. We test models against each other and against dummy classifier. 
+The results of the best models are given in leaderboard   below in [@tbl-leaderboard]. 
 <!-- @tbl-leaderboard. -->
 
-::: {#tbl-leaderboard .cell tbl-cap='Results of fitting estimators of different families' execution_count=42}
+::: {#tbl-leaderboard .cell tbl-cap='Results of fitting estimators of different families' execution_count=83}
 
 ::: {.cell-output .cell-output-display}
 ```
@@ -548,221 +851,149 @@ The results of the best models are given in leaderboard   below in @tbl-leaderbo
 
 ```{=html}
 <style type="text/css">
-#T_96c03 th {
+#T_967cf th {
   text-align: left;
 }
-#T_96c03_row0_col0, #T_96c03_row0_col1, #T_96c03_row0_col2, #T_96c03_row0_col3, #T_96c03_row0_col4, #T_96c03_row0_col7, #T_96c03_row1_col0, #T_96c03_row1_col5, #T_96c03_row1_col6, #T_96c03_row2_col0, #T_96c03_row2_col1, #T_96c03_row2_col2, #T_96c03_row2_col3, #T_96c03_row2_col4, #T_96c03_row2_col5, #T_96c03_row2_col6, #T_96c03_row2_col7, #T_96c03_row3_col0, #T_96c03_row3_col1, #T_96c03_row3_col2, #T_96c03_row3_col3, #T_96c03_row3_col4, #T_96c03_row3_col5, #T_96c03_row3_col6, #T_96c03_row3_col7, #T_96c03_row4_col0, #T_96c03_row4_col1, #T_96c03_row4_col2, #T_96c03_row4_col3, #T_96c03_row4_col4, #T_96c03_row4_col5, #T_96c03_row4_col6, #T_96c03_row4_col7, #T_96c03_row5_col0, #T_96c03_row5_col1, #T_96c03_row5_col2, #T_96c03_row5_col3, #T_96c03_row5_col4, #T_96c03_row5_col5, #T_96c03_row5_col6, #T_96c03_row5_col7, #T_96c03_row6_col0, #T_96c03_row6_col1, #T_96c03_row6_col2, #T_96c03_row6_col3, #T_96c03_row6_col4, #T_96c03_row6_col5, #T_96c03_row6_col6, #T_96c03_row6_col7, #T_96c03_row7_col0, #T_96c03_row7_col1, #T_96c03_row7_col2, #T_96c03_row7_col3, #T_96c03_row7_col4, #T_96c03_row7_col5, #T_96c03_row7_col6, #T_96c03_row7_col7, #T_96c03_row8_col0, #T_96c03_row8_col1, #T_96c03_row8_col2, #T_96c03_row8_col3, #T_96c03_row8_col4, #T_96c03_row8_col5, #T_96c03_row8_col6, #T_96c03_row8_col7, #T_96c03_row9_col0, #T_96c03_row9_col1, #T_96c03_row9_col2, #T_96c03_row9_col3, #T_96c03_row9_col4, #T_96c03_row9_col5, #T_96c03_row9_col6, #T_96c03_row9_col7, #T_96c03_row10_col0, #T_96c03_row10_col1, #T_96c03_row10_col2, #T_96c03_row10_col3, #T_96c03_row10_col4, #T_96c03_row10_col5, #T_96c03_row10_col6, #T_96c03_row10_col7, #T_96c03_row11_col0, #T_96c03_row11_col1, #T_96c03_row11_col2, #T_96c03_row11_col3, #T_96c03_row11_col4, #T_96c03_row11_col5, #T_96c03_row11_col6, #T_96c03_row11_col7, #T_96c03_row12_col0, #T_96c03_row12_col1, #T_96c03_row12_col2, #T_96c03_row12_col3, #T_96c03_row12_col4, #T_96c03_row12_col5, #T_96c03_row12_col6, #T_96c03_row12_col7, #T_96c03_row13_col0, #T_96c03_row13_col1, #T_96c03_row13_col2, #T_96c03_row13_col3, #T_96c03_row13_col4, #T_96c03_row13_col5, #T_96c03_row13_col6, #T_96c03_row13_col7, #T_96c03_row14_col0, #T_96c03_row14_col1, #T_96c03_row14_col2, #T_96c03_row14_col3, #T_96c03_row14_col4, #T_96c03_row14_col5, #T_96c03_row14_col6, #T_96c03_row14_col7 {
+#T_967cf_row0_col0, #T_967cf_row0_col1, #T_967cf_row0_col2, #T_967cf_row0_col3, #T_967cf_row0_col4, #T_967cf_row0_col7, #T_967cf_row1_col0, #T_967cf_row1_col5, #T_967cf_row1_col6, #T_967cf_row2_col0, #T_967cf_row2_col1, #T_967cf_row2_col2, #T_967cf_row2_col3, #T_967cf_row2_col4, #T_967cf_row2_col5, #T_967cf_row2_col6, #T_967cf_row2_col7, #T_967cf_row3_col0, #T_967cf_row3_col1, #T_967cf_row3_col2, #T_967cf_row3_col3, #T_967cf_row3_col4, #T_967cf_row3_col5, #T_967cf_row3_col6, #T_967cf_row3_col7, #T_967cf_row4_col0, #T_967cf_row4_col1, #T_967cf_row4_col2, #T_967cf_row4_col3, #T_967cf_row4_col4, #T_967cf_row4_col5, #T_967cf_row4_col6, #T_967cf_row4_col7, #T_967cf_row5_col0, #T_967cf_row5_col1, #T_967cf_row5_col2, #T_967cf_row5_col3, #T_967cf_row5_col4, #T_967cf_row5_col5, #T_967cf_row5_col6, #T_967cf_row5_col7, #T_967cf_row6_col0, #T_967cf_row6_col1, #T_967cf_row6_col2, #T_967cf_row6_col3, #T_967cf_row6_col4, #T_967cf_row6_col5, #T_967cf_row6_col6, #T_967cf_row6_col7, #T_967cf_row7_col0, #T_967cf_row7_col1, #T_967cf_row7_col2, #T_967cf_row7_col3, #T_967cf_row7_col4, #T_967cf_row7_col5, #T_967cf_row7_col6, #T_967cf_row7_col7, #T_967cf_row8_col0, #T_967cf_row8_col1, #T_967cf_row8_col2, #T_967cf_row8_col3, #T_967cf_row8_col4, #T_967cf_row8_col5, #T_967cf_row8_col6, #T_967cf_row8_col7 {
   text-align: left;
 }
-#T_96c03_row0_col5, #T_96c03_row0_col6, #T_96c03_row1_col1, #T_96c03_row1_col2, #T_96c03_row1_col3, #T_96c03_row1_col4, #T_96c03_row1_col7 {
+#T_967cf_row0_col5, #T_967cf_row0_col6, #T_967cf_row1_col1, #T_967cf_row1_col2, #T_967cf_row1_col3, #T_967cf_row1_col4, #T_967cf_row1_col7 {
   text-align: left;
   background-color: yellow;
 }
-#T_96c03_row0_col8, #T_96c03_row1_col8, #T_96c03_row2_col8, #T_96c03_row3_col8, #T_96c03_row4_col8, #T_96c03_row5_col8, #T_96c03_row6_col8, #T_96c03_row7_col8, #T_96c03_row8_col8, #T_96c03_row10_col8, #T_96c03_row11_col8, #T_96c03_row12_col8, #T_96c03_row13_col8, #T_96c03_row14_col8 {
+#T_967cf_row0_col8, #T_967cf_row1_col8, #T_967cf_row2_col8, #T_967cf_row3_col8, #T_967cf_row4_col8, #T_967cf_row6_col8, #T_967cf_row7_col8, #T_967cf_row8_col8 {
   text-align: left;
   background-color: lightgrey;
 }
-#T_96c03_row9_col8 {
+#T_967cf_row5_col8 {
   text-align: left;
   background-color: yellow;
   background-color: lightgrey;
 }
 </style>
-<table id="T_96c03">
+<table id="T_967cf">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_96c03_level0_col0" class="col_heading level0 col0" >Model</th>
-      <th id="T_96c03_level0_col1" class="col_heading level0 col1" >Accuracy</th>
-      <th id="T_96c03_level0_col2" class="col_heading level0 col2" >AUC</th>
-      <th id="T_96c03_level0_col3" class="col_heading level0 col3" >Recall</th>
-      <th id="T_96c03_level0_col4" class="col_heading level0 col4" >Prec.</th>
-      <th id="T_96c03_level0_col5" class="col_heading level0 col5" >F1</th>
-      <th id="T_96c03_level0_col6" class="col_heading level0 col6" >Kappa</th>
-      <th id="T_96c03_level0_col7" class="col_heading level0 col7" >MCC</th>
-      <th id="T_96c03_level0_col8" class="col_heading level0 col8" >TT (Sec)</th>
+      <th id="T_967cf_level0_col0" class="col_heading level0 col0" >Model</th>
+      <th id="T_967cf_level0_col1" class="col_heading level0 col1" >Accuracy</th>
+      <th id="T_967cf_level0_col2" class="col_heading level0 col2" >AUC</th>
+      <th id="T_967cf_level0_col3" class="col_heading level0 col3" >Recall</th>
+      <th id="T_967cf_level0_col4" class="col_heading level0 col4" >Prec.</th>
+      <th id="T_967cf_level0_col5" class="col_heading level0 col5" >F1</th>
+      <th id="T_967cf_level0_col6" class="col_heading level0 col6" >Kappa</th>
+      <th id="T_967cf_level0_col7" class="col_heading level0 col7" >MCC</th>
+      <th id="T_967cf_level0_col8" class="col_heading level0 col8" >TT (Sec)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_96c03_level0_row0" class="row_heading level0 row0" >catboost</th>
-      <td id="T_96c03_row0_col0" class="data row0 col0" >CatBoost Classifier</td>
-      <td id="T_96c03_row0_col1" class="data row0 col1" >0.7290</td>
-      <td id="T_96c03_row0_col2" class="data row0 col2" >0.8626</td>
-      <td id="T_96c03_row0_col3" class="data row0 col3" >0.7290</td>
-      <td id="T_96c03_row0_col4" class="data row0 col4" >0.7099</td>
-      <td id="T_96c03_row0_col5" class="data row0 col5" >0.7150</td>
-      <td id="T_96c03_row0_col6" class="data row0 col6" >0.5443</td>
-      <td id="T_96c03_row0_col7" class="data row0 col7" >0.5491</td>
-      <td id="T_96c03_row0_col8" class="data row0 col8" >1.5310</td>
+      <th id="T_967cf_level0_row0" class="row_heading level0 row0" >catboost</th>
+      <td id="T_967cf_row0_col0" class="data row0 col0" >CatBoost Classifier</td>
+      <td id="T_967cf_row0_col1" class="data row0 col1" >0.7290</td>
+      <td id="T_967cf_row0_col2" class="data row0 col2" >0.8626</td>
+      <td id="T_967cf_row0_col3" class="data row0 col3" >0.7290</td>
+      <td id="T_967cf_row0_col4" class="data row0 col4" >0.7099</td>
+      <td id="T_967cf_row0_col5" class="data row0 col5" >0.7150</td>
+      <td id="T_967cf_row0_col6" class="data row0 col6" >0.5443</td>
+      <td id="T_967cf_row0_col7" class="data row0 col7" >0.5491</td>
+      <td id="T_967cf_row0_col8" class="data row0 col8" >1.8750</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row1" class="row_heading level0 row1" >gbc</th>
-      <td id="T_96c03_row1_col0" class="data row1 col0" >Gradient Boosting Classifier</td>
-      <td id="T_96c03_row1_col1" class="data row1 col1" >0.7293</td>
-      <td id="T_96c03_row1_col2" class="data row1 col2" >0.8674</td>
-      <td id="T_96c03_row1_col3" class="data row1 col3" >0.7293</td>
-      <td id="T_96c03_row1_col4" class="data row1 col4" >0.7124</td>
-      <td id="T_96c03_row1_col5" class="data row1 col5" >0.7147</td>
-      <td id="T_96c03_row1_col6" class="data row1 col6" >0.5426</td>
-      <td id="T_96c03_row1_col7" class="data row1 col7" >0.5494</td>
-      <td id="T_96c03_row1_col8" class="data row1 col8" >0.4880</td>
+      <th id="T_967cf_level0_row1" class="row_heading level0 row1" >gbc</th>
+      <td id="T_967cf_row1_col0" class="data row1 col0" >Gradient Boosting Classifier</td>
+      <td id="T_967cf_row1_col1" class="data row1 col1" >0.7293</td>
+      <td id="T_967cf_row1_col2" class="data row1 col2" >0.8674</td>
+      <td id="T_967cf_row1_col3" class="data row1 col3" >0.7293</td>
+      <td id="T_967cf_row1_col4" class="data row1 col4" >0.7124</td>
+      <td id="T_967cf_row1_col5" class="data row1 col5" >0.7147</td>
+      <td id="T_967cf_row1_col6" class="data row1 col6" >0.5426</td>
+      <td id="T_967cf_row1_col7" class="data row1 col7" >0.5494</td>
+      <td id="T_967cf_row1_col8" class="data row1 col8" >0.6640</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row2" class="row_heading level0 row2" >et</th>
-      <td id="T_96c03_row2_col0" class="data row2 col0" >Extra Trees Classifier</td>
-      <td id="T_96c03_row2_col1" class="data row2 col1" >0.7271</td>
-      <td id="T_96c03_row2_col2" class="data row2 col2" >0.8606</td>
-      <td id="T_96c03_row2_col3" class="data row2 col3" >0.7271</td>
-      <td id="T_96c03_row2_col4" class="data row2 col4" >0.7068</td>
-      <td id="T_96c03_row2_col5" class="data row2 col5" >0.7105</td>
-      <td id="T_96c03_row2_col6" class="data row2 col6" >0.5377</td>
-      <td id="T_96c03_row2_col7" class="data row2 col7" >0.5446</td>
-      <td id="T_96c03_row2_col8" class="data row2 col8" >0.0780</td>
+      <th id="T_967cf_level0_row2" class="row_heading level0 row2" >lightgbm</th>
+      <td id="T_967cf_row2_col0" class="data row2 col0" >Light Gradient Boosting Machine</td>
+      <td id="T_967cf_row2_col1" class="data row2 col1" >0.7248</td>
+      <td id="T_967cf_row2_col2" class="data row2 col2" >0.8591</td>
+      <td id="T_967cf_row2_col3" class="data row2 col3" >0.7248</td>
+      <td id="T_967cf_row2_col4" class="data row2 col4" >0.7044</td>
+      <td id="T_967cf_row2_col5" class="data row2 col5" >0.7092</td>
+      <td id="T_967cf_row2_col6" class="data row2 col6" >0.5357</td>
+      <td id="T_967cf_row2_col7" class="data row2 col7" >0.5413</td>
+      <td id="T_967cf_row2_col8" class="data row2 col8" >0.8520</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row3" class="row_heading level0 row3" >lightgbm</th>
-      <td id="T_96c03_row3_col0" class="data row3 col0" >Light Gradient Boosting Machine</td>
-      <td id="T_96c03_row3_col1" class="data row3 col1" >0.7248</td>
-      <td id="T_96c03_row3_col2" class="data row3 col2" >0.8591</td>
-      <td id="T_96c03_row3_col3" class="data row3 col3" >0.7248</td>
-      <td id="T_96c03_row3_col4" class="data row3 col4" >0.7044</td>
-      <td id="T_96c03_row3_col5" class="data row3 col5" >0.7092</td>
-      <td id="T_96c03_row3_col6" class="data row3 col6" >0.5357</td>
-      <td id="T_96c03_row3_col7" class="data row3 col7" >0.5413</td>
-      <td id="T_96c03_row3_col8" class="data row3 col8" >0.7420</td>
+      <th id="T_967cf_level0_row3" class="row_heading level0 row3" >rf</th>
+      <td id="T_967cf_row3_col0" class="data row3 col0" >Random Forest Classifier</td>
+      <td id="T_967cf_row3_col1" class="data row3 col1" >0.7255</td>
+      <td id="T_967cf_row3_col2" class="data row3 col2" >0.8644</td>
+      <td id="T_967cf_row3_col3" class="data row3 col3" >0.7255</td>
+      <td id="T_967cf_row3_col4" class="data row3 col4" >0.7041</td>
+      <td id="T_967cf_row3_col5" class="data row3 col5" >0.7088</td>
+      <td id="T_967cf_row3_col6" class="data row3 col6" >0.5357</td>
+      <td id="T_967cf_row3_col7" class="data row3 col7" >0.5420</td>
+      <td id="T_967cf_row3_col8" class="data row3 col8" >0.1450</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row4" class="row_heading level0 row4" >rf</th>
-      <td id="T_96c03_row4_col0" class="data row4 col0" >Random Forest Classifier</td>
-      <td id="T_96c03_row4_col1" class="data row4 col1" >0.7255</td>
-      <td id="T_96c03_row4_col2" class="data row4 col2" >0.8644</td>
-      <td id="T_96c03_row4_col3" class="data row4 col3" >0.7255</td>
-      <td id="T_96c03_row4_col4" class="data row4 col4" >0.7041</td>
-      <td id="T_96c03_row4_col5" class="data row4 col5" >0.7088</td>
-      <td id="T_96c03_row4_col6" class="data row4 col6" >0.5357</td>
-      <td id="T_96c03_row4_col7" class="data row4 col7" >0.5420</td>
-      <td id="T_96c03_row4_col8" class="data row4 col8" >0.1360</td>
+      <th id="T_967cf_level0_row4" class="row_heading level0 row4" >lda</th>
+      <td id="T_967cf_row4_col0" class="data row4 col0" >Linear Discriminant Analysis</td>
+      <td id="T_967cf_row4_col1" class="data row4 col1" >0.7190</td>
+      <td id="T_967cf_row4_col2" class="data row4 col2" >0.8560</td>
+      <td id="T_967cf_row4_col3" class="data row4 col3" >0.7190</td>
+      <td id="T_967cf_row4_col4" class="data row4 col4" >0.7047</td>
+      <td id="T_967cf_row4_col5" class="data row4 col5" >0.6984</td>
+      <td id="T_967cf_row4_col6" class="data row4 col6" >0.5163</td>
+      <td id="T_967cf_row4_col7" class="data row4 col7" >0.5310</td>
+      <td id="T_967cf_row4_col8" class="data row4 col8" >0.0370</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row5" class="row_heading level0 row5" >lda</th>
-      <td id="T_96c03_row5_col0" class="data row5 col0" >Linear Discriminant Analysis</td>
-      <td id="T_96c03_row5_col1" class="data row5 col1" >0.7190</td>
-      <td id="T_96c03_row5_col2" class="data row5 col2" >0.8560</td>
-      <td id="T_96c03_row5_col3" class="data row5 col3" >0.7190</td>
-      <td id="T_96c03_row5_col4" class="data row5 col4" >0.7047</td>
-      <td id="T_96c03_row5_col5" class="data row5 col5" >0.6984</td>
-      <td id="T_96c03_row5_col6" class="data row5 col6" >0.5163</td>
-      <td id="T_96c03_row5_col7" class="data row5 col7" >0.5310</td>
-      <td id="T_96c03_row5_col8" class="data row5 col8" >0.0290</td>
+      <th id="T_967cf_level0_row5" class="row_heading level0 row5" >ridge</th>
+      <td id="T_967cf_row5_col0" class="data row5 col0" >Ridge Classifier</td>
+      <td id="T_967cf_row5_col1" class="data row5 col1" >0.7125</td>
+      <td id="T_967cf_row5_col2" class="data row5 col2" >0.0000</td>
+      <td id="T_967cf_row5_col3" class="data row5 col3" >0.7125</td>
+      <td id="T_967cf_row5_col4" class="data row5 col4" >0.6846</td>
+      <td id="T_967cf_row5_col5" class="data row5 col5" >0.6676</td>
+      <td id="T_967cf_row5_col6" class="data row5 col6" >0.4912</td>
+      <td id="T_967cf_row5_col7" class="data row5 col7" >0.5196</td>
+      <td id="T_967cf_row5_col8" class="data row5 col8" >0.0300</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row6" class="row_heading level0 row6" >ada</th>
-      <td id="T_96c03_row6_col0" class="data row6 col0" >Ada Boost Classifier</td>
-      <td id="T_96c03_row6_col1" class="data row6 col1" >0.7071</td>
-      <td id="T_96c03_row6_col2" class="data row6 col2" >0.8237</td>
-      <td id="T_96c03_row6_col3" class="data row6 col3" >0.7071</td>
-      <td id="T_96c03_row6_col4" class="data row6 col4" >0.6952</td>
-      <td id="T_96c03_row6_col5" class="data row6 col5" >0.6956</td>
-      <td id="T_96c03_row6_col6" class="data row6 col6" >0.5077</td>
-      <td id="T_96c03_row6_col7" class="data row6 col7" >0.5134</td>
-      <td id="T_96c03_row6_col8" class="data row6 col8" >0.0600</td>
+      <th id="T_967cf_level0_row6" class="row_heading level0 row6" >dt</th>
+      <td id="T_967cf_row6_col0" class="data row6 col0" >Decision Tree Classifier</td>
+      <td id="T_967cf_row6_col1" class="data row6 col1" >0.6237</td>
+      <td id="T_967cf_row6_col2" class="data row6 col2" >0.7070</td>
+      <td id="T_967cf_row6_col3" class="data row6 col3" >0.6237</td>
+      <td id="T_967cf_row6_col4" class="data row6 col4" >0.6283</td>
+      <td id="T_967cf_row6_col5" class="data row6 col5" >0.6251</td>
+      <td id="T_967cf_row6_col6" class="data row6 col6" >0.3907</td>
+      <td id="T_967cf_row6_col7" class="data row6 col7" >0.3914</td>
+      <td id="T_967cf_row6_col8" class="data row6 col8" >0.0570</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row7" class="row_heading level0 row7" >qda</th>
-      <td id="T_96c03_row7_col0" class="data row7 col0" >Quadratic Discriminant Analysis</td>
-      <td id="T_96c03_row7_col1" class="data row7 col1" >0.7113</td>
-      <td id="T_96c03_row7_col2" class="data row7 col2" >0.8471</td>
-      <td id="T_96c03_row7_col3" class="data row7 col3" >0.7113</td>
-      <td id="T_96c03_row7_col4" class="data row7 col4" >0.6939</td>
-      <td id="T_96c03_row7_col5" class="data row7 col5" >0.6892</td>
-      <td id="T_96c03_row7_col6" class="data row7 col6" >0.5023</td>
-      <td id="T_96c03_row7_col7" class="data row7 col7" >0.5166</td>
-      <td id="T_96c03_row7_col8" class="data row7 col8" >0.0380</td>
+      <th id="T_967cf_level0_row7" class="row_heading level0 row7" >lr</th>
+      <td id="T_967cf_row7_col0" class="data row7 col0" >Logistic Regression</td>
+      <td id="T_967cf_row7_col1" class="data row7 col1" >0.4754</td>
+      <td id="T_967cf_row7_col2" class="data row7 col2" >0.5142</td>
+      <td id="T_967cf_row7_col3" class="data row7 col3" >0.4754</td>
+      <td id="T_967cf_row7_col4" class="data row7 col4" >0.3960</td>
+      <td id="T_967cf_row7_col5" class="data row7 col5" >0.4313</td>
+      <td id="T_967cf_row7_col6" class="data row7 col6" >0.0909</td>
+      <td id="T_967cf_row7_col7" class="data row7 col7" >0.0956</td>
+      <td id="T_967cf_row7_col8" class="data row7 col8" >0.5740</td>
     </tr>
     <tr>
-      <th id="T_96c03_level0_row8" class="row_heading level0 row8" >knn</th>
-      <td id="T_96c03_row8_col0" class="data row8 col0" >K Neighbors Classifier</td>
-      <td id="T_96c03_row8_col1" class="data row8 col1" >0.6945</td>
-      <td id="T_96c03_row8_col2" class="data row8 col2" >0.8128</td>
-      <td id="T_96c03_row8_col3" class="data row8 col3" >0.6945</td>
-      <td id="T_96c03_row8_col4" class="data row8 col4" >0.6716</td>
-      <td id="T_96c03_row8_col5" class="data row8 col5" >0.6792</td>
-      <td id="T_96c03_row8_col6" class="data row8 col6" >0.4882</td>
-      <td id="T_96c03_row8_col7" class="data row8 col7" >0.4917</td>
-      <td id="T_96c03_row8_col8" class="data row8 col8" >0.0380</td>
-    </tr>
-    <tr>
-      <th id="T_96c03_level0_row9" class="row_heading level0 row9" >ridge</th>
-      <td id="T_96c03_row9_col0" class="data row9 col0" >Ridge Classifier</td>
-      <td id="T_96c03_row9_col1" class="data row9 col1" >0.7125</td>
-      <td id="T_96c03_row9_col2" class="data row9 col2" >0.0000</td>
-      <td id="T_96c03_row9_col3" class="data row9 col3" >0.7125</td>
-      <td id="T_96c03_row9_col4" class="data row9 col4" >0.6846</td>
-      <td id="T_96c03_row9_col5" class="data row9 col5" >0.6676</td>
-      <td id="T_96c03_row9_col6" class="data row9 col6" >0.4912</td>
-      <td id="T_96c03_row9_col7" class="data row9 col7" >0.5196</td>
-      <td id="T_96c03_row9_col8" class="data row9 col8" >0.0220</td>
-    </tr>
-    <tr>
-      <th id="T_96c03_level0_row10" class="row_heading level0 row10" >dt</th>
-      <td id="T_96c03_row10_col0" class="data row10 col0" >Decision Tree Classifier</td>
-      <td id="T_96c03_row10_col1" class="data row10 col1" >0.6237</td>
-      <td id="T_96c03_row10_col2" class="data row10 col2" >0.7070</td>
-      <td id="T_96c03_row10_col3" class="data row10 col3" >0.6237</td>
-      <td id="T_96c03_row10_col4" class="data row10 col4" >0.6283</td>
-      <td id="T_96c03_row10_col5" class="data row10 col5" >0.6251</td>
-      <td id="T_96c03_row10_col6" class="data row10 col6" >0.3907</td>
-      <td id="T_96c03_row10_col7" class="data row10 col7" >0.3914</td>
-      <td id="T_96c03_row10_col8" class="data row10 col8" >0.0290</td>
-    </tr>
-    <tr>
-      <th id="T_96c03_level0_row11" class="row_heading level0 row11" >lr</th>
-      <td id="T_96c03_row11_col0" class="data row11 col0" >Logistic Regression</td>
-      <td id="T_96c03_row11_col1" class="data row11 col1" >0.4754</td>
-      <td id="T_96c03_row11_col2" class="data row11 col2" >0.5142</td>
-      <td id="T_96c03_row11_col3" class="data row11 col3" >0.4754</td>
-      <td id="T_96c03_row11_col4" class="data row11 col4" >0.3960</td>
-      <td id="T_96c03_row11_col5" class="data row11 col5" >0.4313</td>
-      <td id="T_96c03_row11_col6" class="data row11 col6" >0.0909</td>
-      <td id="T_96c03_row11_col7" class="data row11 col7" >0.0956</td>
-      <td id="T_96c03_row11_col8" class="data row11 col8" >0.4810</td>
-    </tr>
-    <tr>
-      <th id="T_96c03_level0_row12" class="row_heading level0 row12" >nb</th>
-      <td id="T_96c03_row12_col0" class="data row12 col0" >Naive Bayes</td>
-      <td id="T_96c03_row12_col1" class="data row12 col1" >0.4997</td>
-      <td id="T_96c03_row12_col2" class="data row12 col2" >0.5850</td>
-      <td id="T_96c03_row12_col3" class="data row12 col3" >0.4997</td>
-      <td id="T_96c03_row12_col4" class="data row12 col4" >0.3821</td>
-      <td id="T_96c03_row12_col5" class="data row12 col5" >0.3679</td>
-      <td id="T_96c03_row12_col6" class="data row12 col6" >0.0198</td>
-      <td id="T_96c03_row12_col7" class="data row12 col7" >0.0399</td>
-      <td id="T_96c03_row12_col8" class="data row12 col8" >0.0230</td>
-    </tr>
-    <tr>
-      <th id="T_96c03_level0_row13" class="row_heading level0 row13" >dummy</th>
-      <td id="T_96c03_row13_col0" class="data row13 col0" >Dummy Classifier</td>
-      <td id="T_96c03_row13_col1" class="data row13 col1" >0.4994</td>
-      <td id="T_96c03_row13_col2" class="data row13 col2" >0.5000</td>
-      <td id="T_96c03_row13_col3" class="data row13 col3" >0.4994</td>
-      <td id="T_96c03_row13_col4" class="data row13 col4" >0.2494</td>
-      <td id="T_96c03_row13_col5" class="data row13 col5" >0.3326</td>
-      <td id="T_96c03_row13_col6" class="data row13 col6" >0.0000</td>
-      <td id="T_96c03_row13_col7" class="data row13 col7" >0.0000</td>
-      <td id="T_96c03_row13_col8" class="data row13 col8" >0.0520</td>
-    </tr>
-    <tr>
-      <th id="T_96c03_level0_row14" class="row_heading level0 row14" >svm</th>
-      <td id="T_96c03_row14_col0" class="data row14 col0" >SVM - Linear Kernel</td>
-      <td id="T_96c03_row14_col1" class="data row14 col1" >0.3043</td>
-      <td id="T_96c03_row14_col2" class="data row14 col2" >0.0000</td>
-      <td id="T_96c03_row14_col3" class="data row14 col3" >0.3043</td>
-      <td id="T_96c03_row14_col4" class="data row14 col4" >0.2231</td>
-      <td id="T_96c03_row14_col5" class="data row14 col5" >0.2482</td>
-      <td id="T_96c03_row14_col6" class="data row14 col6" >0.0001</td>
-      <td id="T_96c03_row14_col7" class="data row14 col7" >-0.0007</td>
-      <td id="T_96c03_row14_col8" class="data row14 col8" >0.0290</td>
+      <th id="T_967cf_level0_row8" class="row_heading level0 row8" >dummy</th>
+      <td id="T_967cf_row8_col0" class="data row8 col0" >Dummy Classifier</td>
+      <td id="T_967cf_row8_col1" class="data row8 col1" >0.4994</td>
+      <td id="T_967cf_row8_col2" class="data row8 col2" >0.5000</td>
+      <td id="T_967cf_row8_col3" class="data row8 col3" >0.4994</td>
+      <td id="T_967cf_row8_col4" class="data row8 col4" >0.2494</td>
+      <td id="T_967cf_row8_col5" class="data row8 col5" >0.3326</td>
+      <td id="T_967cf_row8_col6" class="data row8 col6" >0.0000</td>
+      <td id="T_967cf_row8_col7" class="data row8 col7" >0.0000</td>
+      <td id="T_967cf_row8_col8" class="data row8 col8" >0.0670</td>
     </tr>
   </tbody>
 </table>
@@ -778,10 +1009,82 @@ The results of the best models are given in leaderboard   below in @tbl-leaderbo
 :::
 
 
-Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for scoring fairly well on tabular data, while ordinary GBC is the most second to prime and the most robust one, featuring best conventional recall, accuracy, and precision metrics. 
+
+::: {#fig-rocauc .cell execution_count=89}
+
+::: {#fig-rocauc-1 .cell-output .cell-output-display}
+```
+<IPython.core.display.HTML object>
+```
+
+Stylized ROC curves for the Catboost Model
+:::
+
+::: {.cell-output .cell-output-display}
+![](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-rocauc-output-2.png){#fig-rocauc-2}
+:::
+:::
+
+
+::: {.cell execution_count=87}
+
+::: {.cell-output .cell-output-stdout}
+```
+Requirement already satisfied: graphviz in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (0.20.1)
+```
+:::
+:::
+
+
+
+
+::: {.cell execution_count=97}
+
+::: {.cell-output .cell-output-display execution_count=97}
+![](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-55-output-1.svg){}
+:::
+:::
+
+
+::: {.cell execution_count=102}
+
+::: {.cell-output .cell-output-display execution_count=102}
+```
+(Pipeline(memory=Memory(location=None),
+          steps=[('label_encoding',
+                  TransformerWrapperWithInverse(exclude=None, include=None,
+                                                transformer=LabelEncoder())),
+                 ('numerical_imputer',
+                  TransformerWrapper(exclude=None,
+                                     include=['Marital status',
+                                              'Application mode',
+                                              'Application order', 'Course',
+                                              'Daytime/evening attendance',
+                                              'Previous qualification',
+                                              'Previous qualification (gra...
+                                                     iterated_power='auto',
+                                                     n_components=10,
+                                                     n_oversamples=10,
+                                                     power_iteration_normalizer='auto',
+                                                     random_state=None,
+                                                     svd_solver='auto', tol=0.0,
+                                                     whiten=False))),
+                 ('clean_column_names',
+                  TransformerWrapper(exclude=None, include=None,
+                                     transformer=CleanColumnNames(match='[\\]\\[\\,\\{\\}\\"\\:]+'))),
+                 ('trained_model',
+                  <catboost.core.CatBoostClassifier object at 0x295e30790>)],
+          verbose=False),
+ 'models/SOTA_catboost.pkl')
+```
+:::
+:::
+
+
+Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for scoring fairly well on tabular data, while ordinary GBC is the most second to prime and the most robust one, featuring best conventional recall, accuracy, and precision metrics. The 
 
 However, while all top models in @tbl-leaderboard demonstrate significant improvement over a dummy classifier and other simplistic models such as Logistic Regression, the scores are still 
-which indicates that reduction of dimensionality, which is inevitable under given class imbalance, has come at a price of variance loss, or, alternatively, all the covariates do not explain sufficiently well the outcome of studies: in academic success, as in life, a lot depends on the proper characteristics of a person which are difficult to elicit and much is undetermined. After all, it is a matter of principle whether to continue studying despite all ordeals. 
+which indicates that reduction of dimensionality, which is inevitable under given class imbalance, has come at a price of variance loss, or, alternatively, all the covariates do not explain sufficiently well the outcome of studies: in academic success, as in life, a lot depends on the proper characteristics of a person which are difficult to elicit and much is undetermined.
 
 ## **Conclusion**
 

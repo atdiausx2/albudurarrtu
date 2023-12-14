@@ -186,29 +186,29 @@ achievements: A case of the University of Portalegre}
 \begin{abstract}
 .
 \end{abstract}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, interior hidden, sharp corners, enhanced, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, borderline west={3pt}{0pt}{shadecolor}, frame hidden, boxrule=0pt, interior hidden, enhanced, breakable]}{\end{tcolorbox}}\fi
 
 \hypertarget{abstract}{%
 \subsection{Abstract}\label{abstract}}
 
-In the world of education, the path to success is often visualized as a
-linear progression, where students follow a predefined journey from
+In the world of education, a person's path is often depicted as a linear
+progression, where students follow a predefined journey from
 kindergarten to graduation. However, the reality is far more complex.
-There could be various reasons that come along the study program that
+There could be various reasons that emerge during the study program that
 led students to deviate from this path. These students might encounter
 different challenges, circumstances, or a lack of proper resources that
 have led them to drop out of university.
 
 In this dataset provided to us, we will delve deeper into understanding
-the reasons why students have dropped out of the university, based on
-the data at our disposal. We will leverage our social knowledge to
-comprehend the factors that influenced their decision to drop out and
-work to prevent such occurrences if the issues are within the
-university's purview. Our goal is to offer solutions, support, and the
-necessary resources to facilitate students' educational journeys. We
-will also use the analysis we've conducted on the dropout students to
-learn from their experiences and chart a unique educational pathway with
-fewer dropouts.
+the reasons why students have dropped out of the university. We will
+leverage our social knowledge to comprehend the factors that influenced
+their decision to drop out and work to prevent such occurrences if the
+issues are within the university's purview. Our goal is to propose
+solutions and their support so that high schools could facilitate and
+secure students' educational journeys. We construct the best basic model
+that predicts the results with 73\% balanced precision recall. We
+provide the recommedatons based on findings and define auxiliary
+requisite data to further our research in the future.
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -254,8 +254,8 @@ success of this goal, it is important to set KPI's, track them and make
 educated conclusions on what needs to be done or is being done right to
 reach the goal of higher educated society.
 
-\hypertarget{target-metrics-and-kpi}{%
-\subsection{Target Metrics and KPI}\label{target-metrics-and-kpi}}
+\hypertarget{sec-kpi}{%
+\subsection{Target Metrics and KPI}\label{sec-kpi}}
 
 In this particular case, KPI's will be chosen based on datasets of
 Portugese High Schools but most likely data can be generalised, atleast
@@ -329,8 +329,8 @@ inevitable given the freedom the universities enjoy in managing their
 study programmes. Still, any manipulation of this metrics can only be
 temporary and thus is also not in the best interest of the university.
 
-\hypertarget{exploratory-data-analysis}{%
-\subsection{Exploratory Data Analysis}\label{exploratory-data-analysis}}
+\hypertarget{sec-eda}{%
+\subsection{Exploratory Data Analysis}\label{sec-eda}}
 
 \hypertarget{descriptive-statistics}{%
 \subsubsection{Descriptive Statistics}\label{descriptive-statistics}}
@@ -507,10 +507,14 @@ abroad are from the Overseas Territories where it's more challenging to
 get comparable education. However, they and inland Portugal students
 were naturally given some exemptions, as the dataset states \footnote{Link
   to the dataset description:
-  \url{https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success}}
+  \url{https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success}}.
+\footnote{Notably, the authors did not specify all categories of
+  students even in the description to the dataset, so it can be regarded
+  as one of \enquote*{issues} of the dataset that it can be challenging
+  to fully interpret the feature store.}
 
-. For example, the students admitted per Ordance no. 854 \footnote{Link
-  to the source document:
+For example, the students admitted per Ordance no. 854 \footnote{Link to
+  the source document:
   \url{https://dre.tretas.org/dre/106607/portaria-854-B-99-de-4-de-outubro}}
 were not required to demonstrate the proof of their validity since their
 received a diploma in secondary education administered in Portuguese
@@ -524,6 +528,9 @@ Finally, those admitted per Ordnance no. 612 \footnote{Link to the
   \url{https://dre.tretas.org/dre/51542/portaria-612-93-de-29-de-junho}}
 came from other countries but had comparable material in their studies
 and so their points were recalculated with some amortization.
+
+\hypertarget{data-visualizations}{%
+\subsubsection{Data Visualizations}\label{data-visualizations}}
 
 \begin{figure}
 
@@ -595,27 +602,25 @@ We can draw the following observations:
   previous qualifications tend to have higher admission grades.
 \end{itemize}
 
-This was the visualization for the few quantitative columns, which shows
-the natural interconnection between the curricularly accrued units in
-the 1st and the 2nd year, which are in turn mostly unrelated to the
-admission grade. This is understandable since the grades are commonly
-based on the successfulness of the local program and student's toil,
-while the students' backgrounds are commonly different and this puts
-them into inequitable positions when passing the admission exams.
+The visualizations above, however, were natural for the few quantitative
+columns, which show the natural interconnection between the curricularly
+accrued units in the 1st and in the 2nd year, which are in turn mostly
+unrelated to the admission grade. This is understandable since the
+grades are commonly based on the successfulness of the local program and
+student's toil, while the students' backgrounds are commonly different
+and this puts them into inequitable positions when passing the admission
+exams.
 
 In these previous graphs, we considered quantitative columns that are
 more or less exogenous to the dataset (e. g. age and the previous
-qualification grade are not influenced by the the current grade of the
+qualification grade are not influenced by the current grade of the
 students).
 
 However, the majority of columns of this dataset are qualitative and
 they are at least partially endogenous as stem from the decisions during
-the study. For this, we need to propose a mechanism of influence, then
-formulate and test a hypothesis via an analysis of discriminate groups.
-
-We also consider the impact of scholarships and other compensations in
-academic support, which should alleviate the complications associated
-with adaptations in new environment.
+the study and their consequences. For this, we need to propose a
+mechanism of influence, then formulate and test a hypothesis via an
+analysis of discriminate groups.
 
 \begin{figure}
 
@@ -628,10 +633,11 @@ indicators and drivers of their motivation and impediments}
 
 \end{figure}
 
-We see that having debt is always a serious impediment against studies
-because it gives wrong incentives towards directly making money in the
-short run instead of focusing solely on one's studies that could aid to
-make altogether greater money in the long run.
+We see on Figure~\ref{fig-word-1} that having debt is always a serious
+impediment against studies because it gives wrong incentives towards
+directly making money in the short run instead of focusing solely on
+one's studies that could aid to make altogether greater money in the
+long run.
 
 \begin{figure}
 
@@ -645,9 +651,13 @@ learning and impediments (Part 2)}
 
 \end{figure}
 
+We also consider the impact of scholarships and other compensations in
+academic support, which should alleviate the complications associated
+with adaptations in new environment.
+
 \begin{figure}
 
-{\centering \includegraphics{./figs/rasons-3.jpg}
+{\centering \includegraphics{./figs/reasonsIII.jpg}
 
 }
 
@@ -656,7 +666,7 @@ learning and impediments (Part 2)}
 \end{figure}
 
 In different studies, it is quite common to compare the academic success
-of a student with the academic successes of ttheir parents as this has
+of a student with the academic successes of their parents as this has
 both direct and indirect effects , s. a. i. e. both are connected to
 welfare, but also it can be that there is another channel of knowledge
 transmission to the younger generation.
@@ -694,41 +704,139 @@ of 90\% of classes)}
 
 \end{figure}
 
+As visible on Figure~\ref{fig-correlation}, there are strong positive
+correlation among the curricular units for 1st and 2nd sem that could
+suggest that students that are doing well in the first sem will
+certainly do well in the upcoming semester. This could suggest that
+students with lower curricular units have a higher chance of dropping
+out due to their academic preparedness and failing to meet the
+requirements and expectations of the study program.
+
+\begin{longtable}[]{@{}llllllllllllllllllllll@{}}
+\toprule\noalign{}
+& Marital status & Application mode & Application order & Course &
+Daytime/evening attendance & Previous qualification & Previous
+qualification (grade) & Nacionality & Mother\textquotesingle s
+qualification & Father\textquotesingle s qualification & ... &
+Curricular units 2nd sem (credited) & Curricular units 2nd sem
+(enrolled) & Curricular units 2nd sem (evaluations) & Curricular units
+2nd sem (approved) & Curricular units 2nd sem (grade) & Curricular units
+2nd sem (without evaluations) & Unemployment rate & Inflation rate & GDP
+& Target \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 1 & 17 & 5 & 171 & 1 & 1 & 122.0 & 1 & 19 & 12 & ... & 0 & 0 & 0 & 0
+& 0.000000 & 0 & 10.8 & 1.4 & 1.74 & Dropout \\
+1 & 1 & 15 & 1 & 9254 & 1 & 1 & 160.0 & 1 & 1 & 3 & ... & 0 & 6 & 6 & 6
+& 13.666667 & 0 & 13.9 & -0.3 & 0.79 & Graduate \\
+2 & 1 & 1 & 5 & 9070 & 1 & 1 & 122.0 & 1 & 37 & 37 & ... & 0 & 6 & 0 & 0
+& 0.000000 & 0 & 10.8 & 1.4 & 1.74 & Dropout \\
+3 & 1 & 17 & 2 & 9773 & 1 & 1 & 122.0 & 1 & 38 & 37 & ... & 0 & 6 & 10 &
+5 & 12.400000 & 0 & 9.4 & -0.8 & -3.12 & Graduate \\
+4 & 2 & 39 & 1 & 8014 & 0 & 1 & 100.0 & 1 & 37 & 38 & ... & 0 & 6 & 6 &
+6 & 13.000000 & 0 & 13.9 & -0.3 & 0.79 & Graduate \\
+... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... &
+... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
+4419 & 1 & 1 & 6 & 9773 & 1 & 1 & 125.0 & 1 & 1 & 1 & ... & 0 & 6 & 8 &
+5 & 12.666667 & 0 & 15.5 & 2.8 & -4.06 & Graduate \\
+4420 & 1 & 1 & 2 & 9773 & 1 & 1 & 120.0 & 105 & 1 & 1 & ... & 0 & 6 & 6
+& 2 & 11.000000 & 0 & 11.1 & 0.6 & 2.02 & Dropout \\
+4421 & 1 & 1 & 1 & 9500 & 1 & 1 & 154.0 & 1 & 37 & 37 & ... & 0 & 8 & 9
+& 1 & 13.500000 & 0 & 13.9 & -0.3 & 0.79 & Dropout \\
+4422 & 1 & 1 & 1 & 9147 & 1 & 1 & 180.0 & 1 & 37 & 37 & ... & 0 & 5 & 6
+& 5 & 12.000000 & 0 & 9.4 & -0.8 & -3.12 & Graduate \\
+4423 & 1 & 10 & 1 & 9773 & 1 & 1 & 152.0 & 22 & 38 & 37 & ... & 0 & 6 &
+6 & 6 & 13.000000 & 0 & 12.7 & 3.7 & -1.70 & Graduate \\
+\end{longtable}
+
 In the remaining part, we examine the correlations of purely endogenous
 temporal variables. This does not give a scoop about the source of
 causation and is not a good predictor, but exhibits an analysis of
 autocorrelation inside the quasi-temporal data.
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-54-output-1.png}
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-output-1.png}
+
+}
+
+\caption{\label{fig-cur-units}Vizualization for curricular successively
+approved units}
+
+\end{figure}
 
 We can see that the points for the 1st semester and 2nd semester are
 correlated which shows that are one's marks are primary drivers of
 success and exhibit sizeable correlations
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-55-output-1.png}
+\begin{figure}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-56-output-1.png}
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-enrolled-output-1.png}
 
-\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-57-output-1.png}
+}
 
-\hypertarget{data-mining}{%
-\subsection{Data Mining}\label{data-mining}}
+\caption{\label{fig-cur-units-enrolled}Vizualization for curricular
+successively enrolled units}
 
-In this matrix for correlations, we already see high correlations
-between many values. Hence, if we (certainly) consider qualitative
-variables in our data mining analysis, we must reduce the number of
-variables because the true dimensionality of the initial space is too
-high and virtually all ways of embedding are too costly and prohibitive
-given a relatively small amount of datapoints in this dataset. First our
-common step would be to dispose of multicollinear columns.\\
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-grade-output-1.png}
+
+}
+
+\caption{\label{fig-cur-grade}Vizualization of curricular units for the
+1st semester}
+
+\end{figure}
+
+\hypertarget{unmentioned-data-issues}{%
+\subsubsection{Unmentioned data issues}\label{unmentioned-data-issues}}
+
+While the dataset does not have empty columns , there is some auxiliary
+data that could be very appropriate to have together with it. For
+example, we have data for years that are many in today's changing
+education environment, but there is no open data as proxy for the
+conditions in which the students have to study and which influence their
+dropout ratios (causing affection or not). Apart from data on
+schorlarships, any transitions and their effect (even though hapenned
+during reforms in Portugal education field in 2000s-10s) are downplayed.
+
+\hypertarget{sec-data-mining}{%
+\subsection{Data Mining}\label{sec-data-mining}}
+
+Now, we need to define our data mining strategy. In the matrix
+\ref{fig-correlation} for correlations, we already see high correlations
+between many values. Hence, if we (certainly we should) also consider
+categorical variables in our data mining analysis, we must reduce the
+number of variables because the true dimensionality of the initial space
+is too high and virtually all ways of embedding and distance calculation
+are too costly and prohibitive given a relatively small amount of
+datapoints in this dataset.
+
+In EDA Section~\ref{sec-eda}, we already stressed the issue of class
+imbalance. To at least partially recompense for this, we need to perform
+SMOTE augmentation of scarcer classes. After dataset is SMOTE-amplified,
+our common step would be to dispose of multicollinear columns.\\
 High dimensionality prevents intuitive DBSCAN threshold setting and some
-inferior algorithms as TSNE.
+inferior algorithms as TSNE. Hence, although not considering distal
+non-linear data structures, we reduce the dimensionality via principal
+component analysis.
 
-After we perform the PCA, we select estimators from various standard
-families that are idependently fine-tuned and then, by F1 measure, the
-model that is most precise in predicting the outcome is rendered. The
-results of the best models are given in leaderboard below in
-Table~\ref{tbl-leaderboard}.
+After we perform the PCA, the estimators from various standard families
+are idependently fine-tuned, by mean F1 measure, the model that is most
+precise in predicting the outcome is rendered. We confer some other
+renowned metrics for the best model . In total, we consider 3 different
+types of models for classification (logical, linear separative, linear
+generative), implying algorithms of various \enquote*{difficulty}
+levels, including 3 boostings: LGBoosting, XGBoosting (gbc), Catboost,
+Random Forest, a Decision Tree as well as linear discriminate analysis
+and logistic regression. We test models against each other and against
+dummy classifier. The results of the best models are given in
+leaderboard below in Table~\ref{tbl-leaderboard}.
 
 \begin{verbatim}
 <IPython.core.display.HTML object>
@@ -749,47 +857,102 @@ Table~\ref{tbl-leaderboard}.
 \bottomrule\noalign{}
 \endlastfoot
 catboost & CatBoost Classifier & 0.7290 & 0.8626 & 0.7290 & 0.7099 &
-0.7150 & 0.5443 & 0.5491 & 1.5310 \\
+0.7150 & 0.5443 & 0.5491 & 1.8750 \\
 gbc & Gradient Boosting Classifier & 0.7293 & 0.8674 & 0.7293 & 0.7124 &
-0.7147 & 0.5426 & 0.5494 & 0.4880 \\
-et & Extra Trees Classifier & 0.7271 & 0.8606 & 0.7271 & 0.7068 & 0.7105
-& 0.5377 & 0.5446 & 0.0780 \\
+0.7147 & 0.5426 & 0.5494 & 0.6640 \\
 lightgbm & Light Gradient Boosting Machine & 0.7248 & 0.8591 & 0.7248 &
-0.7044 & 0.7092 & 0.5357 & 0.5413 & 0.7420 \\
+0.7044 & 0.7092 & 0.5357 & 0.5413 & 0.8520 \\
 rf & Random Forest Classifier & 0.7255 & 0.8644 & 0.7255 & 0.7041 &
-0.7088 & 0.5357 & 0.5420 & 0.1360 \\
+0.7088 & 0.5357 & 0.5420 & 0.1450 \\
 lda & Linear Discriminant Analysis & 0.7190 & 0.8560 & 0.7190 & 0.7047 &
-0.6984 & 0.5163 & 0.5310 & 0.0290 \\
-ada & Ada Boost Classifier & 0.7071 & 0.8237 & 0.7071 & 0.6952 & 0.6956
-& 0.5077 & 0.5134 & 0.0600 \\
-qda & Quadratic Discriminant Analysis & 0.7113 & 0.8471 & 0.7113 &
-0.6939 & 0.6892 & 0.5023 & 0.5166 & 0.0380 \\
-knn & K Neighbors Classifier & 0.6945 & 0.8128 & 0.6945 & 0.6716 &
-0.6792 & 0.4882 & 0.4917 & 0.0380 \\
+0.6984 & 0.5163 & 0.5310 & 0.0370 \\
 ridge & Ridge Classifier & 0.7125 & 0.0000 & 0.7125 & 0.6846 & 0.6676 &
-0.4912 & 0.5196 & 0.0220 \\
+0.4912 & 0.5196 & 0.0300 \\
 dt & Decision Tree Classifier & 0.6237 & 0.7070 & 0.6237 & 0.6283 &
-0.6251 & 0.3907 & 0.3914 & 0.0290 \\
+0.6251 & 0.3907 & 0.3914 & 0.0570 \\
 lr & Logistic Regression & 0.4754 & 0.5142 & 0.4754 & 0.3960 & 0.4313 &
-0.0909 & 0.0956 & 0.4810 \\
-nb & Naive Bayes & 0.4997 & 0.5850 & 0.4997 & 0.3821 & 0.3679 & 0.0198 &
-0.0399 & 0.0230 \\
+0.0909 & 0.0956 & 0.5740 \\
 dummy & Dummy Classifier & 0.4994 & 0.5000 & 0.4994 & 0.2494 & 0.3326 &
-0.0000 & 0.0000 & 0.0520 \\
-svm & SVM - Linear Kernel & 0.3043 & 0.0000 & 0.3043 & 0.2231 & 0.2482 &
-0.0001 & -0.0007 & 0.0290 \\
+0.0000 & 0.0000 & 0.0670 \\
 \caption{\label{tbl-leaderboard}Results of fitting estimators of
-different families}\label{T_96c03}\tabularnewline
+different families}\label{T_967cf}\tabularnewline
 \end{longtable}
 
 \begin{verbatim}
 <IPython.core.display.HTML object>
 \end{verbatim}
 
+\begin{figure}
+
+{\centering 
+
+\begin{figure}
+
+{\centering 
+
+\begin{verbatim}
+<IPython.core.display.HTML object>
+\end{verbatim}
+
+}
+
+\caption{Stylized ROC curves for the Catboost Model}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-rocauc-output-2.png}
+
+}
+
+\end{figure}
+
+}
+
+\caption{\label{fig-rocauc}\textbf{?(caption)}}
+
+\end{figure}
+
+\begin{verbatim}
+Requirement already satisfied: graphviz in /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages (0.20.1)
+\end{verbatim}
+
+\includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/mediabag/report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/cell-55-output-1.pdf}
+
+\begin{verbatim}
+(Pipeline(memory=Memory(location=None),
+          steps=[('label_encoding',
+                  TransformerWrapperWithInverse(exclude=None, include=None,
+                                                transformer=LabelEncoder())),
+                 ('numerical_imputer',
+                  TransformerWrapper(exclude=None,
+                                     include=['Marital status',
+                                              'Application mode',
+                                              'Application order', 'Course',
+                                              'Daytime/evening attendance',
+                                              'Previous qualification',
+                                              'Previous qualification (gra...
+                                                     iterated_power='auto',
+                                                     n_components=10,
+                                                     n_oversamples=10,
+                                                     power_iteration_normalizer='auto',
+                                                     random_state=None,
+                                                     svd_solver='auto', tol=0.0,
+                                                     whiten=False))),
+                 ('clean_column_names',
+                  TransformerWrapper(exclude=None, include=None,
+                                     transformer=CleanColumnNames(match='[\\]\\[\\,\\{\\}\\"\\:]+'))),
+                 ('trained_model',
+                  <catboost.core.CatBoostClassifier object at 0x295e30790>)],
+          verbose=False),
+ 'models/SOTA_catboost.pkl')
+\end{verbatim}
+
 Thus, the best model by F1 measure is CatBoostClassifier, which is
 renowned for scoring fairly well on tabular data, while ordinary GBC is
 the most second to prime and the most robust one, featuring best
-conventional recall, accuracy, and precision metrics.
+conventional recall, accuracy, and precision metrics. The
 
 However, while all top models in Table~\ref{tbl-leaderboard} demonstrate
 significant improvement over a dummy classifier and other simplistic
@@ -799,8 +962,7 @@ imbalance, has come at a price of variance loss, or, alternatively, all
 the covariates do not explain sufficiently well the outcome of studies:
 in academic success, as in life, a lot depends on the proper
 characteristics of a person which are difficult to elicit and much is
-undetermined. After all, it is a matter of principle whether to continue
-studying despite all ordeals.
+undetermined.
 
 \hypertarget{conclusion}{%
 \subsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion}}

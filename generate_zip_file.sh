@@ -1,0 +1,1 @@
+zip report_AzadhdhinNedalYunisAlFraijat_files.zip report_AzadhdhinNedalYunisAlFraijat_files/* -r report_AzadhdhinNedalYunisAlFraijat.tex bibliography.bib figs/* -r
