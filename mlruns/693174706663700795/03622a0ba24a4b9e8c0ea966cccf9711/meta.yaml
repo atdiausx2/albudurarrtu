@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/03622a0ba24a4b9e8c0ea966cccf9711/artifacts
+end_time: 1702529106597
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 03622a0ba24a4b9e8c0ea966cccf9711
+run_name: Logistic Regression
+run_uuid: 03622a0ba24a4b9e8c0ea966cccf9711
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702529106563
+status: 3
+tags: []
+user_id: romulaperov

@@ -6,9 +6,9 @@ author:
     - Danat Semeneev
     - Ieva Žube
     - Pankaj Chettri
-    - Kristaps Eglītis^[(all five) Rīga Technical University]
-abstract: .
-thanks: All correspondence should be addressed to danat.semeneev@edu.rtu.lv. 
+    - Kristaps Eglītis^[(all) Rīga Technical University]
+abstract: "In the world of education, a person's academical path is often depicted as a linear progression, where students follow a predefined journey from kindergarten to graduation. However, the reality is far more complex. There could be various reasons that emerge during the study program that led students to deviate from this path. These students might encounter different challenges, circumstances, or a lack of proper resources that have led them to drop out of university. In this dataset provided to us, we will delve deeper into understanding the reasons why students have dropped out of the university. We will leverage our social knowledge to comprehend the factors that influenced their decision to drop out and work to prevent such occurrences if the issues are within the university's purview. Our goal is to propose solutions and their support so that high schools could facilitate and secure students' educational journeys. We construct the best basic model that predicts the results with 73% balanced precision recall. We provide the recommedatons based on findings and define auxiliary requisite data to further our research in the future." 
+thanks: 'All correspondence should be addressed to <danat.semeneev@edu.rtu.lv>.' 
 date: last-modified
 mainfont: CMU Serif
 sansfont: CMU Serif 
@@ -31,6 +31,7 @@ format:
     pdf-engine: xelatex
     pdf-engine-opt: '-shell-escape'
     keep-tex: true
+    toc: true
     keep-md: true
     cite-method: biblatex
     header-includes:
@@ -43,15 +44,15 @@ bibliography: bibliography.bib
 
 
  <!-- {{< include ./text/abstract_text.txt >}}  -->
-
+<!-- {{ <pagebreak> }} -->
 <!-- #  {{< includes ./_abstract.md >}}  -->
 <!-- All code can be viewed on GitHub at <https://github.com/atdiausx2/albudurarrtu>  -->
 
-## Abstract
+<!-- \tableofcontents -->
 
-In the world of education, a person's path is often depicted as a linear progression, where students follow a predefined journey from kindergarten to graduation. However, the reality is far more complex. There could be various reasons that emerge during the study program that led students to deviate from this path. These students might encounter different challenges, circumstances, or a lack of proper resources that have led them to drop out of university.
+<!-- ## Abstract -->
 
-In this dataset provided to us, we will delve deeper into understanding the reasons why students have dropped out of the university. We will leverage our social knowledge to comprehend the factors that influenced their decision to drop out and work to prevent such occurrences if the issues are within the university's purview. Our goal is to propose solutions and their support so that high schools could facilitate and secure students' educational journeys. We construct the best basic model that predicts the results with 73% balanced precision recall. We provide the recommedatons based on findings and define auxiliary requisite data to further our research in the future. 
+
 <!-- We will also use the analysis we've conducted on the dropout students to learn from their experiences and chart a unique educational pathway with fewer dropouts. -->
 
 # Goals and Objectives 
@@ -59,16 +60,18 @@ In this dataset provided to us, we will delve deeper into understanding the reas
 In order to shed light on the factors for dropout and the dropout itself, 
 we have set the following objectives in this research: 
 
-• Basing on literature sources, briefly recap incentives towards studying and its termination 
-• Formulate Metrics and Key Performance Indicators (KPIs)
+- Basing on literature sources, briefly recap incentives towards studying and its termination 
+-  Formulate Metrics and Key Performance Indicators (KPIs)
    - Define measurable KPIs for effective tracking and pinpointing the dropout related    trends
-   - Establishing benchmark for success and areas that requires attention for improvement
-• Perform Analysis and Pattern Recognition
+   - Establish benchmark for success and areas that requires attention for improvement
+  
+- Perform Analysis and Pattern Recognition
    - Identify key factors that contribute to the dropout rate of students
-• Designing Targeted Interventions
-   - Based on patterns identified, develop targeted interventions
+   - Using these factors, build a model predicting students' dropout from the university, graduation, or further enrollment.
+  
+- Designing Targeted Interventions
+   - Based on patterns identified, propose targeted interventions
    - Brainstorm and implement various strategies to address dropout factors
-   - Consider and Implement support mechanisms fostering the student graduating success with continuous monitoring and keeping the interventions dynamic to facilitate changes
 
 # Introduction
 
@@ -350,7 +353,7 @@ The students are from multiple countries, but the overwhelming majority of the s
 [^conversion]: Link to the source document: <https://dre.tretas.org/dre/104726/portaria-533-A-99-de-22-de-julho> 
 [^dataset]: Link to the source document: <https://dre.tretas.org/dre/106607/portaria-854-B-99-de-4-de-outubro>  
 
-### Data Visualizations
+## Data Visualizations
 
 
 
@@ -395,11 +398,11 @@ The datapoint cloud on [Table -@fig-points-distr], however, shows that this rule
 
 We can draw the following observations: 
 
-*  The **distribution of admission grades** is roughly normal with most students scoring between ***120 and 160 marks***.
+*  The distribution of admission grades is roughly normal with most students scoring between ***120 and 160 marks***.
 
-*  The **distribution of previous qualifications** (grades) is also the same with most of them having grades in between ***120 and 160***.
+*  The distribution of previous qualifications (grades) is also the same with most of them having grades in between **120 and 160**.
 
-*  There is seen a **positive correlation** between admission grade and previous qualification grade indicating students with higher previous qualifications tend to have higher admission grades.
+*  There is seen a positive correlation between admission grade and previous qualification grade indicating students with higher previous qualifications tend to have higher admission grades.
 
 The visualizations above, however, were natural for the few quantitative columns, which show the natural interconnection between the curricularly accrued units in the 1st and in the 2nd year, which are in turn mostly unrelated to the admission grade. This is understandable since the grades are commonly based on the successfulness of the local program and student's toil, while the students' backgrounds are commonly different and this puts them into inequitable positions when passing the admission exams. 
 
@@ -489,7 +492,7 @@ In the remaining part, we examine the correlations of purely endogenous temporal
 
 
 
-::: {.cell execution_count=78}
+::: {.cell execution_count=130}
 
 ::: {.cell-output .cell-output-display}
 ![Vizualization for curricular successively approved units](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-output-1.png){#fig-cur-units}
@@ -499,7 +502,7 @@ In the remaining part, we examine the correlations of purely endogenous temporal
 
 We can see that the points for the 1st semester and 2nd semester are correlated which shows that are one's marks are primary drivers of success and exhibit sizeable correlations 
 
-::: {.cell execution_count=79}
+::: {.cell execution_count=131}
 
 ::: {.cell-output .cell-output-display}
 ![Vizualization for curricular successively enrolled units](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-enrolled-output-1.png){#fig-cur-units-enrolled}
@@ -509,7 +512,7 @@ We can see that the points for the 1st semester and 2nd semester are correlated 
 
 
 
-::: {.cell execution_count=81}
+::: {.cell execution_count=133}
 
 ::: {.cell-output .cell-output-display}
 ![Vizualization of curricular units for the 1st semester](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-grade-output-1.png){#fig-cur-grade}
@@ -525,6 +528,8 @@ Another significant challenge are extraneous events that fundamentally influence
 
 
 # Data Mining (Analysis) {#sec-data-mining} 
+
+## ML pipeline design 
 
 Now, we need to define our data mining strategy.
 
@@ -542,8 +547,9 @@ implying algorithms of various 'difficulty' levels, including 3 boostings: LGBoo
 The results of the best models are given in leaderboard   below in [@tbl-leaderboard]. 
 <!-- @tbl-leaderboard. -->
 
+## Data mining application 
 
-::: {#tbl-leaderboard .cell tbl-cap='Results of fitting estimators of different families' execution_count=113}
+::: {#tbl-leaderboard .cell tbl-cap='Results of fitting estimators of different families' execution_count=134}
 
 ::: {.cell-output .cell-output-display}
 ```
@@ -555,149 +561,149 @@ The results of the best models are given in leaderboard   below in [@tbl-leaderb
 
 ```{=html}
 <style type="text/css">
-#T_dba7a th {
+#T_4418c th {
   text-align: left;
 }
-#T_dba7a_row0_col0, #T_dba7a_row0_col1, #T_dba7a_row0_col2, #T_dba7a_row0_col3, #T_dba7a_row0_col4, #T_dba7a_row1_col0, #T_dba7a_row1_col4, #T_dba7a_row1_col5, #T_dba7a_row1_col6, #T_dba7a_row1_col7, #T_dba7a_row2_col0, #T_dba7a_row2_col1, #T_dba7a_row2_col2, #T_dba7a_row2_col3, #T_dba7a_row2_col5, #T_dba7a_row2_col6, #T_dba7a_row2_col7, #T_dba7a_row3_col0, #T_dba7a_row3_col1, #T_dba7a_row3_col2, #T_dba7a_row3_col3, #T_dba7a_row3_col4, #T_dba7a_row3_col5, #T_dba7a_row3_col6, #T_dba7a_row3_col7, #T_dba7a_row4_col0, #T_dba7a_row4_col1, #T_dba7a_row4_col2, #T_dba7a_row4_col3, #T_dba7a_row4_col4, #T_dba7a_row4_col5, #T_dba7a_row4_col6, #T_dba7a_row4_col7, #T_dba7a_row5_col0, #T_dba7a_row5_col1, #T_dba7a_row5_col2, #T_dba7a_row5_col3, #T_dba7a_row5_col4, #T_dba7a_row5_col5, #T_dba7a_row5_col6, #T_dba7a_row5_col7, #T_dba7a_row6_col0, #T_dba7a_row6_col1, #T_dba7a_row6_col2, #T_dba7a_row6_col3, #T_dba7a_row6_col4, #T_dba7a_row6_col5, #T_dba7a_row6_col6, #T_dba7a_row6_col7, #T_dba7a_row7_col0, #T_dba7a_row7_col1, #T_dba7a_row7_col2, #T_dba7a_row7_col3, #T_dba7a_row7_col4, #T_dba7a_row7_col5, #T_dba7a_row7_col6, #T_dba7a_row7_col7, #T_dba7a_row8_col0, #T_dba7a_row8_col1, #T_dba7a_row8_col2, #T_dba7a_row8_col3, #T_dba7a_row8_col4, #T_dba7a_row8_col5, #T_dba7a_row8_col6, #T_dba7a_row8_col7 {
+#T_4418c_row0_col0, #T_4418c_row0_col2, #T_4418c_row0_col4, #T_4418c_row1_col0, #T_4418c_row1_col1, #T_4418c_row1_col3, #T_4418c_row1_col4, #T_4418c_row1_col5, #T_4418c_row1_col6, #T_4418c_row1_col7, #T_4418c_row2_col0, #T_4418c_row2_col1, #T_4418c_row2_col2, #T_4418c_row2_col3, #T_4418c_row2_col4, #T_4418c_row2_col5, #T_4418c_row2_col6, #T_4418c_row2_col7, #T_4418c_row3_col0, #T_4418c_row3_col1, #T_4418c_row3_col2, #T_4418c_row3_col3, #T_4418c_row3_col4, #T_4418c_row3_col5, #T_4418c_row3_col6, #T_4418c_row3_col7, #T_4418c_row4_col0, #T_4418c_row4_col1, #T_4418c_row4_col2, #T_4418c_row4_col3, #T_4418c_row4_col4, #T_4418c_row4_col5, #T_4418c_row4_col6, #T_4418c_row4_col7, #T_4418c_row5_col0, #T_4418c_row5_col1, #T_4418c_row5_col2, #T_4418c_row5_col3, #T_4418c_row5_col5, #T_4418c_row5_col6, #T_4418c_row5_col7, #T_4418c_row6_col0, #T_4418c_row6_col1, #T_4418c_row6_col2, #T_4418c_row6_col3, #T_4418c_row6_col4, #T_4418c_row6_col5, #T_4418c_row6_col6, #T_4418c_row6_col7, #T_4418c_row7_col0, #T_4418c_row7_col1, #T_4418c_row7_col2, #T_4418c_row7_col3, #T_4418c_row7_col4, #T_4418c_row7_col5, #T_4418c_row7_col6, #T_4418c_row7_col7, #T_4418c_row8_col0, #T_4418c_row8_col1, #T_4418c_row8_col2, #T_4418c_row8_col3, #T_4418c_row8_col4, #T_4418c_row8_col5, #T_4418c_row8_col6, #T_4418c_row8_col7 {
   text-align: left;
 }
-#T_dba7a_row0_col5, #T_dba7a_row0_col6, #T_dba7a_row0_col7, #T_dba7a_row1_col1, #T_dba7a_row1_col2, #T_dba7a_row1_col3, #T_dba7a_row2_col4 {
+#T_4418c_row0_col1, #T_4418c_row0_col3, #T_4418c_row0_col5, #T_4418c_row0_col6, #T_4418c_row0_col7, #T_4418c_row1_col2, #T_4418c_row5_col4 {
   text-align: left;
   background-color: yellow;
 }
-#T_dba7a_row0_col8, #T_dba7a_row1_col8, #T_dba7a_row2_col8, #T_dba7a_row3_col8, #T_dba7a_row4_col8, #T_dba7a_row5_col8, #T_dba7a_row6_col8, #T_dba7a_row7_col8 {
+#T_4418c_row0_col8, #T_4418c_row1_col8, #T_4418c_row2_col8, #T_4418c_row3_col8, #T_4418c_row4_col8, #T_4418c_row5_col8, #T_4418c_row6_col8, #T_4418c_row7_col8 {
   text-align: left;
   background-color: lightgrey;
 }
-#T_dba7a_row8_col8 {
+#T_4418c_row8_col8 {
   text-align: left;
   background-color: yellow;
   background-color: lightgrey;
 }
 </style>
-<table id="T_dba7a">
+<table id="T_4418c">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_dba7a_level0_col0" class="col_heading level0 col0" >Model</th>
-      <th id="T_dba7a_level0_col1" class="col_heading level0 col1" >Accuracy</th>
-      <th id="T_dba7a_level0_col2" class="col_heading level0 col2" >AUC</th>
-      <th id="T_dba7a_level0_col3" class="col_heading level0 col3" >Recall</th>
-      <th id="T_dba7a_level0_col4" class="col_heading level0 col4" >Prec.</th>
-      <th id="T_dba7a_level0_col5" class="col_heading level0 col5" >F1</th>
-      <th id="T_dba7a_level0_col6" class="col_heading level0 col6" >Kappa</th>
-      <th id="T_dba7a_level0_col7" class="col_heading level0 col7" >MCC</th>
-      <th id="T_dba7a_level0_col8" class="col_heading level0 col8" >TT (Sec)</th>
+      <th id="T_4418c_level0_col0" class="col_heading level0 col0" >Model</th>
+      <th id="T_4418c_level0_col1" class="col_heading level0 col1" >Accuracy</th>
+      <th id="T_4418c_level0_col2" class="col_heading level0 col2" >AUC</th>
+      <th id="T_4418c_level0_col3" class="col_heading level0 col3" >Recall</th>
+      <th id="T_4418c_level0_col4" class="col_heading level0 col4" >Prec.</th>
+      <th id="T_4418c_level0_col5" class="col_heading level0 col5" >F1</th>
+      <th id="T_4418c_level0_col6" class="col_heading level0 col6" >Kappa</th>
+      <th id="T_4418c_level0_col7" class="col_heading level0 col7" >MCC</th>
+      <th id="T_4418c_level0_col8" class="col_heading level0 col8" >TT (Sec)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_dba7a_level0_row0" class="row_heading level0 row0" >gbc</th>
-      <td id="T_dba7a_row0_col0" class="data row0 col0" >Gradient Boosting Classifier</td>
-      <td id="T_dba7a_row0_col1" class="data row0 col1" >0.6954</td>
-      <td id="T_dba7a_row0_col2" class="data row0 col2" >0.8582</td>
-      <td id="T_dba7a_row0_col3" class="data row0 col3" >0.6954</td>
-      <td id="T_dba7a_row0_col4" class="data row0 col4" >0.7352</td>
-      <td id="T_dba7a_row0_col5" class="data row0 col5" >0.7074</td>
-      <td id="T_dba7a_row0_col6" class="data row0 col6" >0.5180</td>
-      <td id="T_dba7a_row0_col7" class="data row0 col7" >0.5243</td>
-      <td id="T_dba7a_row0_col8" class="data row0 col8" >0.8270</td>
+      <th id="T_4418c_level0_row0" class="row_heading level0 row0" >catboost</th>
+      <td id="T_4418c_row0_col0" class="data row0 col0" >CatBoost Classifier</td>
+      <td id="T_4418c_row0_col1" class="data row0 col1" >0.7035</td>
+      <td id="T_4418c_row0_col2" class="data row0 col2" >0.8558</td>
+      <td id="T_4418c_row0_col3" class="data row0 col3" >0.7035</td>
+      <td id="T_4418c_row0_col4" class="data row0 col4" >0.7213</td>
+      <td id="T_4418c_row0_col5" class="data row0 col5" >0.7097</td>
+      <td id="T_4418c_row0_col6" class="data row0 col6" >0.5235</td>
+      <td id="T_4418c_row0_col7" class="data row0 col7" >0.5256</td>
+      <td id="T_4418c_row0_col8" class="data row0 col8" >1.8490</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row1" class="row_heading level0 row1" >rf</th>
-      <td id="T_dba7a_row1_col0" class="data row1 col0" >Random Forest Classifier</td>
-      <td id="T_dba7a_row1_col1" class="data row1 col1" >0.6993</td>
-      <td id="T_dba7a_row1_col2" class="data row1 col2" >0.8589</td>
-      <td id="T_dba7a_row1_col3" class="data row1 col3" >0.6993</td>
-      <td id="T_dba7a_row1_col4" class="data row1 col4" >0.7217</td>
-      <td id="T_dba7a_row1_col5" class="data row1 col5" >0.7071</td>
-      <td id="T_dba7a_row1_col6" class="data row1 col6" >0.5171</td>
-      <td id="T_dba7a_row1_col7" class="data row1 col7" >0.5198</td>
-      <td id="T_dba7a_row1_col8" class="data row1 col8" >0.1980</td>
+      <th id="T_4418c_level0_row1" class="row_heading level0 row1" >gbc</th>
+      <td id="T_4418c_row1_col0" class="data row1 col0" >Gradient Boosting Classifier</td>
+      <td id="T_4418c_row1_col1" class="data row1 col1" >0.6964</td>
+      <td id="T_4418c_row1_col2" class="data row1 col2" >0.8609</td>
+      <td id="T_4418c_row1_col3" class="data row1 col3" >0.6964</td>
+      <td id="T_4418c_row1_col4" class="data row1 col4" >0.7332</td>
+      <td id="T_4418c_row1_col5" class="data row1 col5" >0.7086</td>
+      <td id="T_4418c_row1_col6" class="data row1 col6" >0.5197</td>
+      <td id="T_4418c_row1_col7" class="data row1 col7" >0.5249</td>
+      <td id="T_4418c_row1_col8" class="data row1 col8" >0.9790</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row2" class="row_heading level0 row2" >lda</th>
-      <td id="T_dba7a_row2_col0" class="data row2 col0" >Linear Discriminant Analysis</td>
-      <td id="T_dba7a_row2_col1" class="data row2 col1" >0.6906</td>
-      <td id="T_dba7a_row2_col2" class="data row2 col2" >0.8485</td>
-      <td id="T_dba7a_row2_col3" class="data row2 col3" >0.6906</td>
-      <td id="T_dba7a_row2_col4" class="data row2 col4" >0.7445</td>
-      <td id="T_dba7a_row2_col5" class="data row2 col5" >0.7055</td>
-      <td id="T_dba7a_row2_col6" class="data row2 col6" >0.5132</td>
-      <td id="T_dba7a_row2_col7" class="data row2 col7" >0.5224</td>
-      <td id="T_dba7a_row2_col8" class="data row2 col8" >0.0480</td>
+      <th id="T_4418c_level0_row2" class="row_heading level0 row2" >rf</th>
+      <td id="T_4418c_row2_col0" class="data row2 col0" >Random Forest Classifier</td>
+      <td id="T_4418c_row2_col1" class="data row2 col1" >0.7019</td>
+      <td id="T_4418c_row2_col2" class="data row2 col2" >0.8570</td>
+      <td id="T_4418c_row2_col3" class="data row2 col3" >0.7019</td>
+      <td id="T_4418c_row2_col4" class="data row2 col4" >0.7214</td>
+      <td id="T_4418c_row2_col5" class="data row2 col5" >0.7084</td>
+      <td id="T_4418c_row2_col6" class="data row2 col6" >0.5207</td>
+      <td id="T_4418c_row2_col7" class="data row2 col7" >0.5230</td>
+      <td id="T_4418c_row2_col8" class="data row2 col8" >0.2520</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row3" class="row_heading level0 row3" >catboost</th>
-      <td id="T_dba7a_row3_col0" class="data row3 col0" >CatBoost Classifier</td>
-      <td id="T_dba7a_row3_col1" class="data row3 col1" >0.6980</td>
-      <td id="T_dba7a_row3_col2" class="data row3 col2" >0.8544</td>
-      <td id="T_dba7a_row3_col3" class="data row3 col3" >0.6980</td>
-      <td id="T_dba7a_row3_col4" class="data row3 col4" >0.7169</td>
-      <td id="T_dba7a_row3_col5" class="data row3 col5" >0.7047</td>
-      <td id="T_dba7a_row3_col6" class="data row3 col6" >0.5142</td>
-      <td id="T_dba7a_row3_col7" class="data row3 col7" >0.5162</td>
-      <td id="T_dba7a_row3_col8" class="data row3 col8" >1.4590</td>
+      <th id="T_4418c_level0_row3" class="row_heading level0 row3" >ridge</th>
+      <td id="T_4418c_row3_col0" class="data row3 col0" >Ridge Classifier</td>
+      <td id="T_4418c_row3_col1" class="data row3 col1" >0.6977</td>
+      <td id="T_4418c_row3_col2" class="data row3 col2" >0.0000</td>
+      <td id="T_4418c_row3_col3" class="data row3 col3" >0.6977</td>
+      <td id="T_4418c_row3_col4" class="data row3 col4" >0.7214</td>
+      <td id="T_4418c_row3_col5" class="data row3 col5" >0.7048</td>
+      <td id="T_4418c_row3_col6" class="data row3 col6" >0.5136</td>
+      <td id="T_4418c_row3_col7" class="data row3 col7" >0.5170</td>
+      <td id="T_4418c_row3_col8" class="data row3 col8" >0.1400</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row4" class="row_heading level0 row4" >lightgbm</th>
-      <td id="T_dba7a_row4_col0" class="data row4 col0" >Light Gradient Boosting Machine</td>
-      <td id="T_dba7a_row4_col1" class="data row4 col1" >0.6948</td>
-      <td id="T_dba7a_row4_col2" class="data row4 col2" >0.8544</td>
-      <td id="T_dba7a_row4_col3" class="data row4 col3" >0.6948</td>
-      <td id="T_dba7a_row4_col4" class="data row4 col4" >0.7184</td>
-      <td id="T_dba7a_row4_col5" class="data row4 col5" >0.7026</td>
-      <td id="T_dba7a_row4_col6" class="data row4 col6" >0.5103</td>
-      <td id="T_dba7a_row4_col7" class="data row4 col7" >0.5133</td>
-      <td id="T_dba7a_row4_col8" class="data row4 col8" >0.8540</td>
+      <th id="T_4418c_level0_row4" class="row_heading level0 row4" >lightgbm</th>
+      <td id="T_4418c_row4_col0" class="data row4 col0" >Light Gradient Boosting Machine</td>
+      <td id="T_4418c_row4_col1" class="data row4 col1" >0.6987</td>
+      <td id="T_4418c_row4_col2" class="data row4 col2" >0.8533</td>
+      <td id="T_4418c_row4_col3" class="data row4 col3" >0.6987</td>
+      <td id="T_4418c_row4_col4" class="data row4 col4" >0.7155</td>
+      <td id="T_4418c_row4_col5" class="data row4 col5" >0.7045</td>
+      <td id="T_4418c_row4_col6" class="data row4 col6" >0.5152</td>
+      <td id="T_4418c_row4_col7" class="data row4 col7" >0.5172</td>
+      <td id="T_4418c_row4_col8" class="data row4 col8" >0.9720</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row5" class="row_heading level0 row5" >ridge</th>
-      <td id="T_dba7a_row5_col0" class="data row5 col0" >Ridge Classifier</td>
-      <td id="T_dba7a_row5_col1" class="data row5 col1" >0.6922</td>
-      <td id="T_dba7a_row5_col2" class="data row5 col2" >0.0000</td>
-      <td id="T_dba7a_row5_col3" class="data row5 col3" >0.6922</td>
-      <td id="T_dba7a_row5_col4" class="data row5 col4" >0.7188</td>
-      <td id="T_dba7a_row5_col5" class="data row5 col5" >0.6998</td>
-      <td id="T_dba7a_row5_col6" class="data row5 col6" >0.5049</td>
-      <td id="T_dba7a_row5_col7" class="data row5 col7" >0.5088</td>
-      <td id="T_dba7a_row5_col8" class="data row5 col8" >0.0480</td>
+      <th id="T_4418c_level0_row5" class="row_heading level0 row5" >lda</th>
+      <td id="T_4418c_row5_col0" class="data row5 col0" >Linear Discriminant Analysis</td>
+      <td id="T_4418c_row5_col1" class="data row5 col1" >0.6890</td>
+      <td id="T_4418c_row5_col2" class="data row5 col2" >0.8473</td>
+      <td id="T_4418c_row5_col3" class="data row5 col3" >0.6890</td>
+      <td id="T_4418c_row5_col4" class="data row5 col4" >0.7397</td>
+      <td id="T_4418c_row5_col5" class="data row5 col5" >0.7037</td>
+      <td id="T_4418c_row5_col6" class="data row5 col6" >0.5107</td>
+      <td id="T_4418c_row5_col7" class="data row5 col7" >0.5191</td>
+      <td id="T_4418c_row5_col8" class="data row5 col8" >0.1280</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row6" class="row_heading level0 row6" >dt</th>
-      <td id="T_dba7a_row6_col0" class="data row6 col0" >Decision Tree Classifier</td>
-      <td id="T_dba7a_row6_col1" class="data row6 col1" >0.6292</td>
-      <td id="T_dba7a_row6_col2" class="data row6 col2" >0.7185</td>
-      <td id="T_dba7a_row6_col3" class="data row6 col3" >0.6292</td>
-      <td id="T_dba7a_row6_col4" class="data row6 col4" >0.6475</td>
-      <td id="T_dba7a_row6_col5" class="data row6 col5" >0.6365</td>
-      <td id="T_dba7a_row6_col6" class="data row6 col6" >0.4100</td>
-      <td id="T_dba7a_row6_col7" class="data row6 col7" >0.4115</td>
-      <td id="T_dba7a_row6_col8" class="data row6 col8" >0.0590</td>
+      <th id="T_4418c_level0_row6" class="row_heading level0 row6" >dt</th>
+      <td id="T_4418c_row6_col0" class="data row6 col0" >Decision Tree Classifier</td>
+      <td id="T_4418c_row6_col1" class="data row6 col1" >0.6124</td>
+      <td id="T_4418c_row6_col2" class="data row6 col2" >0.7074</td>
+      <td id="T_4418c_row6_col3" class="data row6 col3" >0.6124</td>
+      <td id="T_4418c_row6_col4" class="data row6 col4" >0.6386</td>
+      <td id="T_4418c_row6_col5" class="data row6 col5" >0.6226</td>
+      <td id="T_4418c_row6_col6" class="data row6 col6" >0.3879</td>
+      <td id="T_4418c_row6_col7" class="data row6 col7" >0.3904</td>
+      <td id="T_4418c_row6_col8" class="data row6 col8" >0.1360</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row7" class="row_heading level0 row7" >lr</th>
-      <td id="T_dba7a_row7_col0" class="data row7 col0" >Logistic Regression</td>
-      <td id="T_dba7a_row7_col1" class="data row7 col1" >0.4487</td>
-      <td id="T_dba7a_row7_col2" class="data row7 col2" >0.5142</td>
-      <td id="T_dba7a_row7_col3" class="data row7 col3" >0.4487</td>
-      <td id="T_dba7a_row7_col4" class="data row7 col4" >0.3634</td>
-      <td id="T_dba7a_row7_col5" class="data row7 col5" >0.3983</td>
-      <td id="T_dba7a_row7_col6" class="data row7 col6" >0.0827</td>
-      <td id="T_dba7a_row7_col7" class="data row7 col7" >0.0909</td>
-      <td id="T_dba7a_row7_col8" class="data row7 col8" >0.4610</td>
+      <th id="T_4418c_level0_row7" class="row_heading level0 row7" >lr</th>
+      <td id="T_4418c_row7_col0" class="data row7 col0" >Logistic Regression</td>
+      <td id="T_4418c_row7_col1" class="data row7 col1" >0.3621</td>
+      <td id="T_4418c_row7_col2" class="data row7 col2" >0.5124</td>
+      <td id="T_4418c_row7_col3" class="data row7 col3" >0.3621</td>
+      <td id="T_4418c_row7_col4" class="data row7 col4" >0.2756</td>
+      <td id="T_4418c_row7_col5" class="data row7 col5" >0.3035</td>
+      <td id="T_4418c_row7_col6" class="data row7 col6" >0.0460</td>
+      <td id="T_4418c_row7_col7" class="data row7 col7" >0.0541</td>
+      <td id="T_4418c_row7_col8" class="data row7 col8" >0.5400</td>
     </tr>
     <tr>
-      <th id="T_dba7a_level0_row8" class="row_heading level0 row8" >dummy</th>
-      <td id="T_dba7a_row8_col0" class="data row8 col0" >Dummy Classifier</td>
-      <td id="T_dba7a_row8_col1" class="data row8 col1" >0.3211</td>
-      <td id="T_dba7a_row8_col2" class="data row8 col2" >0.5000</td>
-      <td id="T_dba7a_row8_col3" class="data row8 col3" >0.3211</td>
-      <td id="T_dba7a_row8_col4" class="data row8 col4" >0.1031</td>
-      <td id="T_dba7a_row8_col5" class="data row8 col5" >0.1561</td>
-      <td id="T_dba7a_row8_col6" class="data row8 col6" >0.0000</td>
-      <td id="T_dba7a_row8_col7" class="data row8 col7" >0.0000</td>
-      <td id="T_dba7a_row8_col8" class="data row8 col8" >0.0430</td>
+      <th id="T_4418c_level0_row8" class="row_heading level0 row8" >dummy</th>
+      <td id="T_4418c_row8_col0" class="data row8 col0" >Dummy Classifier</td>
+      <td id="T_4418c_row8_col1" class="data row8 col1" >0.3211</td>
+      <td id="T_4418c_row8_col2" class="data row8 col2" >0.5000</td>
+      <td id="T_4418c_row8_col3" class="data row8 col3" >0.3211</td>
+      <td id="T_4418c_row8_col4" class="data row8 col4" >0.1031</td>
+      <td id="T_4418c_row8_col5" class="data row8 col5" >0.1561</td>
+      <td id="T_4418c_row8_col6" class="data row8 col6" >0.0000</td>
+      <td id="T_4418c_row8_col7" class="data row8 col7" >0.0000</td>
+      <td id="T_4418c_row8_col8" class="data row8 col8" >0.1230</td>
     </tr>
   </tbody>
 </table>
@@ -713,9 +719,9 @@ The results of the best models are given in leaderboard   below in [@tbl-leaderb
 :::
 
 
-Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for scoring fairly well on low magnitude tabular data, while ordinary GBC is the most second to prime and the most robust one, featuring best conventional recall, accuracy, and AUC metrics. 
+Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for scoring fairly well on low magnitude tabular data, while ordinary GBTC is the most second to prime and the most robust one, featuring best conventional recall, accuracy, and AUC metrics. 
 
-::: {.cell execution_count=121}
+::: {.cell execution_count=135}
 
 ::: {.cell-output .cell-output-display}
 ![Stylized ROC curves for the Catboost Model (for different classes and on average)](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-rocauc-output-1.png){#fig-rocauc}
@@ -740,9 +746,9 @@ Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for 
 
 
 However, while all top models in @tbl-leaderboard demonstrate significant improvement over a dummy classifier and other simplistic models such as Logistic Regression, the scores still a lot to be desired,
-which indicates that reduction of dimensionality, which is inevitable under given class imbalance, has come at a price of variance loss, or, alternatively, all the covariates do not explain sufficiently well the outcome of studies: in academic success, as in life, a lot depends on the proper characteristics of a person which are difficult to elicit and much is undetermined. Partially, such a moderate result can be exaplained by the multiclass nature of the test: the ROCAUC plot on [@fig-rocauc] shows, AUC is worse on class 1, i. e. "Enrolled". These enrolled people have include both pending dropouters and diligent scholars, and the core feature of the model is that it can tell two other classes apart better, with ROCAUC 0.91. Thus, this model can generally be used as an indicator of a soon dropout of a student which the universities can be wary of, undertaking the corrective action or allocating the stipends.  
+which indicates that reduction of dimensionality, which is inevitable under given class imbalance, has come at a price of variance loss, or, alternatively, all the covariates do not explain sufficiently well the outcome of studies: in academic success, as in life, a lot depends on the proper characteristics of a person which are difficult to elicit and much is undetermined. Partially, such a moderate result can be exaplained by the multiclass nature of the test: the ROCAUC plot on [@fig-rocauc] shows, AUC is worse on class 1, i. e. "Enrolled". These enrolled people have include both pending dropouters and diligent scholars, and the core feature of the model is that it can tell two other classes apart better, with ROCAUC 0.9. Thus, this model can generally be used as an indicator of a soon dropout of a student which the universities can be wary of, undertaking the corrective action or allocating the stipends.  
 
-# **Results**
+# Results
 
 With this analysis, we have some valuable insights about some crucial factors like academic support, socioeconomic factors, age, previous qualifications, and others that play a significant role in student retention. We have built a model on all available data to predict the dropout rate of students, that is quite lightweight, production-ready and thus can easily be incorporated into some advisory system. 
 
