@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/692401db818b4962b7a706e03aff0927/artifacts
+end_time: 1702573682693
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 692401db818b4962b7a706e03aff0927
+run_name: Decision Tree Classifier
+run_uuid: 692401db818b4962b7a706e03aff0927
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702573682664
+status: 3
+tags: []
+user_id: romulaperov

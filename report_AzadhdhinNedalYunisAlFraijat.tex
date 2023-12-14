@@ -172,7 +172,7 @@ Fall 2023.}
 \author{Izeldeen Nedal Yunis Al Fraijat \and Danat Semeneev \and Ieva
 Žube \and Pankaj Chettri \and Kristaps Eglītis\footnote{(all) Rīga
   Technical University}}
-\date{2023-12-13}
+\date{2023-12-14}
 
 \begin{document}
 \maketitle
@@ -195,7 +195,7 @@ with 73\% balanced precision recall. We provide the recommedatons based
 on findings and define auxiliary requisite data to further our research
 in the future.
 \end{abstract}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, sharp corners, boxrule=0pt, breakable, interior hidden, frame hidden, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, sharp corners, frame hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, enhanced]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -235,8 +235,10 @@ itself, we have set the following objectives in this research:
   \item
     Identify key factors that contribute to the dropout rate of students
   \item
-    Using these factors, build a model predicting students' dropout from
-    the university, graduation, or further enrollment.
+    Using these factors, propose and build a model predicting students'
+    dropout from the university, graduation, or further enrollment.
+  \item
+    Evaluate the model built
   \end{itemize}
 \item
   Designing Targeted Interventions
@@ -429,34 +431,28 @@ max & 43 & 190 & 109 & 44 & 44 \\
 \end{longtable}
 
 \hypertarget{tbl-descstat-3}{}
-\begin{longtable}[]{@{}llllll@{}}
+\begin{longtable}[]{@{}lrrrrr@{}}
 \toprule\noalign{}
-& Mother\textquotesingle s occupation & Father\textquotesingle s
-occupation & Admission grade & Displaced & Educational special needs \\
+& Moth. occu. & Fath. occu. & Admi. grad. & Disp. & Educ. spec. need. \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-& Mother\textquotesingle s occupation & Father\textquotesingle s
-occupation & Admission grade & Displaced & Educational special needs \\
+& Moth. occu. & Fath. occu. & Admi. grad. & Disp. & Educ. spec. need. \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-count & 4424.00 & 4424.00 & 4424.00 & 4424.00 & 4424.00 \\
+count & 4424 & 4424 & 4424 & 4424 & 4424 \\
 mean & 10.96 & 11.03 & 126.98 & 0.55 & 0.01 \\
-std & 26.42 & 25.26 & 14.48 & 0.50 & 0.11 \\
-min & 0.00 & 0.00 & 95.00 & 0.00 & 0.00 \\
-25\% & 4.00 & 4.00 & 117.90 & 0.00 & 0.00 \\
-50\% & 5.00 & 7.00 & 126.10 & 1.00 & 0.00 \\
-75\% & 9.00 & 9.00 & 134.80 & 1.00 & 0.00 \\
-max & 194.00 & 195.00 & 190.00 & 1.00 & 1.00 \\
+std & 26.42 & 25.26 & 14.48 & 0.5 & 0.11 \\
+min & 0 & 0 & 95 & 0 & 0 \\
+25\% & 4 & 4 & 117.9 & 0 & 0 \\
+50\% & 5 & 7 & 126.1 & 1 & 0 \\
+75\% & 9 & 9 & 134.8 & 1 & 0 \\
+max & 194 & 195 & 190 & 1 & 1 \\
 \caption{\label{tbl-descstat-3}Descriptive statistics
 (cont'd)}\tabularnewline
 \end{longtable}
-
-\begin{verbatim}
-'Curricular units 2nd sem (enrolled), Curricular units 2nd sem (evaluations), Curricular units 2nd sem (approved), Curricular units 2nd sem (grade)'
-\end{verbatim}
 
 \hypertarget{tbl-descstat-4}{}
 \begin{longtable}[]{@{}llllll@{}}
@@ -864,16 +860,62 @@ levels, including 3 boostings: LGBoosting, XGBoosting (gbc), Catboost,
 Random Forest, a Decision Tree as well as linear discriminate analysis
 and logistic regression. We test models against each other and against
 dummy classifier. The results of the best models are given in
-leaderboard below in Table~\ref{tbl-leaderboard}.
+leaderboard below .
 
 \hypertarget{data-mining-application}{%
 \subsection{Data mining application}\label{data-mining-application}}
 
-\begin{verbatim}
-<IPython.core.display.HTML object>
-\end{verbatim}
+\begin{table}
 
-\hypertarget{tbl-leaderboard}{}
+\begin{minipage}[t]{\linewidth}
+
+{\centering 
+
+}
+
+\end{minipage}%
+\newline
+\begin{minipage}[t]{\linewidth}
+
+{\centering 
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+& & \\
+& & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Initiated & . . . . . . . . . . . . . . . . . . & 13:48:33 \\
+Status & . . . . . . . . . . . . . . . . . . & Selecting Estimator \\
+Estimator & . . . . . . . . . . . . . . . . . . & Logistic Regression \\
+\end{longtable}
+
+}
+
+\end{minipage}%
+\newline
+\begin{minipage}[t]{\linewidth}
+
+{\centering 
+
+}
+
+\end{minipage}%
+\newline
+\begin{minipage}[t]{\linewidth}
+
+{\centering 
+
+}
+
+\end{minipage}%
+\newline
+\begin{minipage}[t]{\linewidth}
+
+{\centering 
+
 \begin{longtable}[]{@{}llllllllll@{}}
 \toprule\noalign{}
 ~ & Model & Accuracy & AUC & Recall & Prec. & F1 & Kappa & MCC & TT
@@ -888,35 +930,51 @@ leaderboard below in Table~\ref{tbl-leaderboard}.
 \bottomrule\noalign{}
 \endlastfoot
 catboost & CatBoost Classifier & 0.7035 & 0.8558 & 0.7035 & 0.7213 &
-0.7097 & 0.5235 & 0.5256 & 1.8490 \\
+0.7097 & 0.5235 & 0.5256 & 1.6310 \\
 gbc & Gradient Boosting Classifier & 0.6964 & 0.8609 & 0.6964 & 0.7332 &
-0.7086 & 0.5197 & 0.5249 & 0.9790 \\
+0.7086 & 0.5197 & 0.5249 & 0.7690 \\
 rf & Random Forest Classifier & 0.7019 & 0.8570 & 0.7019 & 0.7214 &
-0.7084 & 0.5207 & 0.5230 & 0.2520 \\
+0.7084 & 0.5207 & 0.5230 & 0.2150 \\
 ridge & Ridge Classifier & 0.6977 & 0.0000 & 0.6977 & 0.7214 & 0.7048 &
-0.5136 & 0.5170 & 0.1400 \\
+0.5136 & 0.5170 & 0.0890 \\
 lightgbm & Light Gradient Boosting Machine & 0.6987 & 0.8533 & 0.6987 &
-0.7155 & 0.7045 & 0.5152 & 0.5172 & 0.9720 \\
+0.7155 & 0.7045 & 0.5152 & 0.5172 & 0.7850 \\
 lda & Linear Discriminant Analysis & 0.6890 & 0.8473 & 0.6890 & 0.7397 &
-0.7037 & 0.5107 & 0.5191 & 0.1280 \\
+0.7037 & 0.5107 & 0.5191 & 0.0780 \\
 dt & Decision Tree Classifier & 0.6124 & 0.7074 & 0.6124 & 0.6386 &
-0.6226 & 0.3879 & 0.3904 & 0.1360 \\
+0.6226 & 0.3879 & 0.3904 & 0.0910 \\
 lr & Logistic Regression & 0.3621 & 0.5124 & 0.3621 & 0.2756 & 0.3035 &
-0.0460 & 0.0541 & 0.5400 \\
+0.0460 & 0.0541 & 0.7850 \\
 dummy & Dummy Classifier & 0.3211 & 0.5000 & 0.3211 & 0.1031 & 0.1561 &
-0.0000 & 0.0000 & 0.1230 \\
-\caption{\label{tbl-leaderboard}Results of fitting estimators of
-different families}\label{T_4418c}\tabularnewline
+0.0000 & 0.0000 & 0.0840 \\
+\caption{}\label{T_60247}\tabularnewline
 \end{longtable}
 
+}
+
+\end{minipage}%
+\newline
+\begin{minipage}[t]{\linewidth}
+
+{\centering 
+
 \begin{verbatim}
-<IPython.core.display.HTML object>
+Processing:   0%|          | 0/41 [00:00<?, ?it/s]
 \end{verbatim}
+
+}
+
+\end{minipage}%
+
+\caption{Results of fitting estimators of different families}
+
+\end{table}
 
 Thus, the best model by F1 measure is CatBoostClassifier, which is
 renowned for scoring fairly well on low magnitude tabular data, while
 ordinary GBTC is the most second to prime and the most robust one,
-featuring best conventional recall, accuracy, and AUC metrics.
+featuring best conventional recall, accuracy, and AUC metrics. The
+Figure~\ref{fig-rocauc} figure shows the ROC AUC plot for the model
 
 \begin{figure}
 
@@ -929,10 +987,91 @@ featuring best conventional recall, accuracy, and AUC metrics.
 
 \end{figure}
 
-However, while all top models in Table~\ref{tbl-leaderboard} demonstrate
-significant improvement over a dummy classifier and other simplistic
-models such as Logistic Regression, the scores still a lot to be
-desired, which indicates that reduction of dimensionality, which is
+Our CatBoost parameters were already opinionated, with good rule of
+thumbs, however, it is essential that we ensure that we retrieve
+everything from this model, and so we performed a tuning of the best
+model with Tree Parzen Estimator (TPE) tuner. This did not, however,
+yield a robustly better model within a sensible number of iterations
+(the results are available upon request). Next, we return to the models
+that were not much worse than our top model in the leaderboard. Random
+Forest that scored well is known to make low variance and GBTC
+classifier makes lower bias, so it can be benefitial to combine them. We
+consider 2 meta-model settings: the simple averager and the Logistic
+Regression. In our experiments, Logistic Regression did not bring any
+sizeable improvement (See Figure~\ref{fig-stacker}) but the averager
+improved average F1 by 0.03 points (See Figure~\ref{fig-blender}).
+
+On Figure~\ref{fig-blender} there is the figure that exhibits the ROC
+curve for the blender model.
+
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-blender-output-1.png}
+
+}
+
+\caption{\label{fig-blender}Blender model for the Top 3 models from the
+leaderboard}
+
+\end{figure}
+
+On Figure~\ref{fig-stacker}, there is the stacker model ROCAUC to
+improve the F1 measure. It plays a little better than without any
+supermodel, but this is not as high as with simple blending
+
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-stacker-output-1.png}
+
+}
+
+\caption{\label{fig-stacker}Stacker model for the Top 3 models from the
+leaderboard with logistic regression as the supermodel}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-explanation-output-1.png}
+
+}
+
+\caption{\label{fig-explanation}The average contribution of different
+components of the Principal Component Decomposition on the target
+variable (by label)}
+
+\end{figure}
+
+Currently, we have a prediction model, but its decisions are not
+transparent enough, because it is a stacked boosting of sequences of
+conditions on sophisticated linear combinations of several dozens of
+source variables. To add explainability, we decide to compute the input
+of each source variable via the following procedure. First, we examine
+the behaviour of the model on production data with and without several
+features, and thus compute the Shapley values for the model by its
+components, presented on Figure~\ref{fig-explanation}. Then, we infer
+the coefficients for variable decomposition for the components (See
+Figure~\ref{fig-decomposition} for exemplary distribution of weights of
+the 3rd component) and thus multiplying the weights by modulo of
+interstitial power function transform we can ultimately obtain a
+breakdown for variables for the decision of our best model for each
+particular case.
+
+\begin{figure}
+
+{\centering \includegraphics{report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-decomposition-output-1.png}
+
+}
+
+\caption{\label{fig-decomposition}Decomposition of the weights for the
+3rd component}
+
+\end{figure}
+
+However, while all top models in leaderboard and in the stacking models
+demonstrate significant improvement over a dummy classifier and other
+simplistic models such as Logistic Regression, the scores still a lot to
+be desired, which indicates that reduction of dimensionality, which is
 inevitable under given class imbalance, has come at a price of variance
 loss, or, alternatively, all the covariates do not explain sufficiently
 well the outcome of studies: in academic success, as in life, a lot

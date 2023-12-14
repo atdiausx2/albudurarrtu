@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/e6bec606d690407894f7524987d015ae/artifacts
+end_time: 1702575369902
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: e6bec606d690407894f7524987d015ae
+run_name: K Neighbors Classifier
+run_uuid: e6bec606d690407894f7524987d015ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702575369876
+status: 3
+tags: []
+user_id: romulaperov

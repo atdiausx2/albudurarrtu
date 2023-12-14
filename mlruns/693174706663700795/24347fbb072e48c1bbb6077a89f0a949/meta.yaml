@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/24347fbb072e48c1bbb6077a89f0a949/artifacts
+end_time: 1702575370375
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 24347fbb072e48c1bbb6077a89f0a949
+run_name: SVM - Linear Kernel
+run_uuid: 24347fbb072e48c1bbb6077a89f0a949
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702575370341
+status: 3
+tags: []
+user_id: romulaperov

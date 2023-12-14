@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/5ac832d3765b4be2922e2950b7493861/artifacts
+end_time: 1702575368092
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 5ac832d3765b4be2922e2950b7493861
+run_name: CatBoost Classifier
+run_uuid: 5ac832d3765b4be2922e2950b7493861
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702575367863
+status: 3
+tags: []
+user_id: romulaperov

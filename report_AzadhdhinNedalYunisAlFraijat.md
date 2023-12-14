@@ -39,6 +39,7 @@ format:
     - \usepackage[authordate, abbreviate = true, date = year, autocite=inline, backref = true]{biblatex-chicago}
   html:
     html-math-method: katex
+
 bibliography: bibliography.bib
 ---
 
@@ -49,6 +50,11 @@ bibliography: bibliography.bib
 <!-- All code can be viewed on GitHub at <https://github.com/atdiausx2/albudurarrtu>  -->
 
 <!-- \tableofcontents -->
+
+<!-- /Users/romulaperov/Downloads -->
+<!-- /Users/romulaperov/Documents/RudensSemester/ -->
+<!-- v  docx:
+    template: document.docx -->
 
 <!-- ## Abstract -->
 
@@ -62,12 +68,13 @@ we have set the following objectives in this research:
 
 - Basing on literature sources, briefly recap incentives towards studying and its termination 
 -  Formulate Metrics and Key Performance Indicators (KPIs)
-   - Define measurable KPIs for effective tracking and pinpointing the dropout related    trends
+   - Define measurable KPIs for effective tracking and pinpointing the dropout related trends
    - Establish benchmark for success and areas that requires attention for improvement
   
 - Perform Analysis and Pattern Recognition
    - Identify key factors that contribute to the dropout rate of students
-   - Using these factors, build a model predicting students' dropout from the university, graduation, or further enrollment.
+   - Using these factors,  propose and build a model predicting students' dropout from the university, graduation, or further enrollment.
+   - Evaluate the model built
   
 - Designing Targeted Interventions
    - Based on patterns identified, propose targeted interventions
@@ -124,9 +131,9 @@ As we have checked, the dataset does not have zero values, so there is nothing t
 
 
 
-::: {#tbl-descstat-1 .cell tbl-cap='Descriptive statistics' execution_count=36}
+::: {#tbl-descstat-1 .cell tbl-cap='Descriptive statistics' execution_count=7}
 
-::: {.cell-output .cell-output-display execution_count=36}
+::: {.cell-output .cell-output-display execution_count=7}
          Mari. stat.    Appl. mode.    Appl. orde.    Cour.    Dayt. atte.
 -----  -------------  -------------  -------------  -------  -------------
 count        4424           4424           4424     4424           4424
@@ -141,9 +148,9 @@ max             6             57              9     9991              1
 :::
 
 
-::: {#tbl-descstat-2 .cell tbl-cap='Descriptive statistics (cont\'d)' execution_count=35}
+::: {#tbl-descstat-2 .cell tbl-cap='Descriptive statistics (cont\'d)' execution_count=8}
 
-::: {.cell-output .cell-output-display execution_count=35}
+::: {.cell-output .cell-output-display execution_count=8}
          Prev. qual.    Prev. qual. (gra.    Naci.    Moth. qual.    Fath. qual.
 -----  -------------  -------------------  -------  -------------  -------------
 count        4424                 4424     4424           4424           4424
@@ -161,120 +168,25 @@ max            43                  190      109             44             44
 ::: {#tbl-descstat-3 .cell tbl-cap='Descriptive statistics (cont\'d)' tbl-font-size='8' execution_count=9}
 
 ::: {.cell-output .cell-output-display execution_count=9}
-
-```{=html}
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Mother's occupation</th>
-      <th>Father's occupation</th>
-      <th>Admission grade</th>
-      <th>Displaced</th>
-      <th>Educational special needs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>4424.00</td>
-      <td>4424.00</td>
-      <td>4424.00</td>
-      <td>4424.00</td>
-      <td>4424.00</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>10.96</td>
-      <td>11.03</td>
-      <td>126.98</td>
-      <td>0.55</td>
-      <td>0.01</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>26.42</td>
-      <td>25.26</td>
-      <td>14.48</td>
-      <td>0.50</td>
-      <td>0.11</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>95.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>4.00</td>
-      <td>4.00</td>
-      <td>117.90</td>
-      <td>0.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>5.00</td>
-      <td>7.00</td>
-      <td>126.10</td>
-      <td>1.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>9.00</td>
-      <td>9.00</td>
-      <td>134.80</td>
-      <td>1.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>194.00</td>
-      <td>195.00</td>
-      <td>190.00</td>
-      <td>1.00</td>
-      <td>1.00</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-```
-
+         Moth. occu.    Fath. occu.    Admi. grad.    Disp.    Educ. spec. need.
+-----  -------------  -------------  -------------  -------  -------------------
+count        4424           4424           4424     4424                 4424
+mean           10.96          11.03         126.98     0.55                 0.01
+std            26.42          25.26          14.48     0.5                  0.11
+min             0              0             95        0                    0
+25%             4              4            117.9      0                    0
+50%             5              7            126.1      1                    0
+75%             9              9            134.8      1                    0
+max           194            195            190        1                    1
 :::
 :::
 
 
-::: {.cell execution_count=59}
-
-::: {.cell-output .cell-output-display execution_count=59}
-```
-'Curricular units 2nd sem (enrolled), Curricular units 2nd sem (evaluations), Curricular units 2nd sem (approved), Curricular units 2nd sem (grade)'
-```
-:::
-:::
 
 
-::: {#tbl-descstat-4 .cell tbl-cap='Descriptive statistics (cont\'d). Columns, left-to-right: Debtor, Tuition fees up to date, Gender, Scholarship holder, Age at enrollment' tbl-font-size='8' execution_count=55}
+::: {#tbl-descstat-4 .cell tbl-cap='Descriptive statistics (cont\'d). Columns, left-to-right: Debtor, Tuition fees up to date, Gender, Scholarship holder, Age at enrollment' tbl-font-size='8' execution_count=11}
 
-::: {.cell-output .cell-output-display execution_count=55}
+::: {.cell-output .cell-output-display execution_count=11}
 -----  -------  -------  -------  -------  -------
 count  4424     4424     4424     4424     4424
 mean      0.11     0.88     0.35     0.25    23.27
@@ -289,9 +201,9 @@ max       1        1        1        1       70
 :::
 
 
-::: {#tbl-descstat-5 .cell tbl-cap='Descriptive statistics (cont\'d). Columns International, Curricular units 1st sem (credited), Curricular units 1st sem (enrolled), Curricular units 1st sem (evaluations).' tbl-font-size='8' execution_count=62}
+::: {#tbl-descstat-5 .cell tbl-cap='Descriptive statistics (cont\'d). Columns International, Curricular units 1st sem (credited), Curricular units 1st sem (enrolled), Curricular units 1st sem (evaluations).' tbl-font-size='8' execution_count=12}
 
-::: {.cell-output .cell-output-display execution_count=62}
+::: {.cell-output .cell-output-display execution_count=12}
 -----  -------  -------  -------  -------
 count  4424     4424     4424     4424
 mean      0.02     0.71     6.27     8.3
@@ -306,9 +218,9 @@ max       1       20       26       45
 :::
 
 
-::: {#tbl-descstat-6 .cell tbl-cap='Descriptive statistics (cont\'d). Columns Curricular units 1st sem (approved), Curricular units 1st sem (grade), Curricular units 1st sem (without evaluations), Curricular units 2nd sem (credited)\'' tbl-font-size='4' execution_count=61}
+::: {#tbl-descstat-6 .cell tbl-cap='Descriptive statistics (cont\'d). Columns Curricular units 1st sem (approved), Curricular units 1st sem (grade), Curricular units 1st sem (without evaluations), Curricular units 2nd sem (credited)\'' tbl-font-size='4' execution_count=13}
 
-::: {.cell-output .cell-output-display execution_count=61}
+::: {.cell-output .cell-output-display execution_count=13}
 -----  -------  -------  -------  -------
 count  4424     4424     4424     4424
 mean      4.71    10.64     0.14     0.54
@@ -323,9 +235,9 @@ max      26       18.88    12       19
 :::
 
 
-::: {#tbl-descstat-7 .cell tbl-cap='Descriptive statistics (cont\'d). Curricular units 2nd sem (enrolled), Curricular units 2nd sem (evaluations), Curricular units 2nd sem (approved), Curricular units 2nd sem (grade)\'' execution_count=60}
+::: {#tbl-descstat-7 .cell tbl-cap='Descriptive statistics (cont\'d). Curricular units 2nd sem (enrolled), Curricular units 2nd sem (evaluations), Curricular units 2nd sem (approved), Curricular units 2nd sem (grade)\'' execution_count=14}
 
-::: {.cell-output .cell-output-display execution_count=60}
+::: {.cell-output .cell-output-display execution_count=14}
 -----  -------  -------  -------  -------
 count  4424     4424     4424     4424
 mean      6.23     8.06     4.44    10.23
@@ -361,7 +273,7 @@ The students are from multiple countries, but the overwhelming majority of the s
 
 
 
-::: {.cell execution_count=44}
+::: {.cell execution_count=19}
 
 ::: {.cell-output .cell-output-display}
 ![Relative graduation points for students with different education backgrounds](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-education-output-1.png){#fig-education}
@@ -373,7 +285,7 @@ Due to class imbalance , the variability for the Portuguese students is much hig
 
 Also, there is a drastic imbalance over yet another crucial factor: age. Students of age are far less ubiquitous, can have far more incentives to abandon studies and  smaller potential for apprehension of material. Indeed, this is clearly shown on the next graph [-@fig-age-distr]  
 
-::: {.cell execution_count=45}
+::: {.cell execution_count=20}
 
 ::: {.cell-output .cell-output-display}
 ![Distribution of age for dropout and graduate student](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-age-distr-output-1.png){#fig-age-distr}
@@ -388,7 +300,7 @@ Q. v. the sizes of the bins for dropout students differ far less than the total 
 If the hypothesis about some external factors is correct , the target variable should be much dependent on previous grades,  
 The datapoint cloud on [Table -@fig-points-distr], however, shows that this rule has a lot of exceptions. 
 
-::: {.cell execution_count=47}
+::: {.cell execution_count=22}
 
 ::: {.cell-output .cell-output-display}
 ![Joint and marginal distributions of current admission and previous qualification grades](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-points-distr-output-1.png){#fig-points-distr}
@@ -448,7 +360,7 @@ In different studies, it is quite common to compare the academic success of a st
 
 ## Data correlation table (quantitative columns only)
 
-::: {.cell execution_count=75}
+::: {.cell execution_count=13}
 
 ::: {.cell-output .cell-output-display}
 ![Data correlation table (quantitative columns are represented only since there to compute true correlations between quantitative columns it is necessary to OHE-encode them, which would burst no. of columns to many thousands, but the values of the correlations will be statistically insignificant due to low cardinality of 90% of classes)](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-correlation-output-1.png){#fig-correlation}
@@ -492,7 +404,7 @@ In the remaining part, we examine the correlations of purely endogenous temporal
 
 
 
-::: {.cell execution_count=130}
+::: {.cell execution_count=18}
 
 ::: {.cell-output .cell-output-display}
 ![Vizualization for curricular successively approved units](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-output-1.png){#fig-cur-units}
@@ -502,7 +414,7 @@ In the remaining part, we examine the correlations of purely endogenous temporal
 
 We can see that the points for the 1st semester and 2nd semester are correlated which shows that are one's marks are primary drivers of success and exhibit sizeable correlations 
 
-::: {.cell execution_count=131}
+::: {.cell execution_count=19}
 
 ::: {.cell-output .cell-output-display}
 ![Vizualization for curricular successively enrolled units](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-units-enrolled-output-1.png){#fig-cur-units-enrolled}
@@ -510,9 +422,7 @@ We can see that the points for the 1st semester and 2nd semester are correlated 
 :::
 
 
-
-
-::: {.cell execution_count=133}
+::: {.cell execution_count=20}
 
 ::: {.cell-output .cell-output-display}
 ![Vizualization of curricular units for the 1st semester](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-cur-grade-output-1.png){#fig-cur-grade}
@@ -529,6 +439,7 @@ Another significant challenge are extraneous events that fundamentally influence
 
 # Data Mining (Analysis) {#sec-data-mining} 
 
+
 ## ML pipeline design 
 
 Now, we need to define our data mining strategy.
@@ -544,166 +455,213 @@ After we perform the PCA, we perform Yeo-Johnson power transform to make dedimen
 Then several estimators from various standard families are independently trained and va  fine-tuned, by mean F1 measure, the model that is most precise in predicting the outcome is rendered. We confer some other renowned metrics for the best model .
 In total, we consider 3 different types of models  for classification (logical, linear separative, linear generative),
 implying algorithms of various 'difficulty' levels, including 3 boostings: LGBoosting, XGBoosting (gbc), Catboost, Random Forest, a Decision Tree as well as linear discriminate analysis and logistic regression. We test models against each other and against dummy classifier. 
-The results of the best models are given in leaderboard   below in [@tbl-leaderboard]. 
+The results of the best models are given in leaderboard   below .
 <!-- @tbl-leaderboard. -->
 
 ## Data mining application 
 
-::: {#tbl-leaderboard .cell tbl-cap='Results of fitting estimators of different families' execution_count=134}
+::: {#tbl-leaderboard .cell tbl-cap='Results of fitting estimators of different families' execution_count=22}
 
 ::: {.cell-output .cell-output-display}
+
+```{=html}
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Initiated</th>
+      <td>. . . . . . . . . . . . . . . . . .</td>
+      <td>13:48:33</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td>. . . . . . . . . . . . . . . . . .</td>
+      <td>Selecting Estimator</td>
+    </tr>
+    <tr>
+      <th>Estimator</th>
+      <td>. . . . . . . . . . . . . . . . . .</td>
+      <td>Logistic Regression</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 ```
-<IPython.core.display.HTML object>
-```
+
 :::
 
 ::: {.cell-output .cell-output-display}
 
 ```{=html}
 <style type="text/css">
-#T_4418c th {
+#T_60247 th {
   text-align: left;
 }
-#T_4418c_row0_col0, #T_4418c_row0_col2, #T_4418c_row0_col4, #T_4418c_row1_col0, #T_4418c_row1_col1, #T_4418c_row1_col3, #T_4418c_row1_col4, #T_4418c_row1_col5, #T_4418c_row1_col6, #T_4418c_row1_col7, #T_4418c_row2_col0, #T_4418c_row2_col1, #T_4418c_row2_col2, #T_4418c_row2_col3, #T_4418c_row2_col4, #T_4418c_row2_col5, #T_4418c_row2_col6, #T_4418c_row2_col7, #T_4418c_row3_col0, #T_4418c_row3_col1, #T_4418c_row3_col2, #T_4418c_row3_col3, #T_4418c_row3_col4, #T_4418c_row3_col5, #T_4418c_row3_col6, #T_4418c_row3_col7, #T_4418c_row4_col0, #T_4418c_row4_col1, #T_4418c_row4_col2, #T_4418c_row4_col3, #T_4418c_row4_col4, #T_4418c_row4_col5, #T_4418c_row4_col6, #T_4418c_row4_col7, #T_4418c_row5_col0, #T_4418c_row5_col1, #T_4418c_row5_col2, #T_4418c_row5_col3, #T_4418c_row5_col5, #T_4418c_row5_col6, #T_4418c_row5_col7, #T_4418c_row6_col0, #T_4418c_row6_col1, #T_4418c_row6_col2, #T_4418c_row6_col3, #T_4418c_row6_col4, #T_4418c_row6_col5, #T_4418c_row6_col6, #T_4418c_row6_col7, #T_4418c_row7_col0, #T_4418c_row7_col1, #T_4418c_row7_col2, #T_4418c_row7_col3, #T_4418c_row7_col4, #T_4418c_row7_col5, #T_4418c_row7_col6, #T_4418c_row7_col7, #T_4418c_row8_col0, #T_4418c_row8_col1, #T_4418c_row8_col2, #T_4418c_row8_col3, #T_4418c_row8_col4, #T_4418c_row8_col5, #T_4418c_row8_col6, #T_4418c_row8_col7 {
+#T_60247_row0_col0, #T_60247_row0_col2, #T_60247_row0_col4, #T_60247_row1_col0, #T_60247_row1_col1, #T_60247_row1_col3, #T_60247_row1_col4, #T_60247_row1_col5, #T_60247_row1_col6, #T_60247_row1_col7, #T_60247_row2_col0, #T_60247_row2_col1, #T_60247_row2_col2, #T_60247_row2_col3, #T_60247_row2_col4, #T_60247_row2_col5, #T_60247_row2_col6, #T_60247_row2_col7, #T_60247_row3_col0, #T_60247_row3_col1, #T_60247_row3_col2, #T_60247_row3_col3, #T_60247_row3_col4, #T_60247_row3_col5, #T_60247_row3_col6, #T_60247_row3_col7, #T_60247_row4_col0, #T_60247_row4_col1, #T_60247_row4_col2, #T_60247_row4_col3, #T_60247_row4_col4, #T_60247_row4_col5, #T_60247_row4_col6, #T_60247_row4_col7, #T_60247_row5_col0, #T_60247_row5_col1, #T_60247_row5_col2, #T_60247_row5_col3, #T_60247_row5_col5, #T_60247_row5_col6, #T_60247_row5_col7, #T_60247_row6_col0, #T_60247_row6_col1, #T_60247_row6_col2, #T_60247_row6_col3, #T_60247_row6_col4, #T_60247_row6_col5, #T_60247_row6_col6, #T_60247_row6_col7, #T_60247_row7_col0, #T_60247_row7_col1, #T_60247_row7_col2, #T_60247_row7_col3, #T_60247_row7_col4, #T_60247_row7_col5, #T_60247_row7_col6, #T_60247_row7_col7, #T_60247_row8_col0, #T_60247_row8_col1, #T_60247_row8_col2, #T_60247_row8_col3, #T_60247_row8_col4, #T_60247_row8_col5, #T_60247_row8_col6, #T_60247_row8_col7 {
   text-align: left;
 }
-#T_4418c_row0_col1, #T_4418c_row0_col3, #T_4418c_row0_col5, #T_4418c_row0_col6, #T_4418c_row0_col7, #T_4418c_row1_col2, #T_4418c_row5_col4 {
+#T_60247_row0_col1, #T_60247_row0_col3, #T_60247_row0_col5, #T_60247_row0_col6, #T_60247_row0_col7, #T_60247_row1_col2, #T_60247_row5_col4 {
   text-align: left;
   background-color: yellow;
 }
-#T_4418c_row0_col8, #T_4418c_row1_col8, #T_4418c_row2_col8, #T_4418c_row3_col8, #T_4418c_row4_col8, #T_4418c_row5_col8, #T_4418c_row6_col8, #T_4418c_row7_col8 {
+#T_60247_row0_col8, #T_60247_row1_col8, #T_60247_row2_col8, #T_60247_row3_col8, #T_60247_row4_col8, #T_60247_row6_col8, #T_60247_row7_col8, #T_60247_row8_col8 {
   text-align: left;
   background-color: lightgrey;
 }
-#T_4418c_row8_col8 {
+#T_60247_row5_col8 {
   text-align: left;
   background-color: yellow;
   background-color: lightgrey;
 }
 </style>
-<table id="T_4418c">
+<table id="T_60247">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_4418c_level0_col0" class="col_heading level0 col0" >Model</th>
-      <th id="T_4418c_level0_col1" class="col_heading level0 col1" >Accuracy</th>
-      <th id="T_4418c_level0_col2" class="col_heading level0 col2" >AUC</th>
-      <th id="T_4418c_level0_col3" class="col_heading level0 col3" >Recall</th>
-      <th id="T_4418c_level0_col4" class="col_heading level0 col4" >Prec.</th>
-      <th id="T_4418c_level0_col5" class="col_heading level0 col5" >F1</th>
-      <th id="T_4418c_level0_col6" class="col_heading level0 col6" >Kappa</th>
-      <th id="T_4418c_level0_col7" class="col_heading level0 col7" >MCC</th>
-      <th id="T_4418c_level0_col8" class="col_heading level0 col8" >TT (Sec)</th>
+      <th id="T_60247_level0_col0" class="col_heading level0 col0" >Model</th>
+      <th id="T_60247_level0_col1" class="col_heading level0 col1" >Accuracy</th>
+      <th id="T_60247_level0_col2" class="col_heading level0 col2" >AUC</th>
+      <th id="T_60247_level0_col3" class="col_heading level0 col3" >Recall</th>
+      <th id="T_60247_level0_col4" class="col_heading level0 col4" >Prec.</th>
+      <th id="T_60247_level0_col5" class="col_heading level0 col5" >F1</th>
+      <th id="T_60247_level0_col6" class="col_heading level0 col6" >Kappa</th>
+      <th id="T_60247_level0_col7" class="col_heading level0 col7" >MCC</th>
+      <th id="T_60247_level0_col8" class="col_heading level0 col8" >TT (Sec)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_4418c_level0_row0" class="row_heading level0 row0" >catboost</th>
-      <td id="T_4418c_row0_col0" class="data row0 col0" >CatBoost Classifier</td>
-      <td id="T_4418c_row0_col1" class="data row0 col1" >0.7035</td>
-      <td id="T_4418c_row0_col2" class="data row0 col2" >0.8558</td>
-      <td id="T_4418c_row0_col3" class="data row0 col3" >0.7035</td>
-      <td id="T_4418c_row0_col4" class="data row0 col4" >0.7213</td>
-      <td id="T_4418c_row0_col5" class="data row0 col5" >0.7097</td>
-      <td id="T_4418c_row0_col6" class="data row0 col6" >0.5235</td>
-      <td id="T_4418c_row0_col7" class="data row0 col7" >0.5256</td>
-      <td id="T_4418c_row0_col8" class="data row0 col8" >1.8490</td>
+      <th id="T_60247_level0_row0" class="row_heading level0 row0" >catboost</th>
+      <td id="T_60247_row0_col0" class="data row0 col0" >CatBoost Classifier</td>
+      <td id="T_60247_row0_col1" class="data row0 col1" >0.7035</td>
+      <td id="T_60247_row0_col2" class="data row0 col2" >0.8558</td>
+      <td id="T_60247_row0_col3" class="data row0 col3" >0.7035</td>
+      <td id="T_60247_row0_col4" class="data row0 col4" >0.7213</td>
+      <td id="T_60247_row0_col5" class="data row0 col5" >0.7097</td>
+      <td id="T_60247_row0_col6" class="data row0 col6" >0.5235</td>
+      <td id="T_60247_row0_col7" class="data row0 col7" >0.5256</td>
+      <td id="T_60247_row0_col8" class="data row0 col8" >1.6310</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row1" class="row_heading level0 row1" >gbc</th>
-      <td id="T_4418c_row1_col0" class="data row1 col0" >Gradient Boosting Classifier</td>
-      <td id="T_4418c_row1_col1" class="data row1 col1" >0.6964</td>
-      <td id="T_4418c_row1_col2" class="data row1 col2" >0.8609</td>
-      <td id="T_4418c_row1_col3" class="data row1 col3" >0.6964</td>
-      <td id="T_4418c_row1_col4" class="data row1 col4" >0.7332</td>
-      <td id="T_4418c_row1_col5" class="data row1 col5" >0.7086</td>
-      <td id="T_4418c_row1_col6" class="data row1 col6" >0.5197</td>
-      <td id="T_4418c_row1_col7" class="data row1 col7" >0.5249</td>
-      <td id="T_4418c_row1_col8" class="data row1 col8" >0.9790</td>
+      <th id="T_60247_level0_row1" class="row_heading level0 row1" >gbc</th>
+      <td id="T_60247_row1_col0" class="data row1 col0" >Gradient Boosting Classifier</td>
+      <td id="T_60247_row1_col1" class="data row1 col1" >0.6964</td>
+      <td id="T_60247_row1_col2" class="data row1 col2" >0.8609</td>
+      <td id="T_60247_row1_col3" class="data row1 col3" >0.6964</td>
+      <td id="T_60247_row1_col4" class="data row1 col4" >0.7332</td>
+      <td id="T_60247_row1_col5" class="data row1 col5" >0.7086</td>
+      <td id="T_60247_row1_col6" class="data row1 col6" >0.5197</td>
+      <td id="T_60247_row1_col7" class="data row1 col7" >0.5249</td>
+      <td id="T_60247_row1_col8" class="data row1 col8" >0.7690</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row2" class="row_heading level0 row2" >rf</th>
-      <td id="T_4418c_row2_col0" class="data row2 col0" >Random Forest Classifier</td>
-      <td id="T_4418c_row2_col1" class="data row2 col1" >0.7019</td>
-      <td id="T_4418c_row2_col2" class="data row2 col2" >0.8570</td>
-      <td id="T_4418c_row2_col3" class="data row2 col3" >0.7019</td>
-      <td id="T_4418c_row2_col4" class="data row2 col4" >0.7214</td>
-      <td id="T_4418c_row2_col5" class="data row2 col5" >0.7084</td>
-      <td id="T_4418c_row2_col6" class="data row2 col6" >0.5207</td>
-      <td id="T_4418c_row2_col7" class="data row2 col7" >0.5230</td>
-      <td id="T_4418c_row2_col8" class="data row2 col8" >0.2520</td>
+      <th id="T_60247_level0_row2" class="row_heading level0 row2" >rf</th>
+      <td id="T_60247_row2_col0" class="data row2 col0" >Random Forest Classifier</td>
+      <td id="T_60247_row2_col1" class="data row2 col1" >0.7019</td>
+      <td id="T_60247_row2_col2" class="data row2 col2" >0.8570</td>
+      <td id="T_60247_row2_col3" class="data row2 col3" >0.7019</td>
+      <td id="T_60247_row2_col4" class="data row2 col4" >0.7214</td>
+      <td id="T_60247_row2_col5" class="data row2 col5" >0.7084</td>
+      <td id="T_60247_row2_col6" class="data row2 col6" >0.5207</td>
+      <td id="T_60247_row2_col7" class="data row2 col7" >0.5230</td>
+      <td id="T_60247_row2_col8" class="data row2 col8" >0.2150</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row3" class="row_heading level0 row3" >ridge</th>
-      <td id="T_4418c_row3_col0" class="data row3 col0" >Ridge Classifier</td>
-      <td id="T_4418c_row3_col1" class="data row3 col1" >0.6977</td>
-      <td id="T_4418c_row3_col2" class="data row3 col2" >0.0000</td>
-      <td id="T_4418c_row3_col3" class="data row3 col3" >0.6977</td>
-      <td id="T_4418c_row3_col4" class="data row3 col4" >0.7214</td>
-      <td id="T_4418c_row3_col5" class="data row3 col5" >0.7048</td>
-      <td id="T_4418c_row3_col6" class="data row3 col6" >0.5136</td>
-      <td id="T_4418c_row3_col7" class="data row3 col7" >0.5170</td>
-      <td id="T_4418c_row3_col8" class="data row3 col8" >0.1400</td>
+      <th id="T_60247_level0_row3" class="row_heading level0 row3" >ridge</th>
+      <td id="T_60247_row3_col0" class="data row3 col0" >Ridge Classifier</td>
+      <td id="T_60247_row3_col1" class="data row3 col1" >0.6977</td>
+      <td id="T_60247_row3_col2" class="data row3 col2" >0.0000</td>
+      <td id="T_60247_row3_col3" class="data row3 col3" >0.6977</td>
+      <td id="T_60247_row3_col4" class="data row3 col4" >0.7214</td>
+      <td id="T_60247_row3_col5" class="data row3 col5" >0.7048</td>
+      <td id="T_60247_row3_col6" class="data row3 col6" >0.5136</td>
+      <td id="T_60247_row3_col7" class="data row3 col7" >0.5170</td>
+      <td id="T_60247_row3_col8" class="data row3 col8" >0.0890</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row4" class="row_heading level0 row4" >lightgbm</th>
-      <td id="T_4418c_row4_col0" class="data row4 col0" >Light Gradient Boosting Machine</td>
-      <td id="T_4418c_row4_col1" class="data row4 col1" >0.6987</td>
-      <td id="T_4418c_row4_col2" class="data row4 col2" >0.8533</td>
-      <td id="T_4418c_row4_col3" class="data row4 col3" >0.6987</td>
-      <td id="T_4418c_row4_col4" class="data row4 col4" >0.7155</td>
-      <td id="T_4418c_row4_col5" class="data row4 col5" >0.7045</td>
-      <td id="T_4418c_row4_col6" class="data row4 col6" >0.5152</td>
-      <td id="T_4418c_row4_col7" class="data row4 col7" >0.5172</td>
-      <td id="T_4418c_row4_col8" class="data row4 col8" >0.9720</td>
+      <th id="T_60247_level0_row4" class="row_heading level0 row4" >lightgbm</th>
+      <td id="T_60247_row4_col0" class="data row4 col0" >Light Gradient Boosting Machine</td>
+      <td id="T_60247_row4_col1" class="data row4 col1" >0.6987</td>
+      <td id="T_60247_row4_col2" class="data row4 col2" >0.8533</td>
+      <td id="T_60247_row4_col3" class="data row4 col3" >0.6987</td>
+      <td id="T_60247_row4_col4" class="data row4 col4" >0.7155</td>
+      <td id="T_60247_row4_col5" class="data row4 col5" >0.7045</td>
+      <td id="T_60247_row4_col6" class="data row4 col6" >0.5152</td>
+      <td id="T_60247_row4_col7" class="data row4 col7" >0.5172</td>
+      <td id="T_60247_row4_col8" class="data row4 col8" >0.7850</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row5" class="row_heading level0 row5" >lda</th>
-      <td id="T_4418c_row5_col0" class="data row5 col0" >Linear Discriminant Analysis</td>
-      <td id="T_4418c_row5_col1" class="data row5 col1" >0.6890</td>
-      <td id="T_4418c_row5_col2" class="data row5 col2" >0.8473</td>
-      <td id="T_4418c_row5_col3" class="data row5 col3" >0.6890</td>
-      <td id="T_4418c_row5_col4" class="data row5 col4" >0.7397</td>
-      <td id="T_4418c_row5_col5" class="data row5 col5" >0.7037</td>
-      <td id="T_4418c_row5_col6" class="data row5 col6" >0.5107</td>
-      <td id="T_4418c_row5_col7" class="data row5 col7" >0.5191</td>
-      <td id="T_4418c_row5_col8" class="data row5 col8" >0.1280</td>
+      <th id="T_60247_level0_row5" class="row_heading level0 row5" >lda</th>
+      <td id="T_60247_row5_col0" class="data row5 col0" >Linear Discriminant Analysis</td>
+      <td id="T_60247_row5_col1" class="data row5 col1" >0.6890</td>
+      <td id="T_60247_row5_col2" class="data row5 col2" >0.8473</td>
+      <td id="T_60247_row5_col3" class="data row5 col3" >0.6890</td>
+      <td id="T_60247_row5_col4" class="data row5 col4" >0.7397</td>
+      <td id="T_60247_row5_col5" class="data row5 col5" >0.7037</td>
+      <td id="T_60247_row5_col6" class="data row5 col6" >0.5107</td>
+      <td id="T_60247_row5_col7" class="data row5 col7" >0.5191</td>
+      <td id="T_60247_row5_col8" class="data row5 col8" >0.0780</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row6" class="row_heading level0 row6" >dt</th>
-      <td id="T_4418c_row6_col0" class="data row6 col0" >Decision Tree Classifier</td>
-      <td id="T_4418c_row6_col1" class="data row6 col1" >0.6124</td>
-      <td id="T_4418c_row6_col2" class="data row6 col2" >0.7074</td>
-      <td id="T_4418c_row6_col3" class="data row6 col3" >0.6124</td>
-      <td id="T_4418c_row6_col4" class="data row6 col4" >0.6386</td>
-      <td id="T_4418c_row6_col5" class="data row6 col5" >0.6226</td>
-      <td id="T_4418c_row6_col6" class="data row6 col6" >0.3879</td>
-      <td id="T_4418c_row6_col7" class="data row6 col7" >0.3904</td>
-      <td id="T_4418c_row6_col8" class="data row6 col8" >0.1360</td>
+      <th id="T_60247_level0_row6" class="row_heading level0 row6" >dt</th>
+      <td id="T_60247_row6_col0" class="data row6 col0" >Decision Tree Classifier</td>
+      <td id="T_60247_row6_col1" class="data row6 col1" >0.6124</td>
+      <td id="T_60247_row6_col2" class="data row6 col2" >0.7074</td>
+      <td id="T_60247_row6_col3" class="data row6 col3" >0.6124</td>
+      <td id="T_60247_row6_col4" class="data row6 col4" >0.6386</td>
+      <td id="T_60247_row6_col5" class="data row6 col5" >0.6226</td>
+      <td id="T_60247_row6_col6" class="data row6 col6" >0.3879</td>
+      <td id="T_60247_row6_col7" class="data row6 col7" >0.3904</td>
+      <td id="T_60247_row6_col8" class="data row6 col8" >0.0910</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row7" class="row_heading level0 row7" >lr</th>
-      <td id="T_4418c_row7_col0" class="data row7 col0" >Logistic Regression</td>
-      <td id="T_4418c_row7_col1" class="data row7 col1" >0.3621</td>
-      <td id="T_4418c_row7_col2" class="data row7 col2" >0.5124</td>
-      <td id="T_4418c_row7_col3" class="data row7 col3" >0.3621</td>
-      <td id="T_4418c_row7_col4" class="data row7 col4" >0.2756</td>
-      <td id="T_4418c_row7_col5" class="data row7 col5" >0.3035</td>
-      <td id="T_4418c_row7_col6" class="data row7 col6" >0.0460</td>
-      <td id="T_4418c_row7_col7" class="data row7 col7" >0.0541</td>
-      <td id="T_4418c_row7_col8" class="data row7 col8" >0.5400</td>
+      <th id="T_60247_level0_row7" class="row_heading level0 row7" >lr</th>
+      <td id="T_60247_row7_col0" class="data row7 col0" >Logistic Regression</td>
+      <td id="T_60247_row7_col1" class="data row7 col1" >0.3621</td>
+      <td id="T_60247_row7_col2" class="data row7 col2" >0.5124</td>
+      <td id="T_60247_row7_col3" class="data row7 col3" >0.3621</td>
+      <td id="T_60247_row7_col4" class="data row7 col4" >0.2756</td>
+      <td id="T_60247_row7_col5" class="data row7 col5" >0.3035</td>
+      <td id="T_60247_row7_col6" class="data row7 col6" >0.0460</td>
+      <td id="T_60247_row7_col7" class="data row7 col7" >0.0541</td>
+      <td id="T_60247_row7_col8" class="data row7 col8" >0.7850</td>
     </tr>
     <tr>
-      <th id="T_4418c_level0_row8" class="row_heading level0 row8" >dummy</th>
-      <td id="T_4418c_row8_col0" class="data row8 col0" >Dummy Classifier</td>
-      <td id="T_4418c_row8_col1" class="data row8 col1" >0.3211</td>
-      <td id="T_4418c_row8_col2" class="data row8 col2" >0.5000</td>
-      <td id="T_4418c_row8_col3" class="data row8 col3" >0.3211</td>
-      <td id="T_4418c_row8_col4" class="data row8 col4" >0.1031</td>
-      <td id="T_4418c_row8_col5" class="data row8 col5" >0.1561</td>
-      <td id="T_4418c_row8_col6" class="data row8 col6" >0.0000</td>
-      <td id="T_4418c_row8_col7" class="data row8 col7" >0.0000</td>
-      <td id="T_4418c_row8_col8" class="data row8 col8" >0.1230</td>
+      <th id="T_60247_level0_row8" class="row_heading level0 row8" >dummy</th>
+      <td id="T_60247_row8_col0" class="data row8 col0" >Dummy Classifier</td>
+      <td id="T_60247_row8_col1" class="data row8 col1" >0.3211</td>
+      <td id="T_60247_row8_col2" class="data row8 col2" >0.5000</td>
+      <td id="T_60247_row8_col3" class="data row8 col3" >0.3211</td>
+      <td id="T_60247_row8_col4" class="data row8 col4" >0.1031</td>
+      <td id="T_60247_row8_col5" class="data row8 col5" >0.1561</td>
+      <td id="T_60247_row8_col6" class="data row8 col6" >0.0000</td>
+      <td id="T_60247_row8_col7" class="data row8 col7" >0.0000</td>
+      <td id="T_60247_row8_col8" class="data row8 col8" >0.0840</td>
     </tr>
   </tbody>
 </table>
@@ -713,15 +671,15 @@ The results of the best models are given in leaderboard   below in [@tbl-leaderb
 
 ::: {.cell-output .cell-output-display}
 ```
-<IPython.core.display.HTML object>
+Processing:   0%|          | 0/41 [00:00<?, ?it/s]
 ```
 :::
 :::
 
 
-Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for scoring fairly well on low magnitude tabular data, while ordinary GBTC is the most second to prime and the most robust one, featuring best conventional recall, accuracy, and AUC metrics. 
+Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for scoring fairly well on low magnitude tabular data, while ordinary GBTC is the most second to prime and the most robust one, featuring best conventional recall, accuracy, and AUC metrics. The @fig-rocauc figure shows the ROC AUC plot for the model
 
-::: {.cell execution_count=135}
+::: {.cell execution_count=23}
 
 ::: {.cell-output .cell-output-display}
 ![Stylized ROC curves for the Catboost Model (for different classes and on average)](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-rocauc-output-1.png){#fig-rocauc}
@@ -729,6 +687,9 @@ Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for 
 :::
 
 
+<!-- # !pip install optuna -->
+Our CatBoost parameters were already opinionated, with good rule of thumbs, however, it is essential that we ensure that we retrieve everything from this model, and so we performed a tuning of the best model with Tree Parzen Estimator (TPE) tuner. This did not, however, yield a robustly better model within a sensible number of iterations (the results are available upon request). 
+Next, we return to the models that were not much worse than our top model in the leaderboard. Random Forest that scored well is known to make low variance and GBTC classifier makes lower bias, so it can be benefitial to combine them. We consider 2 meta-model settings: the simple averager and the Logistic Regression. In our experiments, Logistic Regression did not bring any sizeable improvement (See [@fig-stacker]) but the averager improved average F1 by 0.03 points (See [@fig-blender]). 
 
 
 
@@ -736,16 +697,51 @@ Thus, the best model by F1 measure is CatBoostClassifier, which is renowned for 
 
 
 
+On @fig-blender there is the figure that exhibits the ROC curve for the blender model.
+
+::: {.cell execution_count=30}
+
+::: {.cell-output .cell-output-display}
+![Blender model for the Top 3 models from the leaderboard](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-blender-output-1.png){#fig-blender}
+:::
+:::
+
+
+On @fig-stacker, there is the stacker model ROCAUC to improve the F1 measure. It plays a little better than without any supermodel, but this is not as high as with simple blending
+
+
+
+::: {.cell execution_count=33}
+
+::: {.cell-output .cell-output-display}
+![Stacker model for the Top 3 models from the leaderboard with logistic regression as the supermodel](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-stacker-output-1.png){#fig-stacker}
+:::
+:::
+
+
+::: {.cell execution_count=34}
+
+::: {.cell-output .cell-output-display}
+![The average contribution of different components of the Principal Component Decomposition on the target variable (by label)](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-explanation-output-1.png){#fig-explanation}
+:::
+:::
+
+
+Currently, we have a prediction model, but its decisions are not transparent enough, because it is a stacked boosting of sequences of conditions on sophisticated linear combinations of several dozens of source variables. To add explainability, we decide to compute the input of each source variable via the following procedure. First, we examine the behaviour of the model on production data with and without several features, and thus compute the Shapley values for the model by its components, presented on @fig-explanation. Then, we infer the coefficients for variable decomposition for the components (See [@fig-decomposition] for exemplary distribution of weights of the 3rd component) and thus multiplying the weights by modulo of interstitial power function transform we can ultimately obtain a breakdown for variables for the decision of our best model for each particular case. 
+
+
+
+::: {.cell execution_count=105}
+
+::: {.cell-output .cell-output-display}
+![Decomposition of the weights for the 3rd component](report_AzadhdhinNedalYunisAlFraijat_files/figure-pdf/fig-decomposition-output-1.png){#fig-decomposition}
+:::
+:::
 
 
 
 
-
-
-
-
-
-However, while all top models in @tbl-leaderboard demonstrate significant improvement over a dummy classifier and other simplistic models such as Logistic Regression, the scores still a lot to be desired,
+However, while all top models in leaderboard and in the stacking models demonstrate significant improvement over a dummy classifier and other simplistic models such as Logistic Regression, the scores still a lot to be desired,
 which indicates that reduction of dimensionality, which is inevitable under given class imbalance, has come at a price of variance loss, or, alternatively, all the covariates do not explain sufficiently well the outcome of studies: in academic success, as in life, a lot depends on the proper characteristics of a person which are difficult to elicit and much is undetermined. Partially, such a moderate result can be exaplained by the multiclass nature of the test: the ROCAUC plot on [@fig-rocauc] shows, AUC is worse on class 1, i. e. "Enrolled". These enrolled people have include both pending dropouters and diligent scholars, and the core feature of the model is that it can tell two other classes apart better, with ROCAUC 0.9. Thus, this model can generally be used as an indicator of a soon dropout of a student which the universities can be wary of, undertaking the corrective action or allocating the stipends.  
 
 # Results
@@ -757,13 +753,6 @@ With this analysis, we have some valuable insights about some crucial factors li
  Also importantly, we could teach the students, especially going on their second studies, that it is quite unlikely that they are going to get high grades or exit the university without proper time management and confirmation that they assign top priority to their studies. They are also advised to make that clear to all their relatives and stakeholders who might underestimate the effects of such a change. Although this could result in a reduction of enthusiastic entrants, this would increase at least the KPI of retention and arguably also increase the KPI on number of diplomas issued, because with fewer but more motivated students the university would have more time to dedicate to most obstinate pending alumni.
 
  Addressing these factors carefully can effectively lead to dropout rates reduction and improve overall student outcomes
-
-
-
-
-
-
-
 
 
 

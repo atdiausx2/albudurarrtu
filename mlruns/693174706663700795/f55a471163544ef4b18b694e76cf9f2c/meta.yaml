@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/f55a471163544ef4b18b694e76cf9f2c/artifacts
+end_time: 1702574241454
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: f55a471163544ef4b18b694e76cf9f2c
+run_name: Quadratic Discriminant Analysis
+run_uuid: f55a471163544ef4b18b694e76cf9f2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702574241270
+status: 3
+tags: []
+user_id: romulaperov

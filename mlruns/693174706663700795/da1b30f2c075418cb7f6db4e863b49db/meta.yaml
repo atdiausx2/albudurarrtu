@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/da1b30f2c075418cb7f6db4e863b49db/artifacts
+end_time: 1702575369117
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: da1b30f2c075418cb7f6db4e863b49db
+run_name: Random Forest Classifier
+run_uuid: da1b30f2c075418cb7f6db4e863b49db
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702575368807
+status: 3
+tags: []
+user_id: romulaperov

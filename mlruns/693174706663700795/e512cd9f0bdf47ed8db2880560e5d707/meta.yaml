@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/e512cd9f0bdf47ed8db2880560e5d707/artifacts
+end_time: 1702575369231
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: e512cd9f0bdf47ed8db2880560e5d707
+run_name: Extra Trees Classifier
+run_uuid: e512cd9f0bdf47ed8db2880560e5d707
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702575369201
+status: 3
+tags: []
+user_id: romulaperov

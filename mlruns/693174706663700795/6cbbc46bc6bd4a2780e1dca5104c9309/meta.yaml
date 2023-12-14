@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/6cbbc46bc6bd4a2780e1dca5104c9309/artifacts
+end_time: 1702575650523
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 6cbbc46bc6bd4a2780e1dca5104c9309
+run_name: Voting Classifier
+run_uuid: 6cbbc46bc6bd4a2780e1dca5104c9309
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702575650095
+status: 3
+tags: []
+user_id: romulaperov

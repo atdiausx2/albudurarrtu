@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/9b704d8ff76d487287e72f89da6c2be8/artifacts
+end_time: 1702578366106
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 9b704d8ff76d487287e72f89da6c2be8
+run_name: Stacking Classifier
+run_uuid: 9b704d8ff76d487287e72f89da6c2be8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702578365706
+status: 3
+tags: []
+user_id: romulaperov

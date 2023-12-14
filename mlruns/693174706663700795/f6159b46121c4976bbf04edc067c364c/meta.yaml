@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/f6159b46121c4976bbf04edc067c364c/artifacts
+end_time: 1702573682139
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: f6159b46121c4976bbf04edc067c364c
+run_name: Gradient Boosting Classifier
+run_uuid: f6159b46121c4976bbf04edc067c364c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702573682109
+status: 3
+tags: []
+user_id: romulaperov

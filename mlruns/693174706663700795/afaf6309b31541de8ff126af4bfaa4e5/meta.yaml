@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/afaf6309b31541de8ff126af4bfaa4e5/artifacts
+end_time: 1702579354804
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: afaf6309b31541de8ff126af4bfaa4e5
+run_name: Light Gradient Boosting Machine
+run_uuid: afaf6309b31541de8ff126af4bfaa4e5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702579354767
+status: 3
+tags: []
+user_id: romulaperov

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/97013919ee1f4acf807ff0e2d11c8bc6/artifacts
+end_time: 1702573682929
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 97013919ee1f4acf807ff0e2d11c8bc6
+run_name: Dummy Classifier
+run_uuid: 97013919ee1f4acf807ff0e2d11c8bc6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702573682903
+status: 3
+tags: []
+user_id: romulaperov

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/d43951e543354eecbf0008d52f40d069/artifacts
+end_time: 1702578458327
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: d43951e543354eecbf0008d52f40d069
+run_name: Linear Discriminant Analysis
+run_uuid: d43951e543354eecbf0008d52f40d069
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702578458300
+status: 3
+tags: []
+user_id: romulaperov
