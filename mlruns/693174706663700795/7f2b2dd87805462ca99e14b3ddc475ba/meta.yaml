@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/7f2b2dd87805462ca99e14b3ddc475ba/artifacts
+end_time: 1702338710114
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: 7f2b2dd87805462ca99e14b3ddc475ba
+run_name: Ada Boost Classifier
+run_uuid: 7f2b2dd87805462ca99e14b3ddc475ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702338710076
+status: 3
+tags: []
+user_id: romulaperov

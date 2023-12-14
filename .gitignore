@@ -10,3 +10,5 @@
 ./poganaya-svolotcz_files/*
 ./poganaya-svolotcz_files
 ./nbody_problem.cu
+./mlruns/*
+./mlruns

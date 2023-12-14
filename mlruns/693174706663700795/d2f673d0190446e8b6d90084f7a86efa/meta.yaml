@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/romulaperov/Documents/RudensSemester/Elemzes/Projetto/mlruns/693174706663700795/d2f673d0190446e8b6d90084f7a86efa/artifacts
+end_time: 1702513568256
+entry_point_name: ''
+experiment_id: '693174706663700795'
+lifecycle_stage: active
+run_id: d2f673d0190446e8b6d90084f7a86efa
+run_name: Naive Bayes
+run_uuid: d2f673d0190446e8b6d90084f7a86efa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702513568229
+status: 3
+tags: []
+user_id: romulaperov
